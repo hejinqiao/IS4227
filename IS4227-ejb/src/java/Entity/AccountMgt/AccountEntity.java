@@ -1,5 +1,7 @@
 package Entity.AccountMgt;
 
+import Entity.ProductMgt.CommentEntity;
+import java.util.List;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -36,6 +38,9 @@ public class AccountEntity {
     //account -- shoppingcart : 1 --->1
     @OneToOne
     private ShoppingCartEntity shoppingcart;
+    
+    @OneToMany
+    private List<CommentEntity> commentList;
 
     public  AccountEntity(){
     
@@ -114,6 +119,14 @@ public class AccountEntity {
 
     public void setShoppingcart(ShoppingCartEntity shoppingcart) {
         this.shoppingcart = shoppingcart;
+    }
+
+    public List<CommentEntity> getCommentList() {
+        return commentList;
+    }
+
+    public void setCommentList(List<CommentEntity> commentList) {
+        this.commentList = commentList;
     }
     
 }
