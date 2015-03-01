@@ -31,6 +31,12 @@ public class AccountEntity {
     private String gender;
     private Boolean isMember;
     
+    /************************/
+    //NEW ATTRIBUTES
+    private boolean isBlocked;
+    private String activationCode;
+    /************************/
+    
     //account -- pruchase : 1 --> M
     @OneToMany
     private PurchaseEntity purchase;
@@ -53,6 +59,11 @@ public class AccountEntity {
         this.gender=gender;
         isMember=false;
         
+        /************************/
+        //NEW ATTRIBUTE
+        isBlocked=false;
+        /************************/
+        
         purchase=new PurchaseEntity();
         shoppingcart=new ShoppingCartEntity();
     }
@@ -73,13 +84,16 @@ public class AccountEntity {
         this.email = email;
     }
 
-    public String getPasswrod() {
+    /************************/
+    //TYPO Passwrod-->Password
+    public String getPassword() {
         return password;
     }
 
-    public void setPasswrod(String passwrod) {
-        this.password = passwrod;
+    public void setPassword(String passwrod) {
+        this.password = password;
     }
+    /************************/
 
     public String getName() {
         return name;
@@ -128,5 +142,24 @@ public class AccountEntity {
     public void setCommentList(List<CommentEntity> commentList) {
         this.commentList = commentList;
     }
+    
+     /************************/
+    // NEW ATTRIBUTES
+    public boolean getIsBlocked() {
+        return isBlocked;
+    }
+
+    public void setIsBlocked(boolean isBlocked) {
+        this.isBlocked = isBlocked;
+    }
+
+    public String getActivationCode() {
+        return activationCode;
+    }
+
+    public void setActivationCode(String activationCode) {
+        this.activationCode = activationCode;
+    }   
+    /************************/
     
 }
