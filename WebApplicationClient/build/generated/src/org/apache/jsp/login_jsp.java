@@ -462,7 +462,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t\t\t<p><img src=\"images/locked.png\" alt=\"\" />Be assured, we do not store your password</p>\r\n");
       out.write("\t\t\t\t\t</div>\r\n");
       out.write("\t\t\t\t\t<h5>OR</h5>\r\n");
-      out.write("                                        <form action=\"jsp page.jsp\" method=\"GET\">\r\n");
+      out.write("                                     <form action=\"login_result.jsp\" method=\"POST\">\r\n");
       out.write("\t\t\t\t\t<div class=\"cus_info_wrap\">\r\n");
       out.write("\t\t\t\t\t\t<label class=\"labelTop\">\r\n");
       out.write("\t\t\t\t\t\tEmail:\r\n");

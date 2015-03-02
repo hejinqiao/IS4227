@@ -341,7 +341,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<p><img src="images/locked.png" alt="" />Be assured, we do not store your password</p>
 					</div>
 					<h5>OR</h5>
-                                     <form action="jsp page.jsp" method="GET">
+                                     <form action="login_result.jsp" method="POST">
 					<div class="cus_info_wrap">
 						<label class="labelTop">
 						Email:
