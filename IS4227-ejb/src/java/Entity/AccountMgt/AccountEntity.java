@@ -1,5 +1,6 @@
 package Entity.AccountMgt;
 
+import Entity.ProductMgt.CommentEntity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +49,10 @@ public class AccountEntity implements Serializable {
     @OneToOne
     private ShoppingCartEntity shoppingcart;
 
+   
+    
+    @OneToMany
+    private List<CommentEntity> commentList;
     public  AccountEntity(){
     
     }
@@ -152,7 +157,15 @@ public class AccountEntity implements Serializable {
 
     public void setActivationCode(String activationCode) {
         this.activationCode = activationCode;
-    }   
+    } 
+    
+     public List<CommentEntity> getCommentList() {
+        return commentList;
+    }
+
+    public void setCommentList(List<CommentEntity> commentList) {
+        this.commentList = commentList;
+    }
     /************************/
     
 }
