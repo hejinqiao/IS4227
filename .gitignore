@@ -4,3 +4,9 @@
 /build/
 /IS4227-war/dist/
 *.class
+
+IS4227-ejb/nbproject/private/private.xml
+
+IS4227-ejb/nbproject/project.xml
+
+IS4227-ejb/nbproject/project.xml
