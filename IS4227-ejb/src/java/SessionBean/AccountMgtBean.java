@@ -7,6 +7,7 @@ package SessionBean;
 
 import Entity.AccountMgt.AccountEntity;
 import Entity.AccountMgt.AdminAccountEntity;
+import Entity.AccountMgt.PurchaseEntity;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -77,7 +78,7 @@ public class AccountMgtBean {
 
         al.add(email);
         al.add(accountEntity.getName());
-        al.add(accountEntity.getActivationCode());
+        al.add(accountEntity.getActivationCode());  
 
         return al;
 
@@ -94,6 +95,7 @@ public class AccountMgtBean {
 
             //Account Already Activated
             if (accountEntity.getIsMember()) {
+                
                 return "ACTIVATED";
 
             } else {
@@ -296,6 +298,18 @@ public class AccountMgtBean {
                 }
             }
         }
+    }
+    
+    //Check purchase history
+    public List<PurchaseEntity> checkPurchaseHistory(String email){
+        
+            Query query = em.createQuery("SELECT a FROM AccountEntity AS a WHERE a.email=:email").setParameter("email", email);
+            List<AccountEntity> accountList = query.getResultList();
+            AccountEntity accountEntity = accountList.get(0);
+
+            List<PurchaseEntity> purchase= accountEntity.getPurchase();
+        
+            return purchase;
     }
 
 }
