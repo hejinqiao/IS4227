@@ -39,6 +39,15 @@ public class AccountMgtWS {
         
         return result;
     }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "register")
+    public String register(@WebParam(name = "email") String email, @WebParam(name = "password") String password) {
+        //TODO write your implementation code here:
+        return null;
+    }
     
     
 }
