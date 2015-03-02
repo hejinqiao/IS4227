@@ -45,6 +45,9 @@ public class ItemEntity implements Serializable {
     @OneToMany
     private List<CommentEntity> commentList;
 
+    public ItemEntity() {
+    }
+
     public List<CommentEntity> getCommentList() {
         return commentList;
     }

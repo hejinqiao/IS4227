@@ -1,7 +1,10 @@
 package Entity.AccountMgt;
 
 import Entity.ProductMgt.CommentEntity;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,7 +21,8 @@ import javax.persistence.OneToOne;
  *
  * @author Administrator
  */
-public class AccountEntity {
+@Entity
+public class AccountEntity implements Serializable{
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,7 +43,7 @@ public class AccountEntity {
     
     //account -- pruchase : 1 --> M
     @OneToMany
-    private PurchaseEntity purchase;
+    private ArrayList<PurchaseEntity> purchase;
     
     //account -- shoppingcart : 1 --->1
     @OneToOne
@@ -64,7 +68,7 @@ public class AccountEntity {
         isBlocked=false;
         /************************/
         
-        purchase=new PurchaseEntity();
+        //purchase=new PurchaseEntity();
         shoppingcart=new ShoppingCartEntity();
     }
     
@@ -119,11 +123,11 @@ public class AccountEntity {
         this.isMember = isMember;
     }
 
-    public PurchaseEntity getPurchase() {
+    public ArrayList<PurchaseEntity> getPurchase() {
         return purchase;
     }
 
-    public void setPurchase(PurchaseEntity purchase) {
+    public void setPurchase(ArrayList<PurchaseEntity> purchase) {
         this.purchase = purchase;
     }
 

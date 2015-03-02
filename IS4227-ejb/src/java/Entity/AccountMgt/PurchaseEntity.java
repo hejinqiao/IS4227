@@ -5,7 +5,9 @@
  */
 package Entity.AccountMgt;
 
+import java.io.Serializable;
 import java.util.Calendar;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,7 +19,8 @@ import javax.persistence.Temporal;
  *
  * @author Administrator
  */
-public class PurchaseEntity {
+@Entity
+public class PurchaseEntity implements Serializable{
      private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,6 +39,17 @@ public class PurchaseEntity {
     //purchase -- transaction : M --> 1
     @ManyToOne
     private TransactionEntity transaction;
+    
+    @ManyToOne
+    private AccountEntity account;
+
+    public AccountEntity getAccount() {
+        return account;
+    }
+
+    public void setAccount(AccountEntity account) {
+        this.account = account;
+    }
 
     public PurchaseEntity(){
     }

@@ -31,15 +31,18 @@ public class RegionEntity implements Serializable {
     @OneToMany
     private List<ItemEntity> itemList;
 
-    public List<ItemEntity> getItemList() {
-        return itemList;
+    public RegionEntity() {
     }
 
     public RegionEntity(String regionName, String country, String regionSpec) {
         this.regionName = regionName;
         this.country = country;
         this.regionSpec = regionSpec;
-    }    
+    }  
+        
+    public List<ItemEntity> getItemList() {
+        return itemList;
+    }
 
     public void setItemList(List<ItemEntity> itemList) {
         this.itemList = itemList;

@@ -11,6 +11,7 @@ import Entity.ProductMgt.ItemEntity;
 import java.util.ArrayList;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import util.exception.AccountNotFoundException;
 import util.exception.ProductNotFoundException;
@@ -21,15 +22,17 @@ import util.exception.ProductNotFoundException;
  */
 @Stateless
 public class MemberContentMgtBean implements MemberContentMgtBeanLocal {
-
+    @PersistenceContext
     private EntityManager em;
     
+    @Override
     public ItemEntity searchProduct(String itemName){
         Query q = em.createQuery("select i from ItemEntity i where i.itemName like ?1");
         q.setParameter(1, itemName);
         return (ItemEntity)q.getSingleResult();
     }
     
+    @Override
     public ArrayList<ItemEntity> searchProduct(String wineryName, String regionName, String cateName) throws ProductNotFoundException{
         Boolean w = wineryName.toLowerCase().equals("all");
         Boolean r = regionName.toLowerCase().equals("all");
@@ -71,6 +74,7 @@ public class MemberContentMgtBean implements MemberContentMgtBeanLocal {
         return productList;
     }
     
+    @Override
     public void rateProduct(Long accountId, Long itemId, Double rating, String content) throws AccountNotFoundException, ProductNotFoundException{
         AccountEntity acc = em.find(AccountEntity.class, accountId);
         if (acc == null) {
@@ -106,6 +110,7 @@ public class MemberContentMgtBean implements MemberContentMgtBeanLocal {
         em.persist(item);
     }
     
+    @Override
     public ArrayList<CommentEntity> viewAllCommentsFromAccount(Long accountId) throws AccountNotFoundException{
         AccountEntity acc = em.find(AccountEntity.class, accountId);
         if (acc == null) {
@@ -114,6 +119,7 @@ public class MemberContentMgtBean implements MemberContentMgtBeanLocal {
         return (ArrayList<CommentEntity>) acc.getCommentList();
     }
     
+    @Override
     public ArrayList<CommentEntity> viewAllCommentsOfProduct(Long itemId) throws ProductNotFoundException{
         ItemEntity item = em.find(ItemEntity.class, itemId);
         if (item == null) {

@@ -30,6 +30,9 @@ public class CategoryEntity implements Serializable {
     @OneToMany
     private List<ItemEntity> itemList;
 
+    public CategoryEntity() {
+    }
+
     public List<ItemEntity> getItemList() {
         return itemList;
     }

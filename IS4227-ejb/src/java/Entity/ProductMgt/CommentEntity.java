@@ -32,6 +32,9 @@ public class CommentEntity implements Serializable {
     @ManyToOne
     private ItemEntity item;
 
+    public CommentEntity() {
+    }
+
     public CommentEntity(Double rating, String contents) {
         this.rating = rating;
         this.contents = contents;

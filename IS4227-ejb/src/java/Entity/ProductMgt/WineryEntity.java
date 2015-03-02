@@ -31,6 +31,9 @@ public class WineryEntity implements Serializable {
     @OneToMany
     private List<ItemEntity> itemList;
 
+    public WineryEntity() {
+    }
+
     public WineryEntity(String wineryName, String wineryAddress, String wineryContact) {
         this.wineryName = wineryName;
         this.wineryAddress = wineryAddress;

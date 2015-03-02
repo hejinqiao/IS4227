@@ -14,6 +14,7 @@ import java.util.UUID;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 /**
@@ -26,6 +27,7 @@ public class AccountMgtBean {
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
+    @PersistenceContext
     private EntityManager em;
 
     public boolean checkAccount(String email) {

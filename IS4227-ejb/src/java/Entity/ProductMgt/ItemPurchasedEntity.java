@@ -29,6 +29,9 @@ public class ItemPurchasedEntity implements Serializable {
     @OneToOne
     private ItemEntity item;
 
+    public ItemPurchasedEntity() {
+    }
+    
     public ItemPurchasedEntity(Long soldQuantity, Double totalPrice) {
         this.soldQuantity = soldQuantity;
         this.totalPrice = totalPrice;
