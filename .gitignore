@@ -3,3 +3,4 @@
 /IS4227-war/build/
 /build/
 /IS4227-war/dist/
+*.class
