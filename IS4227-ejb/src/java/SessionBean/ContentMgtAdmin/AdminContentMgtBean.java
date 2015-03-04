@@ -5,7 +5,10 @@
  */
 package SessionBean.ContentMgtAdmin;
 
+import Entity.ProductMgt.CategoryEntity;
+import Entity.ProductMgt.RegionEntity;
 import Entity.ProductMgt.WineryEntity;
+import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,16 +18,35 @@ import javax.persistence.PersistenceContext;
  * @author Ser3na
  */
 @Stateless
-public class AdminContentMgtBean implements AdminContentMgtBeanLocal {
+@LocalBean
+public class AdminContentMgtBean implements AdminContentMgtBeanRemote {
     @PersistenceContext
     private EntityManager em;
+    WineryEntity winery;
+    RegionEntity region;
+    CategoryEntity category;
     
-    public void addWinery (String wineryName, String wineryAddress, String wineryContact){
-        WineryEntity we = new WineryEntity();
-        we.setWineryName(wineryName);
-        we.setWineryAddress(wineryAddress);
-        we.setWineryContact(wineryContact);
-        
+    public AdminContentMgtBean(){
+        //insert test case if neede
+    } 
+    
+    @Override
+    public WineryEntity addWinery (WineryEntity winery){
+        em.persist(winery);
+        return winery;
     }
+    
+    @Override
+    public RegionEntity addRegion (RegionEntity region){
+        em.persist(region);
+        return region;
+    }
+    
+    @Override
+    public CategoryEntity addCategory (CategoryEntity category){
+        em.persist(category);
+        return category;
+    }
+    
     
 }
