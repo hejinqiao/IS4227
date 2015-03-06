@@ -20,7 +20,7 @@ import javax.persistence.Temporal;
  * @author Administrator
  */
 @Entity
-public class OrderEntity implements Serializable{
+public class OrderEntity implements Serializable {
       private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

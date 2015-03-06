@@ -4,6 +4,13 @@
     <service name="AccountMgt">
       <implementation-class>SessionBean.AccountMgt</implementation-class>
     </service>
+    <service name="TestWebService">
+      <implementation-class>WSS.TestWebService</implementation-class>
+    </service>
+    <service name="AccountMgtWS">
+      <implementation-class>WSS.AccountMgtWS</implementation-class>
+    </service>
   </services>
   <clients/>
+  <jsr109>false</jsr109>
 </jax-ws>

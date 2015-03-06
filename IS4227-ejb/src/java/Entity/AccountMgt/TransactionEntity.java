@@ -14,7 +14,7 @@ import javax.persistence.Id;
  * @author Administrator
  */
 @Entity
-public class TransactionEntity implements Serializable{
+public class TransactionEntity implements Serializable {
     @Id
     private Long id;
 
@@ -24,9 +24,6 @@ public class TransactionEntity implements Serializable{
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public TransactionEntity() {
     }
     
 }

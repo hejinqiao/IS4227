@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,7 +68,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="header">
 		<div class="top-header">
 			<div class="wrap">
-				
 				<div class="header-right">
 					<ul>
 						<li>
@@ -94,6 +92,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 		<div class="wrap">
+
 			<div class="header-bottom">
 				<div class="logo">
 					<a href="index.jsp"><img src="images/logo-4227.png" class="img-responsive" alt="" /></a>

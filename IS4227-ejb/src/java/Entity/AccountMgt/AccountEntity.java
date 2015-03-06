@@ -23,7 +23,7 @@ import javax.persistence.OneToOne;
  * @author Administrator
  */
 @Entity
-public class AccountEntity implements Serializable{
+public class AccountEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,13 +49,15 @@ public class AccountEntity implements Serializable{
     //account -- transaction: 1-->M
     @OneToMany
     private List<TransactionEntity> transactions;
+
     //account -- shoppingcart : 1 --->1
     @OneToOne
     private ShoppingCartEntity shoppingcart;
+
+   
     
     @OneToMany
     private List<CommentEntity> commentList;
-
     public  AccountEntity(){
     
     }
@@ -129,7 +131,6 @@ public class AccountEntity implements Serializable{
         this.isMember = isMember;
     }
 
-
     public List<PurchaseEntity> getPurchase() {
         return purchase;
     }
@@ -146,16 +147,9 @@ public class AccountEntity implements Serializable{
     public void setShoppingcart(ShoppingCartEntity shoppingcart) {
         this.shoppingcart = shoppingcart;
     }
-
-    public List<CommentEntity> getCommentList() {
-        return commentList;
-    }
-
-    public void setCommentList(List<CommentEntity> commentList) {
-        this.commentList = commentList;
-    }
     
-     /************************/
+     /**
+     * @return **********************/
     // NEW ATTRIBUTES
     public boolean getIsBlocked() {
         return isBlocked;
@@ -171,6 +165,7 @@ public class AccountEntity implements Serializable{
 
     public void setActivationCode(String activationCode) {
         this.activationCode = activationCode;
+
     }   
 
     public List<TransactionEntity> getTransactions() {
@@ -179,6 +174,16 @@ public class AccountEntity implements Serializable{
 
     public void setTransactions(List<TransactionEntity> transactions) {
         this.transactions = transactions;
+
+    } 
+    
+     public List<CommentEntity> getCommentList() {
+        return commentList;
+    }
+
+    public void setCommentList(List<CommentEntity> commentList) {
+        this.commentList = commentList;
+
     }
     /************************/
     

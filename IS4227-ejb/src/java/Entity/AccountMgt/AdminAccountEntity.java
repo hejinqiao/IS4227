@@ -16,7 +16,7 @@ import javax.persistence.Id;
  * @author Administrator
  */
 @Entity
-public class AdminAccountEntity implements Serializable{
+public class AdminAccountEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

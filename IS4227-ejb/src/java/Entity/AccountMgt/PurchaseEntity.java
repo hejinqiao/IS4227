@@ -20,7 +20,7 @@ import javax.persistence.Temporal;
  * @author Administrator
  */
 @Entity
-public class PurchaseEntity implements Serializable{
+public class PurchaseEntity implements Serializable {
      private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,17 +40,6 @@ public class PurchaseEntity implements Serializable{
     //purchase -- transaction : M --> 1
     @ManyToOne
     private TransactionEntity transaction;
-    
-    @ManyToOne
-    private AccountEntity account;
-
-    public AccountEntity getAccount() {
-        return account;
-    }
-
-    public void setAccount(AccountEntity account) {
-        this.account = account;
-    }
 
     public PurchaseEntity(){
     }

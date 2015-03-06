@@ -1,0 +1,18 @@
+SMAP
+login_jsp.java
+JSP
+*S JSP
+*F
++ 0 login.jsp
+login.jsp
++ 1 head.jsp
+templates/head.jsp
++ 2 footer.jsp
+templates/footer.jsp
+*L
+1,9:50
+5#1,72:59
+9#0,404:130
+5#2,88:534
+412#0,4:621
+*E
