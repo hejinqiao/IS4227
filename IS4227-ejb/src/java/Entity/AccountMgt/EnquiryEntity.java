@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -31,6 +32,7 @@ public class EnquiryEntity implements Serializable {
     
            
     private String content;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Calendar date;
     private String status;
 

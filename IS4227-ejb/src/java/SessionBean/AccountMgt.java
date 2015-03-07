@@ -7,7 +7,6 @@ package SessionBean;
 
 import Entity.AccountMgt.AccountEntity;
 import Entity.AccountMgt.PurchaseEntity;
-import Entity.AccountMgt.TransactionEntity;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
@@ -15,8 +14,9 @@ import javax.jws.WebService;
 import javax.ejb.Stateless;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 
 /**
  *
@@ -98,7 +98,7 @@ public class AccountMgt {
     }
 
     @WebMethod(operationName = "memberList")
-    public List<JSONObject> memberList() {
+    public String memberList() {
         List<AccountEntity> memberList = ejbRef.memberList();
         JSONArray ja = new JSONArray();
 
@@ -107,9 +107,9 @@ public class AccountMgt {
             jo.put("email", member.getEmail());
             jo.put("name", member.getName());
             jo.put("activeCode", member.getGender());
-            ja.add(jo);
+            ja.put(jo);
         }
-        return ja;
+        return ja.toString();
     }
 
     @WebMethod(operationName = "blockMember")
@@ -133,7 +133,7 @@ public class AccountMgt {
     }
 
     @WebMethod(operationName = "checkPurchaseHistory")
-    public List<PurchaseEntity> checkPurchaseHistory(@WebParam(name = "email") String email) {
+    public String checkPurchaseHistory(@WebParam(name = "email") String email) {
         List<PurchaseEntity> purchaseList = ejbRef.checkPurchaseHistory(email);
 
         JSONArray ja = new JSONArray();
@@ -145,9 +145,9 @@ public class AccountMgt {
             jo.put("purchaseDate", purchase.getPurchasedDate());
 //            jo.put("purchaseItem", purchase);
 //            jo.put("purchaseQuantity", purchase);
-            ja.add(jo);
+            ja.put(jo);
         }
-        return ja;
+        return ja.toString();
     }
 
 //    @WebMethod(operationName = "checkTransactionHistory")
