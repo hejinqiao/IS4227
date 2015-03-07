@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
   <services>
+    <service name="AccountMgt">
+      <implementation-class>SessionBean.AccountMgt</implementation-class>
+    </service>
     <service name="TestWebService">
       <implementation-class>WSS.TestWebService</implementation-class>
     </service>
@@ -9,4 +12,5 @@
     </service>
   </services>
   <clients/>
+  <jsr109>false</jsr109>
 </jax-ws>

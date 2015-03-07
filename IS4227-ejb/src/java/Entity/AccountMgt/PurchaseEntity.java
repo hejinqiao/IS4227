@@ -31,6 +31,7 @@ public class PurchaseEntity implements Serializable {
     private Calendar purchasedDate = Calendar.getInstance();
     private Integer quantity;
     private Double totalPrice;
+    private boolean status;
     
     //purchase -- order :  1 -->1
     @OneToOne
@@ -50,6 +51,7 @@ public class PurchaseEntity implements Serializable {
         this.totalPrice=totalPrice;
         this.order=order;
         this.transaction=transaction;
+        this.status=true;
     }
     
     public Long getId() {
@@ -99,4 +101,16 @@ public class PurchaseEntity implements Serializable {
     public void setTransaction(TransactionEntity transaction) {
         this.transaction = transaction;
     }
+
+    public boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+ 
+    
+    
 }

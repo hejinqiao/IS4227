@@ -7,6 +7,8 @@ package SessionBean;
 
 import Entity.AccountMgt.AccountEntity;
 import Entity.AccountMgt.AdminAccountEntity;
+import Entity.AccountMgt.PurchaseEntity;
+import Entity.AccountMgt.TransactionEntity;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -16,6 +18,7 @@ import javax.ejb.LocalBean;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import util.security.CryptographicHelper;
 
 /**
  *
@@ -30,6 +33,8 @@ public class AccountMgtBean {
     @PersistenceContext
     private EntityManager em;
 
+    private  CryptographicHelper cryptographicHelper = CryptographicHelper.getInstanceOf();
+    
     public boolean checkAccount(String email) {
         Query query = em.createQuery("SELECT a FROM AccountEntity AS a WHERE a.email=:email").setParameter("email", email);
         List<AccountEntity> accountList = query.getResultList();
@@ -54,11 +59,14 @@ public class AccountMgtBean {
         }
     }
 
-    public boolean registerAccount(String email, String encryptedPassword, String name, String gender) {
+    public boolean registerAccount(String email, String Password, String name, String gender) {
         if (checkAccount(email)) {
             return false;
         } else {
-            AccountEntity accountEntity = new AccountEntity(email, encryptedPassword, name, gender);
+            
+            String hashedpwd = cryptographicHelper.doMD5Hashing(Password);
+       
+            AccountEntity accountEntity = new AccountEntity(email, hashedpwd, name, gender);
 
             // Generate and Set Activation Code for New Member
             String activationCode = UUID.randomUUID().toString();
@@ -96,6 +104,7 @@ public class AccountMgtBean {
 
             //Account Already Activated
             if (accountEntity.getIsMember()) {
+
                 return "ACTIVATED";
 
             } else {
@@ -113,7 +122,7 @@ public class AccountMgtBean {
         }
     }
 
-    public String memberLogin(String email, String encryptedPassword) {
+    public String memberLogin(String email, String Password) {
         if (!checkAccount(email)) {
             return "NO";//member not found
         } else {
@@ -125,6 +134,7 @@ public class AccountMgtBean {
                 if (!accountEntity.getIsMember()) {
                     return "LOCKED";//member locked, please activate first
                 } else {
+                    String encryptedPassword = cryptographicHelper.doMD5Hashing(Password);
                     if (accountEntity.getPassword().equals(encryptedPassword)) {
                         return "YES";//login successfully
                     } else {
@@ -298,6 +308,42 @@ public class AccountMgtBean {
                 }
             }
         }
+    }
+
+    //Check purchase history
+    public List<PurchaseEntity> checkPurchaseHistory(String email) {
+
+        Query query = em.createQuery("SELECT a FROM AccountEntity AS a WHERE a.email=:email").setParameter("email", email);
+        List<AccountEntity> accountList = query.getResultList();
+        AccountEntity accountEntity = accountList.get(0);
+
+        List<PurchaseEntity> purchaseList = accountEntity.getPurchase();
+        for(PurchaseEntity purchase: purchaseList){
+            if(purchase.getStatus()==false)
+            purchaseList.remove(purchase);
+        }
+        return purchaseList;
+    }
+
+    public Boolean deletePurchaseHistory(Long purchaseId) {
+
+        PurchaseEntity purchase = em.find(PurchaseEntity.class, purchaseId);
+        if (purchase != null) {
+            purchase.setStatus(false);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public List<TransactionEntity> checkTransactionHistory(String email) {
+        Query query = em.createQuery("SELECT a FROM AccountEntity AS a WHERE a.email=:email").setParameter("email", email);
+        List<AccountEntity> accountList = query.getResultList();
+        AccountEntity accountEntity = accountList.get(0);
+
+        List<TransactionEntity> transactions = accountEntity.getTransactions();
+        return transactions;
+
     }
 
 }

@@ -1,5 +1,6 @@
 package Entity.AccountMgt;
 
+
 import Entity.ProductMgt.CommentEntity;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -44,7 +45,11 @@ public class AccountEntity implements Serializable {
     //account -- pruchase : 1 --> M
     @OneToMany
     private List<PurchaseEntity> purchase;
-    
+
+    //account -- transaction: 1-->M
+    @OneToMany
+    private List<TransactionEntity> transactions;
+
     //account -- shoppingcart : 1 --->1
     @OneToOne
     private ShoppingCartEntity shoppingcart;
@@ -69,7 +74,9 @@ public class AccountEntity implements Serializable {
         isBlocked=false;
         /************************/
         
+
         purchase=new ArrayList<PurchaseEntity>();
+
         shoppingcart=new ShoppingCartEntity();
     }
     
@@ -129,6 +136,7 @@ public class AccountEntity implements Serializable {
     }
 
     public void setPurchase(List<PurchaseEntity> purchase) {
+
         this.purchase = purchase;
     }
 
@@ -157,6 +165,16 @@ public class AccountEntity implements Serializable {
 
     public void setActivationCode(String activationCode) {
         this.activationCode = activationCode;
+
+    }   
+
+    public List<TransactionEntity> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(List<TransactionEntity> transactions) {
+        this.transactions = transactions;
+
     } 
     
      public List<CommentEntity> getCommentList() {
@@ -165,7 +183,10 @@ public class AccountEntity implements Serializable {
 
     public void setCommentList(List<CommentEntity> commentList) {
         this.commentList = commentList;
+
     }
     /************************/
+    
+    
     
 }
