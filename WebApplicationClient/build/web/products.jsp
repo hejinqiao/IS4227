@@ -110,9 +110,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="search">
 					<div class="search2">
-					  <form>
+					  <form action="searchProduct.jsp" method="GET">
 						<input type="submit" value="">
-						 <input type="text" value="Search for a product, category or brand" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search for a product, category or brand';}"/>
+						<input type="text" name="productName" value="Search for a product, category or brand" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search for a product, category or brand';}"/>
 					  </form>
 					</div>
 				</div>
@@ -1265,36 +1265,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     	</div>
 	      <div class="section group">
 				<div class="grid_1_of_4 images_1_of_4">
-					 <a href="single.html"><img src="images/new-pic3.jpg" alt="" /></a>
+					 <a href="single.jsp"><img src="images/new-pic3.jpg" alt="" /></a>
 					 <h2>Lorem Ipsum is simply </h2>
 					 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
 					 <p><span class="strike">$528.22</span><span class="price">$505.22</span></p>
-					  <div class="button"><span><img src="images/cart.jpg" alt="" /><a href="single.html" class="cart-button">Add to Cart</a></span> </div>
-				     <div class="button"><span><a href="single.html" class="details">Details</a></span></div>
+					  <div class="button"><span><img src="images/cart.jpg" alt="" /><a href="single.jsp" class="cart-button">Add to Cart</a></span> </div>
+				     <div class="button"><span><a href="single.jsp" class="details">Details</a></span></div>
 				</div>
 				<div class="grid_1_of_4 images_1_of_4">
 					<a href="single.html"><img src="images/feature-pic2.jpg" alt="" /></a>
 					 <h2>Lorem Ipsum is simply </h2>
 					 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
 					 <p><span class="strike">$640.89</span><span class="price">$620.87</span></p>
-				     <div class="button"><span><img src="images/cart.jpg" alt="" /><a href="single.html" class="cart-button">Add to Cart</a></span> </div>
-				     <div class="button"><span><a href="single.html" class="details">Details</a></span></div>
+				     <div class="button"><span><img src="images/cart.jpg" alt="" /><a href="single.jsp" class="cart-button">Add to Cart</a></span> </div>
+				     <div class="button"><span><a href="single.jsp" class="details">Details</a></span></div>
 				</div>
 				<div class="grid_1_of_4 images_1_of_4">
 					<a href="single.html"><img src="images/feature-pic3.jpg" alt="" /></a>
 					 <h2>Lorem Ipsum is simply </h2>
 					 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
 					 <p><span class="strike">$240.66</span><span class="price">$220.97</span></p>
-				      <div class="button"><span><img src="images/cart.jpg" alt="" /><a href="single.html" class="cart-button">Add to Cart</a></span> </div>
-				     <div class="button"><span><a href="single" class="details">Details</a></span></div>
+				      <div class="button"><span><img src="images/cart.jpg" alt="" /><a href="single.jsp" class="cart-button">Add to Cart</a></span> </div>
+				     <div class="button"><span><a href="single.jsp" class="details">Details</a></span></div>
 				</div>
 				<div class="grid_1_of_4 images_1_of_4">
 					<a href="single.html"><img src="images/new-pic2.jpg" alt="" /></a>
 					 <h2>Lorem Ipsum is simply </h2>
 					 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
 					 <p><span class="strike">$436.22</span><span class="price">$415.54</span></p>
-				      <div class="button"><span><img src="images/cart.jpg" alt="" /><a href="single.html" class="cart-button">Add to Cart</a></span> </div>
-				     <div class="button"><span><a href="single.html" class="details">Details</a></span></div>
+				      <div class="button"><span><img src="images/cart.jpg" alt="" /><a href="single.jsp" class="cart-button">Add to Cart</a></span> </div>
+				     <div class="button"><span><a href="single.jsp" class="details">Details</a></span></div>
 				</div>
 				<div class="clearfix"></div>
 			</div>
@@ -1345,7 +1345,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					 <h2>Lorem Ipsum is simply </h2>
 					 <p><span class="strike">$438.99</span><span class="price">$403.66</span></p>
 				     <div class="button"><span><img src="images/cart.jpg" alt="" /><a href="single.html" class="cart-button">Add to Cart</a></span> </div>
-				     <div class="button"><span><a href="single.html" class="details">Details</a></span></div>
+				     <div class="button"><span><a href="single.jsp" class="details">Details</a></span></div>
 				</div>
 				<div class="grid_1_of_4 images_1_of_4">
 					<a href="single.html"><img src="images/new-pic2.jpg" alt="" /></a>
@@ -1355,7 +1355,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					 <h2>Lorem Ipsum is simply </h2>
 					 <p><span class="strike">$667.22</span><span class="price">$621.75</span></p>
 				      <div class="button"><span><img src="images/cart.jpg" alt="" /><a href="single.html" class="cart-button">Add to Cart</a></span></div>
-				     <div class="button"><span><a href="single.html" class="details">Details</a></span></div>
+				     <div class="button"><span><a href="single.jsp" class="details">Details</a></span></div>
 				</div>
 				<div class="grid_1_of_4 images_1_of_4">
 					<a href="single.html"><img src="images/feature-pic2.jpg" alt="" /></a>
@@ -1415,7 +1415,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li><a class="cart" href="#">Add To Wishlist</a></li>
 							</ul>
 						</div>
-					</li>	
+                                        </li>
 					<li>
 					<div class="ipad text-center">
 							<img src="images/phone2.jpg" alt="" />

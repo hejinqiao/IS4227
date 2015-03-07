@@ -10,6 +10,9 @@
     <service name="AccountMgtWS">
       <implementation-class>WSS.AccountMgtWS</implementation-class>
     </service>
+    <service name="ProductMgtWS">
+      <implementation-class>WSS.ProductMgtWS</implementation-class>
+    </service>
   </services>
   <clients/>
   <jsr109>false</jsr109>

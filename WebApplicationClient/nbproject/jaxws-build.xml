@@ -58,5 +58,21 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/wss"/>
         <delete dir="${build.generated.dir}/jax-wsCache/AccountMgtWS"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-TestWebService, wsimport-client-AccountMgtWS"/>
+    <target name="wsimport-client-ProductMgtWS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/ProductMgtWS"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ProductMgtWS" destdir="${build.generated.dir}/jax-wsCache/ProductMgtWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/ProductMgtWS/wsdl/localhost_8080/ProductMgtWS/ProductMgtWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/ProductMgtWS/ProductMgtWS?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/ProductMgtWS/wsdl/localhost_8080/ProductMgtWS/ProductMgtWS.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/ProductMgtWS"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/ProductMgtWS">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-ProductMgtWS" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/wss"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/ProductMgtWS"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-TestWebService, wsimport-client-AccountMgtWS, wsimport-client-ProductMgtWS"/>
 </project>

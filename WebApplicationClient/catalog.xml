@@ -7,4 +7,6 @@
     <system systemId="http://localhost:8080/TestWebService/TestWebService?xsd=1" uri="src/conf/xml-resources/web-service-references/TestWebService/wsdl/localhost_8080/TestWebService/TestWebService.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/AccountMgtWS/AccountMgtWS?WSDL" uri="src/conf/xml-resources/web-service-references/AccountMgtWS/wsdl/localhost_8080/AccountMgtWS/AccountMgtWS.wsdl"/>
     <system systemId="http://localhost:8080/AccountMgtWS/AccountMgtWS?xsd=1" uri="src/conf/xml-resources/web-service-references/AccountMgtWS/wsdl/localhost_8080/AccountMgtWS/AccountMgtWS.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/ProductMgtWS/ProductMgtWS?WSDL" uri="src/conf/xml-resources/web-service-references/ProductMgtWS/wsdl/localhost_8080/ProductMgtWS/ProductMgtWS.wsdl"/>
+    <system systemId="http://localhost:8080/ProductMgtWS/ProductMgtWS?xsd=1" uri="src/conf/xml-resources/web-service-references/ProductMgtWS/wsdl/localhost_8080/ProductMgtWS/ProductMgtWS.xsd_1.xsd"/>
 </catalog>

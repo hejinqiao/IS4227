@@ -9,11 +9,13 @@ import Entity.AccountMgt.AccountEntity;
 import Entity.ProductMgt.CommentEntity;
 import Entity.ProductMgt.ItemEntity;
 import java.util.ArrayList;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import util.exception.AccountNotFoundException;
+import util.exception.CommentNotFoundException;
 import util.exception.ProductNotFoundException;
 
 /**
@@ -26,10 +28,13 @@ public class MemberContentMgtBean implements MemberContentMgtBeanLocal {
     private EntityManager em;
     
     @Override
-    public ItemEntity searchProduct(String itemName){
-        Query q = em.createQuery("select i from ItemEntity i where i.itemName like ?1");
+    public ItemEntity searchProduct(String itemName) throws ProductNotFoundException{
+        Query q = em.createQuery("select i from ItemEntity i where i.itemName=?1");
         q.setParameter(1, itemName);
-        return (ItemEntity)q.getSingleResult();
+        if(q.getResultList().isEmpty()){
+            throw new ProductNotFoundException("no such product name!");
+        }
+        return (ItemEntity)q.getResultList().get(0);
     }
     
     @Override
@@ -120,12 +125,18 @@ public class MemberContentMgtBean implements MemberContentMgtBeanLocal {
     }
     
     @Override
-    public ArrayList<CommentEntity> viewAllCommentsOfProduct(Long itemId) throws ProductNotFoundException{
+    public List<CommentEntity> viewAllCommentsOfProduct(Long itemId) throws ProductNotFoundException, CommentNotFoundException{
         ItemEntity item = em.find(ItemEntity.class, itemId);
         if (item == null) {
             throw new ProductNotFoundException("Product cannot be found!");
         }
-        return (ArrayList<CommentEntity>) item.getCommentList();
+        if(item.getCommentList()==null){
+            throw new CommentNotFoundException("No comment can be found!");
+        }
+        Query q;
+        q = em.createQuery("select i from CommentEntity i where i.item.id = ?1");
+        q.setParameter(1, itemId);
+        return q.getResultList();
     }
     
     //public ArrayList<CommentEntity> viewCommentOfProduct

@@ -8,8 +8,10 @@ package SessionBean.ContentMgtMember;
 import Entity.ProductMgt.CommentEntity;
 import Entity.ProductMgt.ItemEntity;
 import java.util.ArrayList;
+import java.util.List;
 import javax.ejb.Local;
 import util.exception.AccountNotFoundException;
+import util.exception.CommentNotFoundException;
 import util.exception.ProductNotFoundException;
 
 /**
@@ -19,7 +21,7 @@ import util.exception.ProductNotFoundException;
 @Local
 public interface MemberContentMgtBeanLocal {
 
-    public ItemEntity searchProduct(String itemName);
+    public ItemEntity searchProduct(String itemName) throws ProductNotFoundException;
 
     public ArrayList<ItemEntity> searchProduct(String wineryName, String regionName, String cateName) throws ProductNotFoundException;
 
@@ -27,6 +29,6 @@ public interface MemberContentMgtBeanLocal {
 
     public ArrayList<CommentEntity> viewAllCommentsFromAccount(Long accountId) throws AccountNotFoundException;
 
-    public ArrayList<CommentEntity> viewAllCommentsOfProduct(Long itemId) throws ProductNotFoundException;
+    public List<CommentEntity> viewAllCommentsOfProduct(Long itemId) throws ProductNotFoundException, CommentNotFoundException;
     
 }

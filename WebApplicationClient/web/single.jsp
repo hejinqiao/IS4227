@@ -1263,7 +1263,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				  <div class="desc1">
 					<h3>Lorem Ipsum is simply dummy text </h3>
 					<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-					<h5>Rs. 399 <a href="#">click for offer</a></h5>
+					<h5>Rating: 4.52</h5>
 					<div class="available">
 						<h4>Available Options :</h4>
 						<ul>
@@ -1301,37 +1301,77 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="clearfix"></div>
 					</div>
 					<div class="filter-by-color">
-				<h3>Filter by Color</h3>
-				<ul class="w_nav2">
-				<li><a class="color1" href="#"></a></li>
-				<li><a class="color2" href="#"></a></li>
-				<li><a class="color3" href="#"></a></li>
-				<li><a class="color4" href="#"></a></li>
-				<li><a class="color5" href="#"></a></li>
-				<li><a class="color10" href="#"></a></li>
-				<li><a class="color7" href="#"></a></li>
-				<li><a class="color8" href="#"></a></li>
-				<li><a class="color9" href="#"></a></li>
-				<li><a class="color10" href="#"></a></li>
-				<li><a class="color6" href="#"></a></li>
-				<li><a class="color13" href="#"></a></li>
-				<li><a class="color14" href="#"></a></li>
-				<li><a class="color15" href="#"></a></li>
-				<li><a class="color16" href="#"></a></li>
-				<li><a class="color17" href="#"></a></li>
-				<li><a class="color1" href="#"></a></li>
-				<li><a class="color3" href="#"></a></li>
-				<li><a class="color2" href="#"></a></li>
-			</ul>
+				<h3>Rating this product:</h3>
+				<ul class="w_nav2">                          
+                                    <form method="post" action="searchProduct.jsp">
+                                        <p class="comment-form-author"><label for="author">Rating:</label>
+                                            <select name="mark">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                            </select>
+                                        </p>
 
+                                        <p class="comment-form-author"><label for="author">Comment:</label>
+                                            <textarea name="content" value="Enter your comment here..." cols="50" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Enter your comment here...</textarea>
+                                        </p>
+                                        <input name="submit" type="submit" id="submit" value="Submit">
+                                    </form>
+				</ul>
 			</div>
 			
 			   	 </div>
 			   	</div>
 					<div class="clearfix"></div>
 				</div>
-				<div class="device">
+                        <div class="device">
 			   <div class="course_demo">
+                               <table>
+                                   <thead>
+                                       <tr>
+                                           <td colspan="100">
+                                               <h3>Contents</h3>
+                                           </td>
+                                           <td colspan="1">
+                                               <h3>Marks</h3>
+                                           </td>
+                                       </tr>
+                                   </thead>                                  
+                                   <tbody>
+                                        <%-- start web service invocation --%><hr/>
+                <%
+                try {
+                    wss.ProductMgtWS_Service service = new wss.ProductMgtWS_Service();
+                    wss.ProductMgtWS port = service.getProductMgtWSPort();
+                     // TODO initialize WS operation arguments here
+                    java.lang.Long itemId = Long.valueOf(1L);
+                    // TODO process result here
+                    java.util.List<wss.CommentEntity> result = port.viewAllCommentsOfProduct(itemId);
+                    java.lang.String content;
+                    java.lang.Double mark;
+                    for(Object o: result){
+                        mark = ((wss.CommentEntity) o).getRating();
+                        content = ((wss.CommentEntity) o).getContents();
+                        out.println("<tr>");
+                        out.println("<td>" +content + "</td>");    
+                        out.println("<td>" +mark + "</td>");
+                        out.println("</tr>");
+                    }
+                } catch (Exception ex) {
+                    out.println("<tr>Sorry, no comments so far..</tr>");
+                    out.println(ex);
+                }
+                %>
+                <%-- end web service invocation --%><hr/>
+  
+                                   </tbody>
+                               </table>
+	  </div>
+	  </div>
+                            <div class="device">
+			<div class="course_demo">
 		          <ul id="flexiselDemo">	
 					<li>
 						<div class="ipad text-center">
@@ -1364,7 +1404,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li><a class="cart" href="#">Add To Wishlist</a></li>
 							</ul>
 						</div>
-					</li>	
+                                        </li>
 					<li>
 					<div class="ipad text-center">
 							<img src="images/phone2.jpg" alt="" />
@@ -1414,8 +1454,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 					</li>							    	  	       	   	  									    	  	       	   	    	
 				</ul>
-	  </div>
-	  </div>
+			</div>
+		</div>
 			   	</div>
 
 	<div class="sub-cate single-subcate">
