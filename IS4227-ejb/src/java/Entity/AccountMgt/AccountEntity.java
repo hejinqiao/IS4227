@@ -54,7 +54,8 @@ public class AccountEntity implements Serializable {
     @OneToOne
     private ShoppingCartEntity shoppingcart;
 
-   
+    @OneToMany
+    private List<EnquiryEntity> enquiryList;
     
     @OneToMany
     private List<CommentEntity> commentList;
@@ -185,8 +186,14 @@ public class AccountEntity implements Serializable {
         this.commentList = commentList;
 
     }
+
+    public List<EnquiryEntity> getEnquiryList() {
+        return enquiryList;
+    }
+
+    public void setEnquiryList(List<EnquiryEntity> enquiryList) {
+        this.enquiryList = enquiryList;
+    }
     /************************/
-    
-    
-    
+        
 }

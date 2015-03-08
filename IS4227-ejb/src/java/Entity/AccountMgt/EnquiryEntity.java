@@ -34,16 +34,16 @@ public class EnquiryEntity implements Serializable {
     private String content;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Calendar date;
-    private String status;
+    private Boolean replied;
 
     public EnquiryEntity(){
     }
     
-    public EnquiryEntity(AccountEntity author,String content, Calendar date,String status){
+    public EnquiryEntity(AccountEntity author,String content, Calendar date,Boolean replied){
     
         this.author=author;
         this.content=content;
-        this.status=status;
+        this.replied = replied;
         this.date=date;
     
     }
@@ -81,14 +81,13 @@ public class EnquiryEntity implements Serializable {
         this.date = date;
     }
 
-    public String getStatus() {
-        return status;
+    public Boolean getReplied() {
+        return replied;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setReplied(Boolean replied) {
+        this.replied = replied;
     }
-
 
     @Override
     public int hashCode() {
