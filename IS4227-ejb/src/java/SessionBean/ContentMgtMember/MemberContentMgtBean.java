@@ -111,8 +111,8 @@ public class MemberContentMgtBean implements MemberContentMgtBeanLocal {
         }
         
         em.persist(comment);
-        em.persist(acc);
-        em.persist(item);
+        em.refresh(acc);
+        em.refresh(item);
     }
     
     @Override
@@ -140,4 +140,8 @@ public class MemberContentMgtBean implements MemberContentMgtBeanLocal {
     }
     
     //public ArrayList<CommentEntity> viewCommentOfProduct
+    
+//    public Double averageRating(Long ){
+//    
+//    }
 }

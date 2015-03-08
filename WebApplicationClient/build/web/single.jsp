@@ -1263,7 +1263,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				  <div class="desc1">
 					<h3>Lorem Ipsum is simply dummy text </h3>
 					<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-					<h5>Rating: 4.52</h5>
+                                        
 					<div class="available">
 						<h4>Available Options :</h4>
 						<ul>
@@ -1297,13 +1297,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<input type="submit" value="add to cart" title="" />
 							</form>
 						</div>
-						<span class="span_right"><a href="#">login to save in wishlist </a></span>
-						<div class="clearfix"></div>
+						
 					</div>
 					<div class="filter-by-color">
 				<h3>Rating this product:</h3>
 				<ul class="w_nav2">                          
-                                    <form method="post" action="searchProduct.jsp">
+                                       <form method="post" action="singleAfterRating.jsp">
                                         <p class="comment-form-author"><label for="author">Rating:</label>
                                             <select name="mark">
                                                     <option>1</option>
@@ -1318,7 +1317,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <textarea name="content" value="Enter your comment here..." cols="50" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Enter your comment here...</textarea>
                                         </p>
                                         <input name="submit" type="submit" id="submit" value="Submit">
-                                    </form>
+                                    </form>                             
 				</ul>
 			</div>
 			
@@ -1348,9 +1347,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                      // TODO initialize WS operation arguments here
                     java.lang.Long itemId = Long.valueOf(1L);
                     // TODO process result here
-                    java.util.List<wss.CommentEntity> result = port.viewAllCommentsOfProduct(itemId);
+                    java.util.List<wss.CommentEntity> result = port.viewAllCommentsOfProduct(itemId);                 
+                    if(result.size()==0) {
+                        out.println("<tr>Sorry, no comments so far..</tr>");
+                        out.println("<h5>Overall Rating: 0.0</h5>");
+                    }
+                    
                     java.lang.String content;
                     java.lang.Double mark;
+                    java.lang.Double average = 0.0;
+                    
                     for(Object o: result){
                         mark = ((wss.CommentEntity) o).getRating();
                         content = ((wss.CommentEntity) o).getContents();
@@ -1358,7 +1364,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         out.println("<td>" +content + "</td>");    
                         out.println("<td>" +mark + "</td>");
                         out.println("</tr>");
+                        average += mark;
                     }
+                    out.println("<h5>Rating: </h5>" + (average/result.size()));
                 } catch (Exception ex) {
                     out.println("<tr>Sorry, no comments so far..</tr>");
                     out.println(ex);
