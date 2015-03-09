@@ -112,7 +112,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="search2">
 					  <form action="searchProduct.jsp" method="GET">
 						<input type="submit" value="">
-						<input type="text" name="productName" value="Search for a product, category or brand" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search for a product, category or brand';}"/>
+						<input type="text" name="productName" value="Search for a product by product name..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search for a product, category or brand';}"/>
 					  </form>
 					</div>
 				</div>
@@ -1226,42 +1226,92 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="main">
     <div class="content">
     	<div class="content_top">
-    		<div class="heading">
-    		<h3>Feature Products</h3>
-    		</div>
+            <form action="advancedSearch.jsp" method="POST">                  
     		<div class="sort">
-    		<p>Sort by:
-    			<select>
-    				<option>Lowest Price</option>
-    				<option>Highest Price</option>
-    				<option>Lowest Price</option>
-    				<option>Lowest Price</option>
-    				<option>Lowest Price</option>
-    				<option>In Stock</option>  				   				
+    		<p>Category:
+                    <select name="category">
+                            <option>ALL</option>
+                            <%-- start web service invocation --%><hr/>
+    <%
+    try {
+	wss.CatelogueMgtWS_Service service = new wss.CatelogueMgtWS_Service();
+	wss.CatelogueMgtWS port = service.getCatelogueMgtWSPort();
+	// TODO process result here
+	java.util.List<wss.CategoryEntity> result = port.getAllCategory();
+        if(!result.isEmpty()){
+            for(wss.CategoryEntity o: result){
+                String cate = o.getCategoryName();
+            %>
+                <option><%=cate%></option>
+            <%}
+        }
+    } catch (Exception ex) {
+	out.println("no category so far");
+    }
+    %>
+    <%-- end web service invocation --%><hr/> 				   				
     			</select>
     		</p>
     		</div>
     		<div class="show">
-    		<p>Show:
-    			<select>
-    				<option>4</option>
-    				<option>8</option>
-    				<option>12</option>
-    				<option>16</option>
-    				<option>20</option>
-    				<option>In Stock</option>  				   				
+    		<p>Region:
+                    <select name="region">
+    				<option>ALL</option>
+    				     <%-- start web service invocation --%><hr/>
+    <%
+    try {
+	wss.CatelogueMgtWS_Service service = new wss.CatelogueMgtWS_Service();
+	wss.CatelogueMgtWS port = service.getCatelogueMgtWSPort();
+	// TODO process result here
+	java.util.List<wss.RegionEntity> result = port.getAllRegion();
+	if(!result.isEmpty()){
+            for(wss.RegionEntity o: result){
+                String cate = o.getRegionName();
+            %>
+                <option><%=cate%></option>
+            <%}
+        }
+    } catch (Exception ex) {
+	out.println("no region");
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
+				   				
     			</select>
     		</p>
+    		</div>            
+                <div class="show">
+    		<p>Winery:
+                    <select name="winery">
+    				<option>ALL</option>
+    				     <%-- start web service invocation --%><hr/>
+    <%
+    try {
+	wss.CatelogueMgtWS_Service service = new wss.CatelogueMgtWS_Service();
+	wss.CatelogueMgtWS port = service.getCatelogueMgtWSPort();
+	// TODO process result here
+	java.util.List<wss.WineryEntity> result = port.getAllWinery();
+	if(!result.isEmpty()){
+            for(wss.WineryEntity o: result){
+                String cate = o.getWineryName();
+            %>
+                <option><%=cate%></option>
+            <%}
+        }
+    } catch (Exception ex) {
+	out.println("no winery");
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
+				   				
+    			</select>
+    		</p>                           
     		</div>
-    		<div class="page-no">
-    			<p>Result Pages:<ul>
-    				<li><a href="#">1</a></li>
-    				<li class="active"><a href="#">2</a></li>
-    				<li><a href="#">3</a></li>
-    				<li>[<a href="#"> Next>>></a >]</li>
-    				</ul></p>
+                <div class="heading">                   
+                    <input type="submit" value="Advanced Search">
     		</div>
-    		<div class="clearfix"></div>
+                <div class="clearfix"></div>
+                </form>
     	</div>
 	      <div class="section group">
 				<div class="grid_1_of_4 images_1_of_4">

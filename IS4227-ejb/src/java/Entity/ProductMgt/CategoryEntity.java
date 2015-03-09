@@ -33,14 +33,14 @@ public class CategoryEntity implements Serializable {
     public CategoryEntity() {
     }
 
-    public List<ItemEntity> getItemList() {
-        return itemList;
-    }
-
     public CategoryEntity(String categoryName, String categorySpec) {
         this.categoryName = categoryName;
         this.categorySpec = categorySpec;
     }        
+  
+    public List<ItemEntity> getItemList() {
+        return itemList;
+    }
 
     public void setItemList(List<ItemEntity> itemList) {
         this.itemList = itemList;

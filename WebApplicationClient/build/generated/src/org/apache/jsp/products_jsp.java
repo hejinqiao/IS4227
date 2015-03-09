@@ -155,7 +155,7 @@ public final class products_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t\t<div class=\"search2\">\r\n");
       out.write("\t\t\t\t\t  <form action=\"searchProduct.jsp\" method=\"GET\">\r\n");
       out.write("\t\t\t\t\t\t<input type=\"submit\" value=\"\">\r\n");
-      out.write("\t\t\t\t\t\t<input type=\"text\" name=\"productName\" value=\"Search for a product, category or brand\" onfocus=\"this.value = '';\" onblur=\"if (this.value == '') {this.value = 'Search for a product, category or brand';}\"/>\r\n");
+      out.write("\t\t\t\t\t\t<input type=\"text\" name=\"productName\" value=\"Search for a product by product name...\" onfocus=\"this.value = '';\" onblur=\"if (this.value == '') {this.value = 'Search for a product, category or brand';}\"/>\r\n");
       out.write("\t\t\t\t\t  </form>\r\n");
       out.write("\t\t\t\t\t</div>\r\n");
       out.write("\t\t\t\t</div>\r\n");
@@ -1269,42 +1269,116 @@ public final class products_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t<div class=\"main\">\r\n");
       out.write("    <div class=\"content\">\r\n");
       out.write("    \t<div class=\"content_top\">\r\n");
-      out.write("    \t\t<div class=\"heading\">\r\n");
-      out.write("    \t\t<h3>Feature Products</h3>\r\n");
-      out.write("    \t\t</div>\r\n");
+      out.write("            <form action=\"advancedSearch.jsp\" method=\"POST\">                  \r\n");
       out.write("    \t\t<div class=\"sort\">\r\n");
-      out.write("    \t\t<p>Sort by:\r\n");
-      out.write("    \t\t\t<select>\r\n");
-      out.write("    \t\t\t\t<option>Lowest Price</option>\r\n");
-      out.write("    \t\t\t\t<option>Highest Price</option>\r\n");
-      out.write("    \t\t\t\t<option>Lowest Price</option>\r\n");
-      out.write("    \t\t\t\t<option>Lowest Price</option>\r\n");
-      out.write("    \t\t\t\t<option>Lowest Price</option>\r\n");
-      out.write("    \t\t\t\t<option>In Stock</option>  \t\t\t\t   \t\t\t\t\r\n");
+      out.write("    \t\t<p>Category:\r\n");
+      out.write("                    <select name=\"category\">\r\n");
+      out.write("                            <option>ALL</option>\r\n");
+      out.write("                            ");
+      out.write("<hr/>\r\n");
+      out.write("    ");
+
+    try {
+	wss.CatelogueMgtWS_Service service = new wss.CatelogueMgtWS_Service();
+	wss.CatelogueMgtWS port = service.getCatelogueMgtWSPort();
+	// TODO process result here
+	java.util.List<wss.CategoryEntity> result = port.getAllCategory();
+        if(!result.isEmpty()){
+            for(wss.CategoryEntity o: result){
+                String cate = o.getCategoryName();
+            
+      out.write("\r\n");
+      out.write("                <option>");
+      out.print(cate);
+      out.write("</option>\r\n");
+      out.write("            ");
+}
+        }
+    } catch (Exception ex) {
+	out.println("no category so far");
+    }
+    
+      out.write("\r\n");
+      out.write("    ");
+      out.write("<hr/> \t\t\t\t   \t\t\t\t\r\n");
       out.write("    \t\t\t</select>\r\n");
       out.write("    \t\t</p>\r\n");
       out.write("    \t\t</div>\r\n");
       out.write("    \t\t<div class=\"show\">\r\n");
-      out.write("    \t\t<p>Show:\r\n");
-      out.write("    \t\t\t<select>\r\n");
-      out.write("    \t\t\t\t<option>4</option>\r\n");
-      out.write("    \t\t\t\t<option>8</option>\r\n");
-      out.write("    \t\t\t\t<option>12</option>\r\n");
-      out.write("    \t\t\t\t<option>16</option>\r\n");
-      out.write("    \t\t\t\t<option>20</option>\r\n");
-      out.write("    \t\t\t\t<option>In Stock</option>  \t\t\t\t   \t\t\t\t\r\n");
+      out.write("    \t\t<p>Region:\r\n");
+      out.write("                    <select name=\"region\">\r\n");
+      out.write("    \t\t\t\t<option>ALL</option>\r\n");
+      out.write("    \t\t\t\t     ");
+      out.write("<hr/>\r\n");
+      out.write("    ");
+
+    try {
+	wss.CatelogueMgtWS_Service service = new wss.CatelogueMgtWS_Service();
+	wss.CatelogueMgtWS port = service.getCatelogueMgtWSPort();
+	// TODO process result here
+	java.util.List<wss.RegionEntity> result = port.getAllRegion();
+	if(!result.isEmpty()){
+            for(wss.RegionEntity o: result){
+                String cate = o.getRegionName();
+            
+      out.write("\r\n");
+      out.write("                <option>");
+      out.print(cate);
+      out.write("</option>\r\n");
+      out.write("            ");
+}
+        }
+    } catch (Exception ex) {
+	out.println("no region");
+    }
+    
+      out.write("\r\n");
+      out.write("    ");
+      out.write("<hr/>\r\n");
+      out.write("\t\t\t\t   \t\t\t\t\r\n");
       out.write("    \t\t\t</select>\r\n");
       out.write("    \t\t</p>\r\n");
+      out.write("    \t\t</div>            \r\n");
+      out.write("                <div class=\"show\">\r\n");
+      out.write("    \t\t<p>Winery:\r\n");
+      out.write("                    <select name=\"winery\">\r\n");
+      out.write("    \t\t\t\t<option>ALL</option>\r\n");
+      out.write("    \t\t\t\t     ");
+      out.write("<hr/>\r\n");
+      out.write("    ");
+
+    try {
+	wss.CatelogueMgtWS_Service service = new wss.CatelogueMgtWS_Service();
+	wss.CatelogueMgtWS port = service.getCatelogueMgtWSPort();
+	// TODO process result here
+	java.util.List<wss.WineryEntity> result = port.getAllWinery();
+	if(!result.isEmpty()){
+            for(wss.WineryEntity o: result){
+                String cate = o.getWineryName();
+            
+      out.write("\r\n");
+      out.write("                <option>");
+      out.print(cate);
+      out.write("</option>\r\n");
+      out.write("            ");
+}
+        }
+    } catch (Exception ex) {
+	out.println("no winery");
+    }
+    
+      out.write("\r\n");
+      out.write("    ");
+      out.write("<hr/>\r\n");
+      out.write("\t\t\t\t   \t\t\t\t\r\n");
+      out.write("    \t\t\t</select>\r\n");
+      out.write("    \t\t</p>                           \r\n");
       out.write("    \t\t</div>\r\n");
-      out.write("    \t\t<div class=\"page-no\">\r\n");
-      out.write("    \t\t\t<p>Result Pages:<ul>\r\n");
-      out.write("    \t\t\t\t<li><a href=\"#\">1</a></li>\r\n");
-      out.write("    \t\t\t\t<li class=\"active\"><a href=\"#\">2</a></li>\r\n");
-      out.write("    \t\t\t\t<li><a href=\"#\">3</a></li>\r\n");
-      out.write("    \t\t\t\t<li>[<a href=\"#\"> Next>>></a >]</li>\r\n");
-      out.write("    \t\t\t\t</ul></p>\r\n");
+      out.write("                <div class=\"heading\">                   \r\n");
+      out.write("                    <input type=\"submit\" value=\"Advanced Search\">\r\n");
       out.write("    \t\t</div>\r\n");
-      out.write("    \t\t<div class=\"clearfix\"></div>\r\n");
+      out.write("                <div class=\"clearfix\"></div>\r\n");
+      out.write("                </form>\r\n");
       out.write("    \t</div>\r\n");
       out.write("\t      <div class=\"section group\">\r\n");
       out.write("\t\t\t\t<div class=\"grid_1_of_4 images_1_of_4\">\r\n");

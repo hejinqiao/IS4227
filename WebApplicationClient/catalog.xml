@@ -9,4 +9,6 @@
     <system systemId="http://localhost:8080/AccountMgtWS/AccountMgtWS?xsd=1" uri="src/conf/xml-resources/web-service-references/AccountMgtWS/wsdl/localhost_8080/AccountMgtWS/AccountMgtWS.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/ProductMgtWS/ProductMgtWS?WSDL" uri="src/conf/xml-resources/web-service-references/ProductMgtWS/wsdl/localhost_8080/ProductMgtWS/ProductMgtWS.wsdl"/>
     <system systemId="http://localhost:8080/ProductMgtWS/ProductMgtWS?xsd=1" uri="src/conf/xml-resources/web-service-references/ProductMgtWS/wsdl/localhost_8080/ProductMgtWS/ProductMgtWS.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/CatelogueMgtWS/CatelogueMgtWS?WSDL" uri="src/conf/xml-resources/web-service-references/CatelogueMgtWS/wsdl/localhost_8080/CatelogueMgtWS/CatelogueMgtWS.wsdl"/>
+    <system systemId="http://localhost:8080/CatelogueMgtWS/CatelogueMgtWS?xsd=1" uri="src/conf/xml-resources/web-service-references/CatelogueMgtWS/wsdl/localhost_8080/CatelogueMgtWS/CatelogueMgtWS.xsd_1.xsd"/>
 </catalog>

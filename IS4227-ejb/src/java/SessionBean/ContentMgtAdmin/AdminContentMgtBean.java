@@ -82,57 +82,46 @@ public class AdminContentMgtBean implements AdminContentMgtBeanRemote {
     @Override
     public List<WineryEntity> getAllWinery() throws ExistException {
         Query q = em.createQuery("SELECT m FROM WineryEntity m");
-        List<WineryEntity> wineryList = new ArrayList<>();
-        for (Object o : q.getResultList()) {
-            WineryEntity m = (WineryEntity) o;
-            wineryList.add(m);
-        }
-        if (wineryList.isEmpty()) {
+        if (q.getResultList().isEmpty()) {
             throw new ExistException("No winery result available!");
         }
-        return wineryList;
+        for(Object o: (List<WineryEntity>) q.getResultList()){
+            ((WineryEntity) o).getItemList().size();
+        }
+        return q.getResultList();
     }
 
     @Override
     public List<RegionEntity> getAllRegion() throws ExistException {
         Query q = em.createQuery("SELECT m FROM RegionEntity m");
-        List<RegionEntity> regionList = new ArrayList<>();
-        for (Object o : q.getResultList()) {
-            RegionEntity m = (RegionEntity) o;
-            regionList.add(m);
-        }
-        if (regionList.isEmpty()) {
+        if (q.getResultList().isEmpty()) {
             throw new ExistException("No region result available!");
         }
-        return regionList;
+        for(Object o: (List<RegionEntity>) q.getResultList()){
+            ((RegionEntity) o).getItemList().size();
+        }
+        return q.getResultList();
     }
 
     @Override
     public List<CategoryEntity> getAllCategory() throws ExistException {
         Query q = em.createQuery("SELECT m FROM CategoryEntity m");
-        List<CategoryEntity> categoryList = new ArrayList<>();
-        for (Object o : q.getResultList()) {
-            CategoryEntity m = (CategoryEntity) o;
-            categoryList.add(m);
-        }
-        if (categoryList.isEmpty()) {
+        if (q.getResultList().isEmpty()) {
             throw new ExistException("No category result available!");
         }
-        return categoryList;
+        for(Object o: (List<CategoryEntity>) q.getResultList()){
+            ((CategoryEntity) o).getItemList().size();
+        }
+        return q.getResultList();
     }
 
     @Override
     public List<ItemEntity> getAllItem() throws ExistException {
         Query q = em.createQuery("SELECT m FROM ItemEntity m");
-        List<ItemEntity> itemList = new ArrayList<>();
-        for (Object o : q.getResultList()) {
-            ItemEntity m = (ItemEntity) o;
-            itemList.add(m);
-        }
-        if (itemList.isEmpty()) {
+        if (q.getResultList().isEmpty()) {
             throw new ExistException("No item result available!");
         }
-        return itemList;
+        return q.getResultList();       
     }
 
     @Override
