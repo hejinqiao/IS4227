@@ -1308,7 +1308,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	wss.ProductMgtWS port = service.getProductMgtWSPort();
 	 // TODO initialize WS operation arguments here
 	java.lang.Long accountId = Long.valueOf(1L);
-	java.lang.Long itemId = Long.valueOf(1L);
+	java.lang.Long itemId = Long.valueOf(3L);
 	java.lang.Double rating = Double.parseDouble(request.getParameter("mark"));
 	java.lang.String content = request.getParameter("content");
 	port.rateProduct(accountId, itemId, rating, content);
@@ -1344,7 +1344,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     wss.ProductMgtWS_Service service = new wss.ProductMgtWS_Service();
                     wss.ProductMgtWS port = service.getProductMgtWSPort();
                      // TODO initialize WS operation arguments here
-                    java.lang.Long itemId = Long.valueOf(1L);
+                    java.lang.Long itemId = Long.valueOf(3L);
                     // TODO process result here
                     java.util.List<wss.CommentEntity> result = port.viewAllCommentsOfProduct(itemId);                 
                     if(result.size()==0) {
@@ -1365,7 +1365,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         out.println("</tr>");
                         average += mark;
                     }
-                    out.println("<h5>Rating: </h5>" + (average/result.size()));
+                    out.println("<h5>Overall Rating: </h5>" + (average/result.size()));
                 } catch (Exception ex) {
                     out.println("<tr>Sorry, no comments so far..</tr>");
                     out.println(ex);

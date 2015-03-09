@@ -9,6 +9,7 @@ import Entity.ProductMgt.CategoryEntity;
 import Entity.ProductMgt.ItemEntity;
 import Entity.ProductMgt.RegionEntity;
 import Entity.ProductMgt.WineryEntity;
+import java.util.Calendar;
 import java.util.List;
 import javax.ejb.Remote;
 import util.exception.ExistException;
@@ -20,13 +21,13 @@ import util.exception.ExistException;
 @Remote
 public interface AdminContentMgtBeanRemote {
     
-    WineryEntity addWinery (WineryEntity winery);
+    public WineryEntity addWinery(String name, String address, String contact);
     
-    RegionEntity addRegion (RegionEntity region);
+    public RegionEntity addRegion(String name, String country, String spec);
     
-    CategoryEntity addCategory (CategoryEntity category);
+    public CategoryEntity addCategory(String name, String spec);
     
-    ItemEntity addItem (ItemEntity item);
+    public ItemEntity addItem(String cateName, String regionName, String wineryName, String itemName, String vitage, Calendar expiringDate, String tastingNote);
     
     List<WineryEntity> getAllWinery() throws ExistException;
     
@@ -38,9 +39,13 @@ public interface AdminContentMgtBeanRemote {
     
     ItemEntity getItemById(String itemId) throws ExistException;
     
+    public ItemEntity getItemByName(String itemName);
+    
     boolean removeItem (String itemID) throws ExistException;
     
     WineryEntity getWineryById (String wineryId) throws ExistException;
+    
+    public WineryEntity getWineryByName(String wineryName);
     
     boolean removeWinery (String wineryId) throws ExistException;
 }

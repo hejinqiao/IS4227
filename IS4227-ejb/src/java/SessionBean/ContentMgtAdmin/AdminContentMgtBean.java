@@ -10,6 +10,7 @@ import Entity.ProductMgt.ItemEntity;
 import Entity.ProductMgt.RegionEntity;
 import Entity.ProductMgt.WineryEntity;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
 import javax.ejb.LocalBean;
@@ -39,33 +40,49 @@ public class AdminContentMgtBean implements AdminContentMgtBeanRemote {
     }
 
     @Override
-    public WineryEntity addWinery(WineryEntity winery) {
-        em.persist(winery);
-        return winery;
+    public WineryEntity addWinery(String name, String address, String contact) {
+        WineryEntity w = new WineryEntity(name, address, contact);       
+        em.persist(w);
+        return w;
     }
 
     @Override
-    public RegionEntity addRegion(RegionEntity region) {
-        em.persist(region);
-        return region;
+    public RegionEntity addRegion(String name, String country, String spec) {
+        RegionEntity r = new RegionEntity(name, country, spec);
+        em.persist(r);
+        return r;
     }
 
     @Override
-    public CategoryEntity addCategory(CategoryEntity category) {
-        em.persist(category);
-        return category;
+    public CategoryEntity addCategory(String name, String spec) {
+        CategoryEntity c = new CategoryEntity(name, spec);
+        em.persist(c);
+        return c;
     }
 
     @Override
-    public ItemEntity addItem(ItemEntity item) {
-        em.persist(item);
+    public ItemEntity addItem(String cateName, String regionName, String wineryName, String itemName, String vitage, Calendar expiringDate, String tastingNote) {
+        Query wineryQ = em.createQuery("SELECT w FROM WineryEntity w WHERE w.wineryName=?1");
+        wineryQ.setParameter(1, wineryName);
+        WineryEntity w = (WineryEntity) wineryQ.getResultList().get(0);
+        
+        Query regionQ = em.createQuery("SELECT w FROM RegionEntity w WHERE w.regionName=?1");
+        regionQ.setParameter(1, regionName);
+        RegionEntity r = (RegionEntity) regionQ.getResultList().get(0);
+        
+        Query cateQ = em.createQuery("SELECT w FROM CategoryEntity w WHERE w.categoryName=?1");
+        cateQ.setParameter(1, cateName);
+        CategoryEntity c = (CategoryEntity) cateQ.getResultList().get(0);
+        
+        ItemEntity i = new ItemEntity(itemName, vitage, expiringDate, tastingNote, c, r, w);
+        em.persist(i);
         return item;
     }
 
     @Override
     public List<WineryEntity> getAllWinery() throws ExistException {
         Query q = em.createQuery("SELECT m FROM WineryEntity m");
-        List wineryList = new ArrayList<WineryEntity>();
+        List<WineryEntity> wineryList = new ArrayList<>();
         for (Object o : q.getResultList()) {
             WineryEntity m = (WineryEntity) o;
             wineryList.add(m);
@@ -79,7 +96,7 @@ public class AdminContentMgtBean implements AdminContentMgtBeanRemote {
     @Override
     public List<RegionEntity> getAllRegion() throws ExistException {
         Query q = em.createQuery("SELECT m FROM RegionEntity m");
-        List regionList = new ArrayList<RegionEntity>();
+        List<RegionEntity> regionList = new ArrayList<>();
         for (Object o : q.getResultList()) {
             RegionEntity m = (RegionEntity) o;
             regionList.add(m);
@@ -93,7 +110,7 @@ public class AdminContentMgtBean implements AdminContentMgtBeanRemote {
     @Override
     public List<CategoryEntity> getAllCategory() throws ExistException {
         Query q = em.createQuery("SELECT m FROM CategoryEntity m");
-        List categoryList = new ArrayList<CategoryEntity>();
+        List<CategoryEntity> categoryList = new ArrayList<>();
         for (Object o : q.getResultList()) {
             CategoryEntity m = (CategoryEntity) o;
             categoryList.add(m);
@@ -107,7 +124,7 @@ public class AdminContentMgtBean implements AdminContentMgtBeanRemote {
     @Override
     public List<ItemEntity> getAllItem() throws ExistException {
         Query q = em.createQuery("SELECT m FROM ItemEntity m");
-        List itemList = new ArrayList<ItemEntity>();
+        List<ItemEntity> itemList = new ArrayList<>();
         for (Object o : q.getResultList()) {
             ItemEntity m = (ItemEntity) o;
             itemList.add(m);
@@ -122,6 +139,14 @@ public class AdminContentMgtBean implements AdminContentMgtBeanRemote {
     public ItemEntity getItemById(String itemId) throws ExistException {
         item = em.find(ItemEntity.class, itemId);
         return item;
+    }
+   
+    @Override
+    public ItemEntity getItemByName(String itemName){
+        Query q = em.createQuery("SELECT m FROM ItemEntity m WHERE m.itemName=?1");
+        q.setParameter(1, itemName);
+        ItemEntity i = (ItemEntity) q.getResultList().get(0);
+        return i;
     }
 
     @Override
@@ -139,6 +164,13 @@ public class AdminContentMgtBean implements AdminContentMgtBeanRemote {
     public WineryEntity getWineryById(String wineryId) throws ExistException {
         winery = em.find(WineryEntity.class, wineryId);
         return winery;
+    }
+ 
+    @Override
+    public WineryEntity getWineryByName(String wineryName){
+        Query q = em.createQuery("SELECT m FROM WineryEntity m WHERE m.wineryName=?1");
+        q.setParameter(1, wineryName);
+        return (WineryEntity) q.getResultList().get(0);
     }
 
     @Override
@@ -158,4 +190,6 @@ public class AdminContentMgtBean implements AdminContentMgtBeanRemote {
         em.remove(winery);
         return true;
     }
+    
+    //public CategoryEntity 
 }
