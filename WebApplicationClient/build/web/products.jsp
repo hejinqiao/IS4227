@@ -1226,7 +1226,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="main">
     <div class="content">
     	<div class="content_top">
-            <form action="advancedSearch.jsp" method="POST">                  
+            <form action="advancedSearch.jsp" method="POST">                
     		<div class="sort">
     		<p>Category:
                     <select name="category">
