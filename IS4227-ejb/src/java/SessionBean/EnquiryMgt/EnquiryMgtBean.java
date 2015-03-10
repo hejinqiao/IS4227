@@ -28,6 +28,7 @@ public class EnquiryMgtBean implements EnquiryMgtBeanLocal {
     @PersistenceContext
     private EntityManager em;
     
+    @Override
     public void submitEnquery(Long accountId, String content) throws AccountNotFoundException{
         AccountEntity acc = em.find(AccountEntity.class, accountId);
         if (acc == null) {
@@ -54,6 +55,7 @@ public class EnquiryMgtBean implements EnquiryMgtBeanLocal {
         }
     }
     
+    @Override
     public List<EnquiryEntity> viewAllEnquiry(Long adminId)throws AdminNotFoundException{
         AdminAccountEntity admin = em.find(AdminAccountEntity.class, adminId);
         if(admin == null){
@@ -65,6 +67,7 @@ public class EnquiryMgtBean implements EnquiryMgtBeanLocal {
         }
     }
     
+    @Override
     public EnquiryEntity viewOneEnquiry(Long adminId, Long enquiryId) throws AdminNotFoundException, EnquiryNotFoundException{
         AdminAccountEntity admin = em.find(AdminAccountEntity.class, adminId);
         if(admin == null){
@@ -80,6 +83,7 @@ public class EnquiryMgtBean implements EnquiryMgtBeanLocal {
         }
     }
     
+    @Override
     public void processEnquiry(Long adminId, Long enquiryId, String replyContent) throws AdminNotFoundException, EnquiryNotFoundException{
         AdminAccountEntity admin = em.find(AdminAccountEntity.class, adminId);
         if(admin == null){

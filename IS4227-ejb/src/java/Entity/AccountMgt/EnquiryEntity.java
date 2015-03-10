@@ -39,7 +39,7 @@ public class EnquiryEntity implements Serializable {
     public EnquiryEntity(){
     }
     
-    public EnquiryEntity(AccountEntity author,String content, Calendar date,Boolean replied){
+    public EnquiryEntity(AccountEntity author,String content, Calendar date, Boolean replied){
     
         this.author=author;
         this.content=content;
