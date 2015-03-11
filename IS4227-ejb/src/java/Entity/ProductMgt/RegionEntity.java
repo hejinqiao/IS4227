@@ -28,7 +28,7 @@ public class RegionEntity implements Serializable {
     private String country;
     private String regionSpec;
     
-    @OneToMany
+    @OneToMany(mappedBy="region")
     private List<ItemEntity> itemList;
 
     public RegionEntity() {

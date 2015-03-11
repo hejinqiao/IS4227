@@ -26,7 +26,7 @@ public class ItemPurchasedEntity implements Serializable {
     private Long soldQuantity;
     private Double totalPrice;
     
-    @OneToOne
+    @OneToOne(mappedBy="itemPurchased")
     private ItemEntity item;
 
     public ItemPurchasedEntity() {

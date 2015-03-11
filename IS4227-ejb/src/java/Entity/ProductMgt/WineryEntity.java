@@ -28,7 +28,7 @@ public class WineryEntity implements Serializable {
     private String wineryAddress;
     private String wineryContact;
     
-    @OneToMany
+    @OneToMany(mappedBy="winery")
     private List<ItemEntity> itemList;
 
     public WineryEntity() {

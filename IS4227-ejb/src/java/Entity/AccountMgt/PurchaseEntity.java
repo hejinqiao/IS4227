@@ -40,6 +40,9 @@ public class PurchaseEntity implements Serializable {
     //purchase -- transaction : M --> 1
     @ManyToOne
     private TransactionEntity transaction;
+    
+    @ManyToOne
+    private AccountEntity account;
 
     public PurchaseEntity(){
     }
@@ -110,7 +113,12 @@ public class PurchaseEntity implements Serializable {
         this.status = status;
     }
 
- 
-    
+    public AccountEntity getAccount() {
+        return account;
+    }
+
+    public void setAccount(AccountEntity account) {
+        this.account = account;
+    }    
     
 }

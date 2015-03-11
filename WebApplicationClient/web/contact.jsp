@@ -407,7 +407,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				      <div class="contact-form">
                                             <form method="post" action="contactPost.jsp">
                                                 <p class="comment-form-author"><label for="author">Message:</label>
-                                                  <textarea value="Enter your message here..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Enter your message here...</textarea>
+                                                    <textarea name="content" value="Enter your message here..." onfocus="this.value = '';" onblur="if (this.value === '') {this.value = 'Message';}">Enter your message here...</textarea>
                                                 </p>
                                                 <input name="submit" type="submit" id="submit" value="Submit">
                                             </form>

@@ -402,11 +402,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="singel_right">
 			     <div class="lcontact span_1_of_contact">
-                                 (Please login before you submit inquiry)
                                  <div class="clearfix"></div>
 				      <div class="contact-form">
                                                 <p class="comment-form-author"><label for="author">Enquery Submit Feedback:</label>
-                                                  
+                                                            <%-- start web service invocation --%><hr/>
+    <%
+    try {
+	wss.EnquiryMgtWS_Service service = new wss.EnquiryMgtWS_Service();
+	wss.EnquiryMgtWS port = service.getEnquiryMgtWSPort();
+	 // TODO initialize WS operation arguments here
+	java.lang.Long accountId = 1L;
+	java.lang.String content = request.getParameter("content");
+	port.submitEnquery(accountId, content);%>
+        Your enquiry has been submitted successfully!
+    <%
+    } catch (Exception ex) {
+	out.print("Sorry, something wrong with your enquiry...");
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
+
                                                 </p>                                  
 				       </div>
 			     </div>

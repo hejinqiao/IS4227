@@ -30,7 +30,7 @@ public class OrderEntity implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Calendar date = Calendar.getInstance();
    
-    @OneToOne
+    @OneToOne(mappedBy="order")
     PurchaseEntity purchase;
     
     // 缺少itemEntity

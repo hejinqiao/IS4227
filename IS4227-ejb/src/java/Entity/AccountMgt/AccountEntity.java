@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.xml.bind.annotation.XmlTransient;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -42,7 +43,7 @@ public class AccountEntity implements Serializable {
     /************************/
     
     //account -- pruchase : 1 --> M
-    @OneToMany
+    @OneToMany(mappedBy="account")
     private List<PurchaseEntity> purchase;
 
     //account -- transaction: 1-->M
@@ -53,11 +54,13 @@ public class AccountEntity implements Serializable {
     @OneToOne
     private ShoppingCartEntity shoppingcart;
 
-    @OneToMany
+    @OneToMany(mappedBy="author")
     private List<EnquiryEntity> enquiryList;
     
-    @OneToMany
+    @XmlTransient
+    @OneToMany(mappedBy="account")
     private List<CommentEntity> commentList;
+    
     public  AccountEntity(){
     
     }

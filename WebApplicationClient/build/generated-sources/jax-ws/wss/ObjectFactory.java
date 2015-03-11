@@ -24,35 +24,17 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _GetItemById_QNAME = new QName("http://WSS/", "getItemById");
-    private final static QName _GetAllCategory_QNAME = new QName("http://WSS/", "getAllCategory");
-    private final static QName _GetWineryByIdResponse_QNAME = new QName("http://WSS/", "getWineryByIdResponse");
-    private final static QName _RemoveWineryResponse_QNAME = new QName("http://WSS/", "removeWineryResponse");
-    private final static QName _AddRegionResponse_QNAME = new QName("http://WSS/", "addRegionResponse");
-    private final static QName _GetAllItem_QNAME = new QName("http://WSS/", "getAllItem");
-    private final static QName _GetAllWinery_QNAME = new QName("http://WSS/", "getAllWinery");
-    private final static QName _AddWineryResponse_QNAME = new QName("http://WSS/", "addWineryResponse");
-    private final static QName _GetAllItemResponse_QNAME = new QName("http://WSS/", "getAllItemResponse");
-    private final static QName _ExistException_QNAME = new QName("http://WSS/", "ExistException");
-    private final static QName _RemoveWinery_QNAME = new QName("http://WSS/", "removeWinery");
-    private final static QName _GetAllRegionResponse_QNAME = new QName("http://WSS/", "getAllRegionResponse");
-    private final static QName _GetWineryById_QNAME = new QName("http://WSS/", "getWineryById");
-    private final static QName _AddItemResponse_QNAME = new QName("http://WSS/", "addItemResponse");
-    private final static QName _GetItemByIdResponse_QNAME = new QName("http://WSS/", "getItemByIdResponse");
-    private final static QName _GetAllCategoryResponse_QNAME = new QName("http://WSS/", "getAllCategoryResponse");
-    private final static QName _AddItem_QNAME = new QName("http://WSS/", "addItem");
-    private final static QName _AddWinery_QNAME = new QName("http://WSS/", "addWinery");
-    private final static QName _GetItemByNameResponse_QNAME = new QName("http://WSS/", "getItemByNameResponse");
-    private final static QName _GetAllRegion_QNAME = new QName("http://WSS/", "getAllRegion");
-    private final static QName _AddCategoryResponse_QNAME = new QName("http://WSS/", "addCategoryResponse");
-    private final static QName _GetWineryByNameResponse_QNAME = new QName("http://WSS/", "getWineryByNameResponse");
-    private final static QName _AddRegion_QNAME = new QName("http://WSS/", "addRegion");
-    private final static QName _GetAllWineryResponse_QNAME = new QName("http://WSS/", "getAllWineryResponse");
-    private final static QName _AddCategory_QNAME = new QName("http://WSS/", "addCategory");
-    private final static QName _GetWineryByName_QNAME = new QName("http://WSS/", "getWineryByName");
-    private final static QName _RemoveItem_QNAME = new QName("http://WSS/", "removeItem");
-    private final static QName _GetItemByName_QNAME = new QName("http://WSS/", "getItemByName");
-    private final static QName _RemoveItemResponse_QNAME = new QName("http://WSS/", "removeItemResponse");
+    private final static QName _ViewOneEnquiry_QNAME = new QName("http://WSS/", "viewOneEnquiry");
+    private final static QName _AccountNotFoundException_QNAME = new QName("http://WSS/", "AccountNotFoundException");
+    private final static QName _ProcessEnquiry_QNAME = new QName("http://WSS/", "processEnquiry");
+    private final static QName _SubmitEnquery_QNAME = new QName("http://WSS/", "submitEnquery");
+    private final static QName _ViewOneEnquiryResponse_QNAME = new QName("http://WSS/", "viewOneEnquiryResponse");
+    private final static QName _SubmitEnqueryResponse_QNAME = new QName("http://WSS/", "submitEnqueryResponse");
+    private final static QName _ProcessEnquiryResponse_QNAME = new QName("http://WSS/", "processEnquiryResponse");
+    private final static QName _ViewAllEnquiry_QNAME = new QName("http://WSS/", "viewAllEnquiry");
+    private final static QName _EnquiryNotFoundException_QNAME = new QName("http://WSS/", "EnquiryNotFoundException");
+    private final static QName _ViewAllEnquiryResponse_QNAME = new QName("http://WSS/", "viewAllEnquiryResponse");
+    private final static QName _AdminNotFoundException_QNAME = new QName("http://WSS/", "AdminNotFoundException");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: wss
@@ -62,235 +44,91 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetWineryByName }
+     * Create an instance of {@link SubmitEnqueryResponse }
      * 
      */
-    public GetWineryByName createGetWineryByName() {
-        return new GetWineryByName();
+    public SubmitEnqueryResponse createSubmitEnqueryResponse() {
+        return new SubmitEnqueryResponse();
     }
 
     /**
-     * Create an instance of {@link RemoveItem }
+     * Create an instance of {@link ProcessEnquiryResponse }
      * 
      */
-    public RemoveItem createRemoveItem() {
-        return new RemoveItem();
+    public ProcessEnquiryResponse createProcessEnquiryResponse() {
+        return new ProcessEnquiryResponse();
     }
 
     /**
-     * Create an instance of {@link GetItemByName }
+     * Create an instance of {@link ViewAllEnquiry }
      * 
      */
-    public GetItemByName createGetItemByName() {
-        return new GetItemByName();
+    public ViewAllEnquiry createViewAllEnquiry() {
+        return new ViewAllEnquiry();
     }
 
     /**
-     * Create an instance of {@link RemoveItemResponse }
+     * Create an instance of {@link EnquiryNotFoundException }
      * 
      */
-    public RemoveItemResponse createRemoveItemResponse() {
-        return new RemoveItemResponse();
+    public EnquiryNotFoundException createEnquiryNotFoundException() {
+        return new EnquiryNotFoundException();
     }
 
     /**
-     * Create an instance of {@link AddCategoryResponse }
+     * Create an instance of {@link ViewAllEnquiryResponse }
      * 
      */
-    public AddCategoryResponse createAddCategoryResponse() {
-        return new AddCategoryResponse();
+    public ViewAllEnquiryResponse createViewAllEnquiryResponse() {
+        return new ViewAllEnquiryResponse();
     }
 
     /**
-     * Create an instance of {@link GetWineryByNameResponse }
+     * Create an instance of {@link AdminNotFoundException }
      * 
      */
-    public GetWineryByNameResponse createGetWineryByNameResponse() {
-        return new GetWineryByNameResponse();
+    public AdminNotFoundException createAdminNotFoundException() {
+        return new AdminNotFoundException();
     }
 
     /**
-     * Create an instance of {@link AddRegion }
+     * Create an instance of {@link ViewOneEnquiry }
      * 
      */
-    public AddRegion createAddRegion() {
-        return new AddRegion();
+    public ViewOneEnquiry createViewOneEnquiry() {
+        return new ViewOneEnquiry();
     }
 
     /**
-     * Create an instance of {@link GetAllWineryResponse }
+     * Create an instance of {@link AccountNotFoundException }
      * 
      */
-    public GetAllWineryResponse createGetAllWineryResponse() {
-        return new GetAllWineryResponse();
+    public AccountNotFoundException createAccountNotFoundException() {
+        return new AccountNotFoundException();
     }
 
     /**
-     * Create an instance of {@link AddCategory }
+     * Create an instance of {@link ProcessEnquiry }
      * 
      */
-    public AddCategory createAddCategory() {
-        return new AddCategory();
+    public ProcessEnquiry createProcessEnquiry() {
+        return new ProcessEnquiry();
     }
 
     /**
-     * Create an instance of {@link AddItem }
+     * Create an instance of {@link SubmitEnquery }
      * 
      */
-    public AddItem createAddItem() {
-        return new AddItem();
+    public SubmitEnquery createSubmitEnquery() {
+        return new SubmitEnquery();
     }
 
     /**
-     * Create an instance of {@link AddWinery }
+     * Create an instance of {@link ViewOneEnquiryResponse }
      * 
      */
-    public AddWinery createAddWinery() {
-        return new AddWinery();
-    }
-
-    /**
-     * Create an instance of {@link GetItemByNameResponse }
-     * 
-     */
-    public GetItemByNameResponse createGetItemByNameResponse() {
-        return new GetItemByNameResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetAllRegion }
-     * 
-     */
-    public GetAllRegion createGetAllRegion() {
-        return new GetAllRegion();
-    }
-
-    /**
-     * Create an instance of {@link AddItemResponse }
-     * 
-     */
-    public AddItemResponse createAddItemResponse() {
-        return new AddItemResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetItemByIdResponse }
-     * 
-     */
-    public GetItemByIdResponse createGetItemByIdResponse() {
-        return new GetItemByIdResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetAllCategoryResponse }
-     * 
-     */
-    public GetAllCategoryResponse createGetAllCategoryResponse() {
-        return new GetAllCategoryResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetAllRegionResponse }
-     * 
-     */
-    public GetAllRegionResponse createGetAllRegionResponse() {
-        return new GetAllRegionResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetWineryById }
-     * 
-     */
-    public GetWineryById createGetWineryById() {
-        return new GetWineryById();
-    }
-
-    /**
-     * Create an instance of {@link AddWineryResponse }
-     * 
-     */
-    public AddWineryResponse createAddWineryResponse() {
-        return new AddWineryResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetAllItemResponse }
-     * 
-     */
-    public GetAllItemResponse createGetAllItemResponse() {
-        return new GetAllItemResponse();
-    }
-
-    /**
-     * Create an instance of {@link ExistException }
-     * 
-     */
-    public ExistException createExistException() {
-        return new ExistException();
-    }
-
-    /**
-     * Create an instance of {@link RemoveWinery }
-     * 
-     */
-    public RemoveWinery createRemoveWinery() {
-        return new RemoveWinery();
-    }
-
-    /**
-     * Create an instance of {@link GetWineryByIdResponse }
-     * 
-     */
-    public GetWineryByIdResponse createGetWineryByIdResponse() {
-        return new GetWineryByIdResponse();
-    }
-
-    /**
-     * Create an instance of {@link RemoveWineryResponse }
-     * 
-     */
-    public RemoveWineryResponse createRemoveWineryResponse() {
-        return new RemoveWineryResponse();
-    }
-
-    /**
-     * Create an instance of {@link AddRegionResponse }
-     * 
-     */
-    public AddRegionResponse createAddRegionResponse() {
-        return new AddRegionResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetAllItem }
-     * 
-     */
-    public GetAllItem createGetAllItem() {
-        return new GetAllItem();
-    }
-
-    /**
-     * Create an instance of {@link GetAllWinery }
-     * 
-     */
-    public GetAllWinery createGetAllWinery() {
-        return new GetAllWinery();
-    }
-
-    /**
-     * Create an instance of {@link GetItemById }
-     * 
-     */
-    public GetItemById createGetItemById() {
-        return new GetItemById();
-    }
-
-    /**
-     * Create an instance of {@link GetAllCategory }
-     * 
-     */
-    public GetAllCategory createGetAllCategory() {
-        return new GetAllCategory();
+    public ViewOneEnquiryResponse createViewOneEnquiryResponse() {
+        return new ViewOneEnquiryResponse();
     }
 
     /**
@@ -310,38 +148,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CommentEntity }
-     * 
-     */
-    public CommentEntity createCommentEntity() {
-        return new CommentEntity();
-    }
-
-    /**
-     * Create an instance of {@link AccountEntity }
-     * 
-     */
-    public AccountEntity createAccountEntity() {
-        return new AccountEntity();
-    }
-
-    /**
-     * Create an instance of {@link ItemEntity }
-     * 
-     */
-    public ItemEntity createItemEntity() {
-        return new ItemEntity();
-    }
-
-    /**
-     * Create an instance of {@link WineryEntity }
-     * 
-     */
-    public WineryEntity createWineryEntity() {
-        return new WineryEntity();
-    }
-
-    /**
      * Create an instance of {@link OrderEntity }
      * 
      */
@@ -355,6 +161,22 @@ public class ObjectFactory {
      */
     public ItemPurchasedEntity createItemPurchasedEntity() {
         return new ItemPurchasedEntity();
+    }
+
+    /**
+     * Create an instance of {@link CommentEntity }
+     * 
+     */
+    public CommentEntity createCommentEntity() {
+        return new CommentEntity();
+    }
+
+    /**
+     * Create an instance of {@link AccountEntity }
+     * 
+     */
+    public AccountEntity createAccountEntity() {
+        return new AccountEntity();
     }
 
     /**
@@ -374,11 +196,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ItemEntity }
+     * 
+     */
+    public ItemEntity createItemEntity() {
+        return new ItemEntity();
+    }
+
+    /**
      * Create an instance of {@link CategoryEntity }
      * 
      */
     public CategoryEntity createCategoryEntity() {
         return new CategoryEntity();
+    }
+
+    /**
+     * Create an instance of {@link WineryEntity }
+     * 
+     */
+    public WineryEntity createWineryEntity() {
+        return new WineryEntity();
     }
 
     /**
@@ -390,264 +228,102 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetItemById }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ViewOneEnquiry }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WSS/", name = "getItemById")
-    public JAXBElement<GetItemById> createGetItemById(GetItemById value) {
-        return new JAXBElement<GetItemById>(_GetItemById_QNAME, GetItemById.class, null, value);
+    @XmlElementDecl(namespace = "http://WSS/", name = "viewOneEnquiry")
+    public JAXBElement<ViewOneEnquiry> createViewOneEnquiry(ViewOneEnquiry value) {
+        return new JAXBElement<ViewOneEnquiry>(_ViewOneEnquiry_QNAME, ViewOneEnquiry.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllCategory }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link AccountNotFoundException }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WSS/", name = "getAllCategory")
-    public JAXBElement<GetAllCategory> createGetAllCategory(GetAllCategory value) {
-        return new JAXBElement<GetAllCategory>(_GetAllCategory_QNAME, GetAllCategory.class, null, value);
+    @XmlElementDecl(namespace = "http://WSS/", name = "AccountNotFoundException")
+    public JAXBElement<AccountNotFoundException> createAccountNotFoundException(AccountNotFoundException value) {
+        return new JAXBElement<AccountNotFoundException>(_AccountNotFoundException_QNAME, AccountNotFoundException.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetWineryByIdResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ProcessEnquiry }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WSS/", name = "getWineryByIdResponse")
-    public JAXBElement<GetWineryByIdResponse> createGetWineryByIdResponse(GetWineryByIdResponse value) {
-        return new JAXBElement<GetWineryByIdResponse>(_GetWineryByIdResponse_QNAME, GetWineryByIdResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://WSS/", name = "processEnquiry")
+    public JAXBElement<ProcessEnquiry> createProcessEnquiry(ProcessEnquiry value) {
+        return new JAXBElement<ProcessEnquiry>(_ProcessEnquiry_QNAME, ProcessEnquiry.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RemoveWineryResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SubmitEnquery }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WSS/", name = "removeWineryResponse")
-    public JAXBElement<RemoveWineryResponse> createRemoveWineryResponse(RemoveWineryResponse value) {
-        return new JAXBElement<RemoveWineryResponse>(_RemoveWineryResponse_QNAME, RemoveWineryResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://WSS/", name = "submitEnquery")
+    public JAXBElement<SubmitEnquery> createSubmitEnquery(SubmitEnquery value) {
+        return new JAXBElement<SubmitEnquery>(_SubmitEnquery_QNAME, SubmitEnquery.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AddRegionResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ViewOneEnquiryResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WSS/", name = "addRegionResponse")
-    public JAXBElement<AddRegionResponse> createAddRegionResponse(AddRegionResponse value) {
-        return new JAXBElement<AddRegionResponse>(_AddRegionResponse_QNAME, AddRegionResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://WSS/", name = "viewOneEnquiryResponse")
+    public JAXBElement<ViewOneEnquiryResponse> createViewOneEnquiryResponse(ViewOneEnquiryResponse value) {
+        return new JAXBElement<ViewOneEnquiryResponse>(_ViewOneEnquiryResponse_QNAME, ViewOneEnquiryResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllItem }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SubmitEnqueryResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WSS/", name = "getAllItem")
-    public JAXBElement<GetAllItem> createGetAllItem(GetAllItem value) {
-        return new JAXBElement<GetAllItem>(_GetAllItem_QNAME, GetAllItem.class, null, value);
+    @XmlElementDecl(namespace = "http://WSS/", name = "submitEnqueryResponse")
+    public JAXBElement<SubmitEnqueryResponse> createSubmitEnqueryResponse(SubmitEnqueryResponse value) {
+        return new JAXBElement<SubmitEnqueryResponse>(_SubmitEnqueryResponse_QNAME, SubmitEnqueryResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllWinery }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ProcessEnquiryResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WSS/", name = "getAllWinery")
-    public JAXBElement<GetAllWinery> createGetAllWinery(GetAllWinery value) {
-        return new JAXBElement<GetAllWinery>(_GetAllWinery_QNAME, GetAllWinery.class, null, value);
+    @XmlElementDecl(namespace = "http://WSS/", name = "processEnquiryResponse")
+    public JAXBElement<ProcessEnquiryResponse> createProcessEnquiryResponse(ProcessEnquiryResponse value) {
+        return new JAXBElement<ProcessEnquiryResponse>(_ProcessEnquiryResponse_QNAME, ProcessEnquiryResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AddWineryResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ViewAllEnquiry }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WSS/", name = "addWineryResponse")
-    public JAXBElement<AddWineryResponse> createAddWineryResponse(AddWineryResponse value) {
-        return new JAXBElement<AddWineryResponse>(_AddWineryResponse_QNAME, AddWineryResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://WSS/", name = "viewAllEnquiry")
+    public JAXBElement<ViewAllEnquiry> createViewAllEnquiry(ViewAllEnquiry value) {
+        return new JAXBElement<ViewAllEnquiry>(_ViewAllEnquiry_QNAME, ViewAllEnquiry.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllItemResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link EnquiryNotFoundException }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WSS/", name = "getAllItemResponse")
-    public JAXBElement<GetAllItemResponse> createGetAllItemResponse(GetAllItemResponse value) {
-        return new JAXBElement<GetAllItemResponse>(_GetAllItemResponse_QNAME, GetAllItemResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://WSS/", name = "EnquiryNotFoundException")
+    public JAXBElement<EnquiryNotFoundException> createEnquiryNotFoundException(EnquiryNotFoundException value) {
+        return new JAXBElement<EnquiryNotFoundException>(_EnquiryNotFoundException_QNAME, EnquiryNotFoundException.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ExistException }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ViewAllEnquiryResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WSS/", name = "ExistException")
-    public JAXBElement<ExistException> createExistException(ExistException value) {
-        return new JAXBElement<ExistException>(_ExistException_QNAME, ExistException.class, null, value);
+    @XmlElementDecl(namespace = "http://WSS/", name = "viewAllEnquiryResponse")
+    public JAXBElement<ViewAllEnquiryResponse> createViewAllEnquiryResponse(ViewAllEnquiryResponse value) {
+        return new JAXBElement<ViewAllEnquiryResponse>(_ViewAllEnquiryResponse_QNAME, ViewAllEnquiryResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RemoveWinery }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link AdminNotFoundException }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://WSS/", name = "removeWinery")
-    public JAXBElement<RemoveWinery> createRemoveWinery(RemoveWinery value) {
-        return new JAXBElement<RemoveWinery>(_RemoveWinery_QNAME, RemoveWinery.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllRegionResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://WSS/", name = "getAllRegionResponse")
-    public JAXBElement<GetAllRegionResponse> createGetAllRegionResponse(GetAllRegionResponse value) {
-        return new JAXBElement<GetAllRegionResponse>(_GetAllRegionResponse_QNAME, GetAllRegionResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetWineryById }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://WSS/", name = "getWineryById")
-    public JAXBElement<GetWineryById> createGetWineryById(GetWineryById value) {
-        return new JAXBElement<GetWineryById>(_GetWineryById_QNAME, GetWineryById.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AddItemResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://WSS/", name = "addItemResponse")
-    public JAXBElement<AddItemResponse> createAddItemResponse(AddItemResponse value) {
-        return new JAXBElement<AddItemResponse>(_AddItemResponse_QNAME, AddItemResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetItemByIdResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://WSS/", name = "getItemByIdResponse")
-    public JAXBElement<GetItemByIdResponse> createGetItemByIdResponse(GetItemByIdResponse value) {
-        return new JAXBElement<GetItemByIdResponse>(_GetItemByIdResponse_QNAME, GetItemByIdResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllCategoryResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://WSS/", name = "getAllCategoryResponse")
-    public JAXBElement<GetAllCategoryResponse> createGetAllCategoryResponse(GetAllCategoryResponse value) {
-        return new JAXBElement<GetAllCategoryResponse>(_GetAllCategoryResponse_QNAME, GetAllCategoryResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AddItem }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://WSS/", name = "addItem")
-    public JAXBElement<AddItem> createAddItem(AddItem value) {
-        return new JAXBElement<AddItem>(_AddItem_QNAME, AddItem.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AddWinery }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://WSS/", name = "addWinery")
-    public JAXBElement<AddWinery> createAddWinery(AddWinery value) {
-        return new JAXBElement<AddWinery>(_AddWinery_QNAME, AddWinery.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetItemByNameResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://WSS/", name = "getItemByNameResponse")
-    public JAXBElement<GetItemByNameResponse> createGetItemByNameResponse(GetItemByNameResponse value) {
-        return new JAXBElement<GetItemByNameResponse>(_GetItemByNameResponse_QNAME, GetItemByNameResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllRegion }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://WSS/", name = "getAllRegion")
-    public JAXBElement<GetAllRegion> createGetAllRegion(GetAllRegion value) {
-        return new JAXBElement<GetAllRegion>(_GetAllRegion_QNAME, GetAllRegion.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AddCategoryResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://WSS/", name = "addCategoryResponse")
-    public JAXBElement<AddCategoryResponse> createAddCategoryResponse(AddCategoryResponse value) {
-        return new JAXBElement<AddCategoryResponse>(_AddCategoryResponse_QNAME, AddCategoryResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetWineryByNameResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://WSS/", name = "getWineryByNameResponse")
-    public JAXBElement<GetWineryByNameResponse> createGetWineryByNameResponse(GetWineryByNameResponse value) {
-        return new JAXBElement<GetWineryByNameResponse>(_GetWineryByNameResponse_QNAME, GetWineryByNameResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AddRegion }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://WSS/", name = "addRegion")
-    public JAXBElement<AddRegion> createAddRegion(AddRegion value) {
-        return new JAXBElement<AddRegion>(_AddRegion_QNAME, AddRegion.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllWineryResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://WSS/", name = "getAllWineryResponse")
-    public JAXBElement<GetAllWineryResponse> createGetAllWineryResponse(GetAllWineryResponse value) {
-        return new JAXBElement<GetAllWineryResponse>(_GetAllWineryResponse_QNAME, GetAllWineryResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AddCategory }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://WSS/", name = "addCategory")
-    public JAXBElement<AddCategory> createAddCategory(AddCategory value) {
-        return new JAXBElement<AddCategory>(_AddCategory_QNAME, AddCategory.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetWineryByName }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://WSS/", name = "getWineryByName")
-    public JAXBElement<GetWineryByName> createGetWineryByName(GetWineryByName value) {
-        return new JAXBElement<GetWineryByName>(_GetWineryByName_QNAME, GetWineryByName.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RemoveItem }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://WSS/", name = "removeItem")
-    public JAXBElement<RemoveItem> createRemoveItem(RemoveItem value) {
-        return new JAXBElement<RemoveItem>(_RemoveItem_QNAME, RemoveItem.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetItemByName }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://WSS/", name = "getItemByName")
-    public JAXBElement<GetItemByName> createGetItemByName(GetItemByName value) {
-        return new JAXBElement<GetItemByName>(_GetItemByName_QNAME, GetItemByName.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RemoveItemResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://WSS/", name = "removeItemResponse")
-    public JAXBElement<RemoveItemResponse> createRemoveItemResponse(RemoveItemResponse value) {
-        return new JAXBElement<RemoveItemResponse>(_RemoveItemResponse_QNAME, RemoveItemResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://WSS/", name = "AdminNotFoundException")
+    public JAXBElement<AdminNotFoundException> createAdminNotFoundException(AdminNotFoundException value) {
+        return new JAXBElement<AdminNotFoundException>(_AdminNotFoundException_QNAME, AdminNotFoundException.class, null, value);
     }
 
 }
