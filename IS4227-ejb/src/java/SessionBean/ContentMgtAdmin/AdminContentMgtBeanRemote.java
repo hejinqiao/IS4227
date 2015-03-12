@@ -48,4 +48,24 @@ public interface AdminContentMgtBeanRemote {
     public WineryEntity getWineryByName(String wineryName);
     
     boolean removeWinery (String wineryId) throws ExistException;
+    
+    RegionEntity getRegionById (String regionId) throws ExistException;
+    
+    public RegionEntity getRegionByName(String regionName);
+    
+    boolean removeRegion (String regionId) throws ExistException;
+    
+    CategoryEntity getCategoryById (String categoryId) throws ExistException;
+    
+    public CategoryEntity getCategoryByName(String categoryName);
+    
+    boolean removeCategory (String categoryId) throws ExistException;
+    
+    public boolean updateItem(Long id, String cateName, String regionName, String wineryName, String itemName, String vitage, Calendar expiringDate, String tastingNote) throws ExistException;
+    
+    public boolean updateWinery(Long id, String name, String address, String contact) throws ExistException;
+    
+    public boolean updateRegion(Long id, String name, String country, String spec) throws ExistException;
+    
+    public boolean updateCategory(Long id, String name, String spec) throws ExistException;
 }

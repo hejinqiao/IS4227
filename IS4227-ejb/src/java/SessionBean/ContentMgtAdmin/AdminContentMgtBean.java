@@ -9,7 +9,6 @@ import Entity.ProductMgt.CategoryEntity;
 import Entity.ProductMgt.ItemEntity;
 import Entity.ProductMgt.RegionEntity;
 import Entity.ProductMgt.WineryEntity;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
@@ -180,5 +179,139 @@ public class AdminContentMgtBean implements AdminContentMgtBeanRemote {
         return true;
     }
     
-    //public CategoryEntity 
+    @Override
+    public RegionEntity getRegionById(String regionId) throws ExistException {
+        region = em.find(RegionEntity.class, regionId);
+        return region;
+    }
+ 
+    @Override
+    public RegionEntity getRegionByName(String regionName){
+        Query q = em.createQuery("SELECT m FROM RegionEntity m WHERE m.regionName=?1");
+        q.setParameter(1, regionName);
+        return (RegionEntity) q.getResultList().get(0);
+    }
+
+    @Override
+    public boolean removeRegion(String regionID) throws ExistException {
+        region = em.find(RegionEntity.class, regionID);
+        System.err.println("remove region: " + region.getId());
+        if (region == null) {
+            throw new ExistException("Region does not exist!");
+        }
+        List itemList = getAllItem();
+        Iterator<ItemEntity> itemIterator = itemList.iterator();
+        while (itemIterator.hasNext()) {
+            if (itemIterator.next().getRegion().equals(region)) {
+                throw new ExistException("Region is currently in use, you cannot delete it!");
+            }
+        }
+        em.remove(region);
+        return true;
+    }
+    
+        @Override
+    public CategoryEntity getCategoryById(String categoryId) throws ExistException {
+        category = em.find(CategoryEntity.class, categoryId);
+        return category;
+    }
+ 
+    @Override
+    public CategoryEntity getCategoryByName(String categoryName){
+        Query q = em.createQuery("SELECT m FROM CategoryEntity m WHERE m.categoryName=?1");
+        q.setParameter(1, categoryName);
+        return (CategoryEntity) q.getResultList().get(0);
+    }
+
+    @Override
+    public boolean removeCategory(String categoryID) throws ExistException {
+        category = em.find(CategoryEntity.class, categoryID);
+        System.err.println("remove category: " + category.getId());
+        if (category == null) {
+            throw new ExistException("Category does not exist!");
+        }
+        List itemList = getAllItem();
+        Iterator<ItemEntity> itemIterator = itemList.iterator();
+        while (itemIterator.hasNext()) {
+            if (itemIterator.next().getCategory().equals(category)) {
+                throw new ExistException("Category is currently in use, you cannot delete it!");
+            }
+        }
+        em.remove(category);
+        return true;
+    }
+    
+    @Override
+    public boolean updateItem(Long id, String cateName, String regionName, String wineryName, String itemName, String vitage, Calendar expiringDate, String tastingNote) throws ExistException {
+        item = em.find(ItemEntity.class, id);
+        if (item == null){
+            throw new ExistException("Item does not exist!");
+        } else {
+            item.setItemName(itemName);
+            item.setVitage(vitage);
+            item.setTastingNote(tastingNote);
+            item.setExpiringDate(expiringDate);
+            
+            Query wineryQ = em.createQuery("SELECT w FROM WineryEntity w WHERE w.wineryName=?1");
+            wineryQ.setParameter(1, wineryName);
+            WineryEntity w = (WineryEntity) wineryQ.getResultList().get(0);
+            item.setWinery(w);
+        
+            Query regionQ = em.createQuery("SELECT w FROM RegionEntity w WHERE w.regionName=?1");
+            regionQ.setParameter(1, regionName);
+            RegionEntity r = (RegionEntity) regionQ.getResultList().get(0);
+            item.setRegion(r);
+        
+            Query cateQ = em.createQuery("SELECT w FROM CategoryEntity w WHERE w.categoryName=?1");
+            cateQ.setParameter(1, cateName);
+            CategoryEntity c = (CategoryEntity) cateQ.getResultList().get(0);
+            item.setCategory(c);
+        
+            em.persist(item);
+            
+            return true;
+        }
+    }    
+
+    @Override
+    public boolean updateWinery(Long id, String name, String address, String contact) throws ExistException {
+        winery = em.find(WineryEntity.class, id);
+        if (winery == null){
+            throw new ExistException("Winery does not exist!");
+        } else {
+            winery.setWineryAddress(address);
+            winery.setWineryContact(contact);
+            winery.setWineryName(name);
+            em.persist(winery);
+            return true;
+        }
+    }
+
+    @Override
+    public boolean updateRegion(Long id, String name, String country, String spec) throws ExistException {
+        region = em.find(RegionEntity.class, id);
+        if (region == null){
+            throw new ExistException("Region does not exist!");
+        } else {
+            region.setCountry(country);
+            region.setRegionName(name);
+            region.setRegionSpec(spec);
+            em.persist(region);
+            return true;
+        }
+    }
+
+    @Override
+    public boolean updateCategory(Long id, String name, String spec) throws ExistException {
+      category = em.find(CategoryEntity.class, id);
+        if (category == null){
+            throw new ExistException("Category does not exist!");
+        } else {
+            category.setCategoryName(name);
+            category.setCategorySpec(spec);
+            em.persist(category);
+            return true;
+        }
+    }
+
 }
