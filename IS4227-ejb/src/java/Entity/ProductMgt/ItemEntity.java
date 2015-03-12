@@ -42,7 +42,8 @@ public class ItemEntity implements Serializable {
     private WineryEntity winery;
     @OneToOne
     private ItemPurchasedEntity itemPurchased;
-    @OneToMany(mappedBy="item")
+    
+    @OneToMany
     private List<CommentEntity> commentList;
 
     public ItemEntity() {

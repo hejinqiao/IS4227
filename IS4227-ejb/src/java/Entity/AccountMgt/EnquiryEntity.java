@@ -11,8 +11,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 
 /**
@@ -27,8 +25,7 @@ public class EnquiryEntity implements Serializable {
     private Long id;
     
     //enquiry -- account : M --> 1
-    @ManyToOne
-    private AccountEntity author;
+    private Long accountId;
     
            
     private String content;
@@ -39,9 +36,9 @@ public class EnquiryEntity implements Serializable {
     public EnquiryEntity(){
     }
     
-    public EnquiryEntity(AccountEntity author,String content, Calendar date, Boolean replied){
+    public EnquiryEntity(Long accountId,String content, Calendar date, Boolean replied){
     
-        this.author=author;
+        this.accountId = accountId;
         this.content=content;
         this.replied = replied;
         this.date=date;
@@ -55,14 +52,13 @@ public class EnquiryEntity implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-    
-    
-    public AccountEntity getAuthor() {
-        return author;
+
+    public Long getAccountId() {
+        return accountId;
     }
 
-    public void setAuthor(AccountEntity author) {
-        this.author = author;
+    public void setAccountId(Long accountId) {
+        this.accountId = accountId;
     }
 
     public String getContent() {
@@ -108,8 +104,7 @@ public class EnquiryEntity implements Serializable {
         }
         return true;
     }
-
-    
+   
     @Override
     public String toString() {
         return "Entity.AccountMgt.EnquiryEntity[ id=" + id + " ]";

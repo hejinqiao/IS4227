@@ -5,6 +5,7 @@ import Entity.ProductMgt.CommentEntity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import static javax.persistence.CascadeType.ALL;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -54,11 +55,10 @@ public class AccountEntity implements Serializable {
     @OneToOne
     private ShoppingCartEntity shoppingcart;
 
-    @OneToMany(mappedBy="author")
+    @OneToMany
     private List<EnquiryEntity> enquiryList;
     
-    @XmlTransient
-    @OneToMany(mappedBy="account")
+    @OneToMany(cascade = ALL)
     private List<CommentEntity> commentList;
     
     public  AccountEntity(){

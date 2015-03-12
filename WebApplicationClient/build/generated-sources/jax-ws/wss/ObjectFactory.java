@@ -132,99 +132,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ShoppingCartEntity }
-     * 
-     */
-    public ShoppingCartEntity createShoppingCartEntity() {
-        return new ShoppingCartEntity();
-    }
-
-    /**
-     * Create an instance of {@link TransactionEntity }
-     * 
-     */
-    public TransactionEntity createTransactionEntity() {
-        return new TransactionEntity();
-    }
-
-    /**
-     * Create an instance of {@link OrderEntity }
-     * 
-     */
-    public OrderEntity createOrderEntity() {
-        return new OrderEntity();
-    }
-
-    /**
-     * Create an instance of {@link ItemPurchasedEntity }
-     * 
-     */
-    public ItemPurchasedEntity createItemPurchasedEntity() {
-        return new ItemPurchasedEntity();
-    }
-
-    /**
-     * Create an instance of {@link CommentEntity }
-     * 
-     */
-    public CommentEntity createCommentEntity() {
-        return new CommentEntity();
-    }
-
-    /**
-     * Create an instance of {@link AccountEntity }
-     * 
-     */
-    public AccountEntity createAccountEntity() {
-        return new AccountEntity();
-    }
-
-    /**
      * Create an instance of {@link EnquiryEntity }
      * 
      */
     public EnquiryEntity createEnquiryEntity() {
         return new EnquiryEntity();
-    }
-
-    /**
-     * Create an instance of {@link RegionEntity }
-     * 
-     */
-    public RegionEntity createRegionEntity() {
-        return new RegionEntity();
-    }
-
-    /**
-     * Create an instance of {@link ItemEntity }
-     * 
-     */
-    public ItemEntity createItemEntity() {
-        return new ItemEntity();
-    }
-
-    /**
-     * Create an instance of {@link CategoryEntity }
-     * 
-     */
-    public CategoryEntity createCategoryEntity() {
-        return new CategoryEntity();
-    }
-
-    /**
-     * Create an instance of {@link WineryEntity }
-     * 
-     */
-    public WineryEntity createWineryEntity() {
-        return new WineryEntity();
-    }
-
-    /**
-     * Create an instance of {@link PurchaseEntity }
-     * 
-     */
-    public PurchaseEntity createPurchaseEntity() {
-        return new PurchaseEntity();
     }
 
     /**

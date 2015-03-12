@@ -163,7 +163,8 @@ public class AdminContentMgtBean implements AdminContentMgtBeanRemote {
 
     @Override
     public boolean removeWinery(String wineryID) throws ExistException {
-        winery = em.find(WineryEntity.class, wineryID);
+        Long id = Long.parseLong(wineryID);
+        winery = em.find(WineryEntity.class, id);
         System.err.println("remove winery: " + winery.getId());
         if (winery == null) {
             throw new ExistException("Winery does not exist!");
@@ -194,7 +195,8 @@ public class AdminContentMgtBean implements AdminContentMgtBeanRemote {
 
     @Override
     public boolean removeRegion(String regionID) throws ExistException {
-        region = em.find(RegionEntity.class, regionID);
+        Long id = Long.parseLong(regionID);
+        region = em.find(RegionEntity.class, id);
         System.err.println("remove region: " + region.getId());
         if (region == null) {
             throw new ExistException("Region does not exist!");
@@ -225,7 +227,8 @@ public class AdminContentMgtBean implements AdminContentMgtBeanRemote {
 
     @Override
     public boolean removeCategory(String categoryID) throws ExistException {
-        category = em.find(CategoryEntity.class, categoryID);
+        Long id = Long.parseLong(categoryID);
+        category = em.find(CategoryEntity.class, id);
         System.err.println("remove category: " + category.getId());
         if (category == null) {
             throw new ExistException("Category does not exist!");

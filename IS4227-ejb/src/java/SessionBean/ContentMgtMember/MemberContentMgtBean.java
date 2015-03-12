@@ -91,8 +91,8 @@ public class MemberContentMgtBean implements MemberContentMgtBeanLocal {
         }
         
         CommentEntity comment = new CommentEntity(rating, content);
-        comment.setAccount(acc);
-        comment.setItem(item);
+        comment.setAccountId(accountId);
+        comment.setItemId(itemId);
         
         if (acc.getCommentList().isEmpty()){
             ArrayList<CommentEntity> commentList = new ArrayList<> ();
@@ -121,7 +121,10 @@ public class MemberContentMgtBean implements MemberContentMgtBeanLocal {
         if (acc == null) {
             throw new AccountNotFoundException("Account cannot found!");
         }
-        return (ArrayList<CommentEntity>) acc.getCommentList();
+        Query q;
+        q = em.createQuery("select i from CommentEntity i where i.accountId = ?1");
+        q.setParameter(1, accountId);
+        return (ArrayList<CommentEntity>) q.getResultList();
     }
     
     @Override
@@ -134,7 +137,7 @@ public class MemberContentMgtBean implements MemberContentMgtBeanLocal {
             throw new CommentNotFoundException("No comment can be found!");
         }
         Query q;
-        q = em.createQuery("select i from CommentEntity i where i.item.id = ?1");
+        q = em.createQuery("select i from CommentEntity i where i.itemId = ?1");
         q.setParameter(1, itemId);
         return q.getResultList();
     }

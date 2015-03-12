@@ -34,7 +34,7 @@ public class EnquiryMgtBean implements EnquiryMgtBeanLocal {
         if (acc == null) {
             throw new AccountNotFoundException("Account cannot found!");
         }else{
-            EnquiryEntity enquiry = new EnquiryEntity(acc, content, Calendar.getInstance(), false);
+            EnquiryEntity enquiry = new EnquiryEntity(accountId, content, Calendar.getInstance(), false);
             
             if (acc.getEnquiryList().isEmpty()){
             ArrayList<EnquiryEntity> enquiryList = new ArrayList<> ();
@@ -98,7 +98,8 @@ public class EnquiryMgtBean implements EnquiryMgtBeanLocal {
             EnquiryEntity enquiry = (EnquiryEntity) q.getResultList().get(0);
             
             //send email to user
-            String userEmailAddress = enquiry.getAuthor().getEmail();
+            AccountEntity author = em.find(AccountEntity.class, enquiry.getAccountId());
+            String userEmailAddress = author.getEmail();
             //replyContent is passed as parameter
                        
             enquiry.setReplied(Boolean.TRUE);

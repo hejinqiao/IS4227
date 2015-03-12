@@ -1326,7 +1326,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
                         <div class="device">
 			   <div class="course_demo">
-                               <table BORDER="1" CELLPADDING="3" CELLSPACING="1">
+                               <table BORDER="1" CELLPADDING="5" CELLSPACING="5">
                                    <thead>
                                        <tr>
                                            <th>

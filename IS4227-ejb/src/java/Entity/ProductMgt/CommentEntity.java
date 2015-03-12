@@ -7,11 +7,13 @@ package Entity.ProductMgt;
 
 import Entity.AccountMgt.AccountEntity;
 import java.io.Serializable;
+import static javax.persistence.CascadeType.ALL;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -27,10 +29,9 @@ public class CommentEntity implements Serializable {
     private Double rating;
     private String contents;
     
-    @ManyToOne
-    private AccountEntity account;
-    @ManyToOne
-    private ItemEntity item;
+    private Long accountId;
+    
+    private Long itemId;
 
     public CommentEntity() {
     }
@@ -56,20 +57,20 @@ public class CommentEntity implements Serializable {
         this.contents = contents;
     }
 
-    public AccountEntity getAccount() {
-        return account;
+    public Long getAccountId() {
+        return accountId;
     }
 
-    public void setAccount(AccountEntity account) {
-        this.account = account;
+    public void setAccountId(Long accountId) {
+        this.accountId = accountId;
     }
 
-    public ItemEntity getItem() {
-        return item;
+    public Long getItemId() {
+        return itemId;
     }
 
-    public void setItem(ItemEntity item) {
-        this.item = item;
+    public void setItemId(Long itemId) {
+        this.itemId = itemId;
     }
 
     public Long getId() {
