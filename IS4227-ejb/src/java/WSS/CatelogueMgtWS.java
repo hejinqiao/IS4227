@@ -100,4 +100,93 @@ public class CatelogueMgtWS {
         return ejbRef.removeWinery(wineryId);
     }
     
+    @WebMethod(operationName = "getWineryById")
+    public RegionEntity getRegionById(@WebParam(name = "regionId") String regionId) throws ExistException {
+        return ejbRef.getRegionById(regionId);
+    }
+
+    @WebMethod(operationName = "getRegionByName")
+    public RegionEntity getRegionByName(@WebParam(name = "regionName") String regionName) {
+        return ejbRef.getRegionByName(regionName);
+    }
+
+    @WebMethod(operationName = "removeRegion")
+    public boolean removeRegion(@WebParam(name = "regionId") String regionId) throws ExistException {
+        return ejbRef.removeRegion(regionId);
+    }
+    
+     @WebMethod(operationName = "getCategoryById")
+    public CategoryEntity getCategoryById(@WebParam(name = "categoryId") String categoryId) throws ExistException {
+        return ejbRef.getCategoryById(categoryId);
+    }
+
+    @WebMethod(operationName = "getCategoryByName")
+    public CategoryEntity getCategoryByName(@WebParam(name = "categoryName") String categoryName) {
+        return ejbRef.getCategoryByName(categoryName);
+    }
+
+    @WebMethod(operationName = "removeCategory")
+    public boolean removeCategory(@WebParam(name = "categoryId") String categoryId) throws ExistException {
+        return ejbRef.removeCategory(categoryId);
+    }
+
+    /**
+     * Web service operation
+     * @param id
+     * @param cateName
+     * @param regionName
+     * @param wineryName
+     * @param itemName
+     * @param vitage
+     * @param expiringDate
+     * @param tastingNote
+     * @return 
+     * @throws util.exception.ExistException 
+     */
+    @WebMethod(operationName = "updateItem")
+    public boolean updateItem(@WebParam(name = "id") Long id, @WebParam(name = "cateName") String cateName, @WebParam(name = "regionName") String regionName, @WebParam(name = "wineryName") String wineryName, @WebParam(name = "itemName") String itemName, @WebParam(name = "vitage") String vitage, @WebParam(name = "expiringDate") Calendar expiringDate, @WebParam(name = "tastingNote") String tastingNote) throws ExistException {
+        return ejbRef.updateItem(id, cateName, regionName, wineryName, itemName, vitage, expiringDate, tastingNote);
+    }
+
+    /**
+     * Web service operation
+     * @param id
+     * @param name
+     * @param address
+     * @param contact
+     * @return 
+     * @throws util.exception.ExistException 
+     */
+    @WebMethod(operationName = "updateWinery")
+    public boolean updateWinery(@WebParam(name = "id") Long id, @WebParam(name = "name") String name, @WebParam(name = "address") String address, @WebParam(name = "contact") String contact) throws ExistException {
+        return ejbRef.updateWinery(id, name, address, contact);
+    }
+    
+    /**
+     * Web service operation
+     * @param id
+     * @param name
+     * @param country
+     * @param spec
+     * @return 
+     * @throws util.exception.ExistException
+     */
+    @WebMethod(operationName = "updateRegion")
+    public boolean updateRegion(@WebParam(name = "id") Long id, @WebParam(name = "name") String name, @WebParam(name = "country") String country, @WebParam(name = "spec") String spec) throws ExistException {
+        return ejbRef.updateRegion(id, name, country, spec);
+    }
+
+    /**
+     * Web service operation
+     * @param id
+     * @param name
+     * @param spec
+     * @return 
+     * @throws util.exception.ExistException 
+     */
+    @WebMethod(operationName = "updateCategory")
+    public boolean updateCategory(@WebParam(name = "id") Long id, @WebParam(name = "name") String name, @WebParam(name = "spec") String spec) throws ExistException {
+        return ejbRef.updateCategory(id, name, spec);
+    }
+    
 }
