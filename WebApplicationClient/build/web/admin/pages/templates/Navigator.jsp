@@ -79,6 +79,12 @@
                                     <a href="flot.jsp">Categories</a>
                                 </li>
                                 <li>
+                                    <a href="winery.jsp">Wineries</a>
+                                </li>
+                                <li>
+                                    <a href="region.jsp">Regions</a>
+                                </li>
+                                <li>
                                     <a href="morris.jsp">Items</a>
                                 </li>
                             </ul>

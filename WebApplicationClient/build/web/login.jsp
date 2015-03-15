@@ -376,7 +376,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <div class="clearfix"></div>
                                 <div class="sky-form">
                                 </div>
-                                <div class="botton1">
+                                <div class="botton8">
                                     <input type="submit" value="LOGIN" class="botton">
                                 </div>
                             </form>
@@ -386,22 +386,45 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 
                                 <h4>signup</h4>
                                 New customer?
-                                <div class="botton1">
-
-                                    <input type="submit" value="Create Account" class="botton">
+                                <div class="clearfix"></div>
+                                <div class="sky-form">
+                                </div>
+                                <div class="botton5">
+                                    <form action="register.jsp">
+                                        <input type="submit" value="Create Account" class="botton100" >
+                                    </form>
 
                                 </div>
                                 
                                 <div class="forgetit">
-                                <a href="#">Forgot your password?</a>
-                                <input type="text" class="text" value="Enter email to reset it" onfocus="this.value = '';" onblur="if (this.value == 'Enter email to reset it') {
-                                                    this.value = 'Enter email to reset it';
-                                                }">
-                                <div class="botton1">
+                                    <script type="text/javascript">
+
+                                function checkReset(form)
+                                {
+
+                                    if (form.email1.value == "") {
+                                        alert("Please enter your email");
+                                        form.email1.focus();
+                                        return false;
+                                    }
+                                    return true;
+                                }
+
+                            </script>
+                                    <form action="reset_result.jsp" method="POST" onsubmit="return checkReset(this);">
+                                <h4>Forgot Password?</h4>
+                                Enter email to reset it
+                                <input type="text" class="text" name="email1">
+                                <div class="clearfix"></div>
+                                <div class="sky-form">
+                                    <br>
+                                </div>
+                                <div class="botton5">
 
                                     <input type="submit" value="SUBMIT" class="botton">
 
                                 </div>
+                                    </form>
                             </div>
                                 
                             </div>

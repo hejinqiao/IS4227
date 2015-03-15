@@ -10,30 +10,30 @@
 <message name="registerResponse">
 <part name="parameters" element="tns:registerResponse"/>
 </message>
-<message name="login">
-<part name="parameters" element="tns:login"/>
-</message>
-<message name="loginResponse">
-<part name="parameters" element="tns:loginResponse"/>
-</message>
 <message name="hello">
 <part name="parameters" element="tns:hello"/>
 </message>
 <message name="helloResponse">
 <part name="parameters" element="tns:helloResponse"/>
 </message>
+<message name="login">
+<part name="parameters" element="tns:login"/>
+</message>
+<message name="loginResponse">
+<part name="parameters" element="tns:loginResponse"/>
+</message>
 <portType name="AccountMgtWS">
 <operation name="register">
 <input wsam:Action="http://WSS/AccountMgtWS/registerRequest" message="tns:register"/>
 <output wsam:Action="http://WSS/AccountMgtWS/registerResponse" message="tns:registerResponse"/>
 </operation>
-<operation name="login">
-<input wsam:Action="http://WSS/AccountMgtWS/loginRequest" message="tns:login"/>
-<output wsam:Action="http://WSS/AccountMgtWS/loginResponse" message="tns:loginResponse"/>
-</operation>
 <operation name="hello">
 <input wsam:Action="http://WSS/AccountMgtWS/helloRequest" message="tns:hello"/>
 <output wsam:Action="http://WSS/AccountMgtWS/helloResponse" message="tns:helloResponse"/>
+</operation>
+<operation name="login">
+<input wsam:Action="http://WSS/AccountMgtWS/loginRequest" message="tns:login"/>
+<output wsam:Action="http://WSS/AccountMgtWS/loginResponse" message="tns:loginResponse"/>
 </operation>
 </portType>
 <binding name="AccountMgtWSPortBinding" type="tns:AccountMgtWS">
@@ -47,7 +47,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="login">
+<operation name="hello">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -56,7 +56,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="hello">
+<operation name="login">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

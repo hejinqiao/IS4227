@@ -5,16 +5,18 @@
  */
 package SessionBean;
 
+import EmailManager.EmailManager;
 import Entity.AccountMgt.AccountEntity;
 import Entity.AccountMgt.AdminAccountEntity;
 import Entity.AccountMgt.PurchaseEntity;
 import Entity.AccountMgt.TransactionEntity;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
-import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -33,8 +35,8 @@ public class AccountMgtBean {
     @PersistenceContext
     private EntityManager em;
 
-    private  CryptographicHelper cryptographicHelper = CryptographicHelper.getInstanceOf();
-    
+    private CryptographicHelper cryptographicHelper = CryptographicHelper.getInstanceOf();
+
     public boolean checkAccount(String email) {
         Query query = em.createQuery("SELECT a FROM AccountEntity AS a WHERE a.email=:email").setParameter("email", email);
         List<AccountEntity> accountList = query.getResultList();
@@ -46,41 +48,7 @@ public class AccountMgtBean {
             return true;
         }
     }
-    
-    public boolean changePassword(String email, String newPwd) {
-        ArrayList<String> al = new ArrayList<String>();
-        Query query = em.createQuery("SELECT a FROM AccountEntity AS a WHERE a.email=:email").setParameter("email", email);
-        List<AccountEntity> accountList = query.getResultList();
-        AccountEntity accountEntity = accountList.get(0);
-        System.out.println("old: " + newPwd);
 
-        AccountEntity acc = em.find(AccountEntity.class, accountEntity.getId());
-        acc.setPassword(newPwd);
-        em.persist(acc);
-        em.flush();
-        System.out.println("new pwd: " + acc.getPassword());
-        return true;
-
-    }
-
-    public ArrayList<String> editAccountInfo(String email, String name, String address, String contactNumber) {
-        ArrayList<String> al = new ArrayList<String>();
-        Query query = em.createQuery("SELECT a FROM AccountEntity AS a WHERE a.email=:email").setParameter("email", email);
-        List<AccountEntity> accountList = query.getResultList();
-        AccountEntity accountEntity = accountList.get(0);
-        accountEntity.setName(name);
-        em.persist(accountEntity);
-        em.flush();
-
-        al.add("" + accountEntity.getId());
-        al.add(accountEntity.getName());
-        al.add(accountEntity.getEmail());
-
-        //al.add("Phone Number: " + accountEntity.getContactNo());
-        return al;
-
-    }
-    
     public boolean checkAdminAccount(String adminId) {
         Query query = em.createQuery("SELECT a FROM AdminAccountEntity AS a WHERE a.adminId=:adminId").setParameter("adminId", adminId);
         List<AdminAccountEntity> adminList = query.getResultList();
@@ -97,16 +65,18 @@ public class AccountMgtBean {
         if (checkAccount(email)) {
             return false;
         } else {
-            
+
             String hashedpwd = cryptographicHelper.doMD5Hashing(Password);
-       
+
             AccountEntity accountEntity = new AccountEntity(email, hashedpwd, name, gender);
 
             // Generate and Set Activation Code for New Member
-            String activationCode = UUID.randomUUID().toString();
+            String activationCode = UUID.randomUUID().toString().substring(24);
             accountEntity.setActivationCode(activationCode);
 
             em.persist(accountEntity);
+            EmailManager emailManager=new EmailManager();
+            emailManager.emailActivationCode(name, email, activationCode);
 
             return true;
         }
@@ -168,9 +138,9 @@ public class AccountMgtBean {
                 if (!accountEntity.getIsMember()) {
                     return "LOCKED";//member locked, please activate first
                 } else {
-                    String encryptedPassword = cryptographicHelper.doMD5Hashing(Password);
+                     String encryptedPassword = cryptographicHelper.doMD5Hashing(Password);
                     if (accountEntity.getPassword().equals(encryptedPassword)) {
-                        return "YES";//login successfully
+                        return "YES " + accountEntity.getId() + " " + accountEntity.getEmail();//login successfully
                     } else {
                         return "WRONG";//wrong password
                     }
@@ -180,6 +150,43 @@ public class AccountMgtBean {
                 return "BLOCKED";//member was blocked/deleted by admin
             }
         }
+    }
+
+    public boolean changePassword(String email, String newPwd) {
+        ArrayList<String> al = new ArrayList<String>();
+        Query query = em.createQuery("SELECT a FROM AccountEntity AS a WHERE a.email=:email").setParameter("email", email);
+        List<AccountEntity> accountList = query.getResultList();
+        AccountEntity accountEntity = accountList.get(0);
+        String hashedpwd = cryptographicHelper.doMD5Hashing(newPwd);
+        accountEntity.setPassword(hashedpwd);
+        em.persist(accountEntity);
+        em.flush();
+        return true;
+
+    }
+
+    public ArrayList<String> editAccountInfo(String email, String name, String address, String contactNumber) {
+        ArrayList<String> al = new ArrayList<String>();
+        Query query = em.createQuery("SELECT a FROM AccountEntity AS a WHERE a.email=:email").setParameter("email", email);
+        List<AccountEntity> accountList = query.getResultList();
+        AccountEntity accountEntity = accountList.get(0);
+        accountEntity.setName(name);
+        accountEntity.setAddress(address);
+        accountEntity.setContactNumber(contactNumber);
+        em.persist(accountEntity);
+        em.flush();
+
+       String[] temp=accountEntity.getName().split(", ");
+       System.out.println(temp[0]+"    "+temp[1]);
+        al.add(temp[0]);
+        al.add(temp[1]);
+        al.add(accountEntity.getEmail());
+        al.add(accountEntity.getAddress());
+        al.add(accountEntity.getContactNumber());
+        
+        //al.add("Phone Number: " + accountEntity.getContactNo());
+        return al;
+
     }
 
     public String adminLogin(String adminId, String encryptedPassword) {
@@ -205,10 +212,13 @@ public class AccountMgtBean {
         List<AccountEntity> accountList = query.getResultList();
         AccountEntity accountEntity = accountList.get(0);
 
-        al.add("Member ID: " + accountEntity.getId());
-        al.add("Name: " + accountEntity.getName());
-        al.add("Email: " + accountEntity.getEmail());
-        al.add("Gender: " + accountEntity.getGender());
+        String[] temp=accountEntity.getName().split(", ");
+        al.add(temp[0]);
+        al.add(temp[1]);
+        al.add(accountEntity.getEmail());
+        al.add(accountEntity.getAddress());
+        al.add(accountEntity.getContactNumber());
+                
         //al.add("Phone Number: " + accountEntity.getContactNo());
 
         return al;
@@ -243,7 +253,7 @@ public class AccountMgtBean {
         em.flush();
         return true;
     }
-    
+
     public boolean unblockMember(String email) {
         Query query = em.createQuery("SELECT a FROM AccountEntity AS a WHERE a.email=:email").setParameter("email", email);
         List<AccountEntity> accountList = query.getResultList();
@@ -344,9 +354,14 @@ public class AccountMgtBean {
                 if (!accountEntity.getIsMember()) {
                     return "LOCKED";//not activated yet, please activate first
                 } else {
-
-                    accountEntity.setPassword(newGeneratedPassword);
+                    newGeneratedPassword = UUID.randomUUID().toString().substring(24);
+                    String encryptedPassword = cryptographicHelper.doMD5Hashing(newGeneratedPassword);
+                    accountEntity.setPassword(encryptedPassword);
+                    em.persist(accountEntity);
                     em.flush();
+                    System.out.println(accountEntity.getPassword());
+                    EmailManager emailManager=new EmailManager();
+                    emailManager.emailResetPassword(accountEntity.getName(), email, newGeneratedPassword);
                     return "YES";
                 }
             }
@@ -361,9 +376,10 @@ public class AccountMgtBean {
         AccountEntity accountEntity = accountList.get(0);
 
         List<PurchaseEntity> purchaseList = accountEntity.getPurchase();
-        for(PurchaseEntity purchase: purchaseList){
-            if(purchase.getStatus()==false)
-            purchaseList.remove(purchase);
+        for (PurchaseEntity purchase : purchaseList) {
+            if (purchase.getStatus() == false) {
+                purchaseList.remove(purchase);
+            }
         }
         return purchaseList;
     }
@@ -387,6 +403,11 @@ public class AccountMgtBean {
         List<TransactionEntity> transactions = accountEntity.getTransactions();
         return transactions;
 
+    }
+
+    public AccountEntity getAccountEntityById(Long id) {
+        AccountEntity acc = em.find(AccountEntity.class, id);
+        return acc;
     }
 
 }

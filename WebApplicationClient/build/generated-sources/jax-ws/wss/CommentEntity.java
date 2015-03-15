@@ -16,10 +16,10 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="account" type="{http://WSS/}accountEntity" minOccurs="0"/>
+ *         &lt;element name="accountId" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="contents" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
- *         &lt;element name="item" type="{http://WSS/}itemEntity" minOccurs="0"/>
+ *         &lt;element name="itemId" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="rating" type="{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -31,42 +31,42 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "commentEntity", propOrder = {
-    "account",
+    "accountId",
     "contents",
     "id",
-    "item",
+    "itemId",
     "rating"
 })
 public class CommentEntity {
 
-    protected AccountEntity account;
+    protected Long accountId;
     protected String contents;
     protected Long id;
-    protected ItemEntity item;
+    protected Long itemId;
     protected Double rating;
 
     /**
-     * Gets the value of the account property.
+     * Gets the value of the accountId property.
      * 
      * @return
      *     possible object is
-     *     {@link AccountEntity }
+     *     {@link Long }
      *     
      */
-    public AccountEntity getAccount() {
-        return account;
+    public Long getAccountId() {
+        return accountId;
     }
 
     /**
-     * Sets the value of the account property.
+     * Sets the value of the accountId property.
      * 
      * @param value
      *     allowed object is
-     *     {@link AccountEntity }
+     *     {@link Long }
      *     
      */
-    public void setAccount(AccountEntity value) {
-        this.account = value;
+    public void setAccountId(Long value) {
+        this.accountId = value;
     }
 
     /**
@@ -118,27 +118,27 @@ public class CommentEntity {
     }
 
     /**
-     * Gets the value of the item property.
+     * Gets the value of the itemId property.
      * 
      * @return
      *     possible object is
-     *     {@link ItemEntity }
+     *     {@link Long }
      *     
      */
-    public ItemEntity getItem() {
-        return item;
+    public Long getItemId() {
+        return itemId;
     }
 
     /**
-     * Sets the value of the item property.
+     * Sets the value of the itemId property.
      * 
      * @param value
      *     allowed object is
-     *     {@link ItemEntity }
+     *     {@link Long }
      *     
      */
-    public void setItem(ItemEntity value) {
-        this.item = value;
+    public void setItemId(Long value) {
+        this.itemId = value;
     }
 
     /**

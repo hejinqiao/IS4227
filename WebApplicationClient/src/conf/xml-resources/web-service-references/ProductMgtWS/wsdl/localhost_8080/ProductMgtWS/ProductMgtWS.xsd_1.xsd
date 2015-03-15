@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.3 (tags/2.3-7528; 2013-04-29T19:34:10+0000) JAXWS-RI/2.2.8 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://WSS/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://WSS/">
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://WSS/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://WSS/">
 
 <xs:element name="AccountNotFoundException" type="tns:AccountNotFoundException"/>
 
@@ -89,64 +89,11 @@
 
 <xs:complexType name="commentEntity">
 <xs:sequence>
-<xs:element name="account" type="tns:accountEntity" minOccurs="0"/>
+<xs:element name="accountId" type="xs:long" minOccurs="0"/>
 <xs:element name="contents" type="xs:string" minOccurs="0"/>
 <xs:element name="id" type="xs:long" minOccurs="0"/>
-<xs:element name="item" type="tns:itemEntity" minOccurs="0"/>
+<xs:element name="itemId" type="xs:long" minOccurs="0"/>
 <xs:element name="rating" type="xs:double" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="accountEntity">
-<xs:sequence>
-<xs:element name="activationCode" type="xs:string" minOccurs="0"/>
-<xs:element name="commentList" type="tns:commentEntity" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
-<xs:element name="email" type="xs:string" minOccurs="0"/>
-<xs:element name="gender" type="xs:string" minOccurs="0"/>
-<xs:element name="id" type="xs:long" minOccurs="0"/>
-<xs:element name="isBlocked" type="xs:boolean"/>
-<xs:element name="isMember" type="xs:boolean" minOccurs="0"/>
-<xs:element name="name" type="xs:string" minOccurs="0"/>
-<xs:element name="password" type="xs:string" minOccurs="0"/>
-<xs:element name="purchase" type="tns:purchaseEntity" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
-<xs:element name="shoppingcart" type="tns:shoppingCartEntity" minOccurs="0"/>
-<xs:element name="transactions" type="tns:transactionEntity" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="purchaseEntity">
-<xs:sequence>
-<xs:element name="id" type="xs:long" minOccurs="0"/>
-<xs:element name="order" type="tns:orderEntity" minOccurs="0"/>
-<xs:element name="purchasedDate" type="xs:dateTime" minOccurs="0"/>
-<xs:element name="quantity" type="xs:int" minOccurs="0"/>
-<xs:element name="status" type="xs:boolean"/>
-<xs:element name="totalPrice" type="xs:double" minOccurs="0"/>
-<xs:element name="transaction" type="tns:transactionEntity" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="orderEntity">
-<xs:sequence>
-<xs:element name="date" type="xs:dateTime" minOccurs="0"/>
-<xs:element name="id" type="xs:long" minOccurs="0"/>
-<xs:element name="purchase" type="tns:purchaseEntity" minOccurs="0"/>
-<xs:element name="quantity" type="xs:int" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="transactionEntity">
-<xs:sequence>
-<xs:element name="id" type="xs:long" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="shoppingCartEntity">
-<xs:sequence>
-<xs:element name="account" type="tns:accountEntity" minOccurs="0"/>
-<xs:element name="id" type="xs:long" minOccurs="0"/>
-<xs:element name="orderList" type="tns:orderEntity" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
-<xs:element name="status" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 

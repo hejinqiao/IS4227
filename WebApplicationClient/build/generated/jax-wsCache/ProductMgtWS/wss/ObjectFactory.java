@@ -141,30 +141,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ShoppingCartEntity }
-     * 
-     */
-    public ShoppingCartEntity createShoppingCartEntity() {
-        return new ShoppingCartEntity();
-    }
-
-    /**
-     * Create an instance of {@link TransactionEntity }
-     * 
-     */
-    public TransactionEntity createTransactionEntity() {
-        return new TransactionEntity();
-    }
-
-    /**
-     * Create an instance of {@link OrderEntity }
-     * 
-     */
-    public OrderEntity createOrderEntity() {
-        return new OrderEntity();
-    }
-
-    /**
      * Create an instance of {@link ItemPurchasedEntity }
      * 
      */
@@ -178,14 +154,6 @@ public class ObjectFactory {
      */
     public CommentEntity createCommentEntity() {
         return new CommentEntity();
-    }
-
-    /**
-     * Create an instance of {@link AccountEntity }
-     * 
-     */
-    public AccountEntity createAccountEntity() {
-        return new AccountEntity();
     }
 
     /**
@@ -218,14 +186,6 @@ public class ObjectFactory {
      */
     public WineryEntity createWineryEntity() {
         return new WineryEntity();
-    }
-
-    /**
-     * Create an instance of {@link PurchaseEntity }
-     * 
-     */
-    public PurchaseEntity createPurchaseEntity() {
-        return new PurchaseEntity();
     }
 
     /**

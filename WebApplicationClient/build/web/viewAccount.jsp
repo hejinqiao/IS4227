@@ -13,12 +13,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="header">
             <div class="top-header">
                 <div class="wrap">
-                    <div class="header-left">
-                        <ul>
-                            <li><a href="#">24x7 Customer Care  </a></li> 
-                            <li><a href="order.html"> Track Order</a></li>
-                        </ul>
-                    </div>
+                    
                     <div class="header-right">
                         <ul>
                             <li>
@@ -42,7 +37,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="wrap">
                 <div class="header-bottom">
                     <div class="logo">
-                        <a href="index.html"><img src="images/logo.jpg" class="img-responsive" alt="" /></a>
+                        <a href="index.html"><img src="images/logo-4227.png" class="img-responsive" alt="" /></a>
                     </div>
                     <div class="search">
                         <div class="search2">
@@ -79,10 +74,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                             <div class="register-top-grid">
                                 <h3>PERSONAL INFORMATION</h3>
-                                <div></div>
                                 <div>
-                                    <h2>Name</h2>
-                                    <input name="myName" style="width:200px" value="<%
+                                    <h2>First Name</h2>
+                                    <input name="FirstName" style="width:200px" value="<%
 
                                         wss.AccountMgt_Service service = new wss.AccountMgt_Service();
                                         wss.AccountMgt port = service.getAccountMgtPort();
@@ -91,23 +85,28 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                         // TODO process result here
                                         java.lang.String result = port.accountInfo(email);
                                         JSONObject obj = new JSONObject(result);
-                                        out.println(obj.get("name"));
+                                        out.println(obj.get("first"));
                                            %>"
                                            >
 
                                 </div>
-                                <div></div>
+                                <div >
+                                    <h2>Last Name</h2>
+                                    <input name="LastName" style="width:200px" value="<%out.println(obj.get("last"));%>">
+                                </div>
+                                
                                 <div >
                                     <h2>Email Address</h2>
-                                    <input name="myEmail" style="width:200px" value="<%out.println(obj.get("email"));%>"
-                                           >
+                                    <input name="email" style="width:200px" value="<%out.println(obj.get("email"));%>">
                                 </div>
-                                <div></div>
-<!--                                <div >
-                                    <h2>Mailing Addresses</h2>
-                                    <input type="submit" value="Edit Mailing Address" style="position: absolute; left: 920px; width: 160px">
-                                </div >-->
-                                  <div></div>
+                                <div >
+                                    <h2>Address</h2>
+                                    <input name="address" style="width:200px" value="<%out.println(obj.get("address"));%>">
+                                </div>
+                                <div >
+                                    <h2>Contact Number</h2>
+                                    <input name="contactNumber" style="width:200px" value="<%out.println(obj.get("contactNumber"));%>">
+                                </div >
 
                                 <div class="clearfix"></div>
                             </div>

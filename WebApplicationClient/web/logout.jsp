@@ -1,25 +1,22 @@
+<%-- 
+    Document   : logout
+    Created on : Mar 9, 2015, 4:54:24 PM
+    Author     : chenliyuquan
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
+    <meta http-equiv="Refresh" content="5;url=index.jsp">
+   <% 
+      
+       session.invalidate();
+       %>
+   
     <%@include file="templates\head.jsp" %>
     <body>
-        <%
-            try {
-                System.out.println("haha");
-                wss.AccountMgt_Service service = new wss.AccountMgt_Service();
-                wss.AccountMgt port = service.getAccountMgtPort();
-                // TODO initialize WS operation arguments here
-                String email_para = request.getParameter("email");
-                String pwd_para = request.getParameter("password");
-                java.lang.String email = email_para;
-                java.lang.String password = pwd_para;
-                // TODO process result here
-                java.lang.String result = port.memberLogin(email, password);
-
-                if (result.startsWith("YES")) {
-                    response.sendRedirect("index.jsp");
-                    session.setAttribute("userid", result.split(" ")[1]);
-                    session.setAttribute("useremail", result.split(" ")[2]);
-            }else{ %>
+        
         <div class="header">
             <div class="top-header">
                 <div class="wrap">
@@ -55,20 +52,12 @@
             <section id="main" style="height: 300px">
         <div class="content">
             <div class="col-md-12 help text-center">
-                <%if(result.equalsIgnoreCase("wrong")||result.equalsIgnoreCase("no")||result.equalsIgnoreCase("blocked")) { %>
-                <h3>An error happens</h3>
-                <p>The email or the password is incorrect</p>
-                <a href="login.jsp">Click here to re-login</a>
-            <% }else{%>
-                  <h3>An error happens</h3>
-                <p>Your account is not activated yet</p>
-                <a href="activate.jsp">Click here to activate</a>  
-            <%}
-
-                //out.println("Result = "+result);
-            }} catch (Exception ex) {
-                System.err.println("An error occurs");
-            }%>
+                
+                <h3>See You Soon</h3>
+                <p>You have successfully logged out. Thanks for your shopping!</p>
+                <p>You will be redirected to our home page in 5 seconds.</p>
+                <a href="login.jsp">Click here to login</a>
+           
                 
                 
             </div>
@@ -158,4 +147,8 @@
             
            
     </body>
+</html>
+
+
+      
 </html>

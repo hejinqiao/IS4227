@@ -9,16 +9,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
     <%@include file="templates/head.jsp" %>
     <body>
-        <!-- header-section-starts -->
         <div class="header">
             <div class="top-header">
                 <div class="wrap">
-                    <div class="header-left">
-                        <ul>
-                            <li><a href="#">24x7 Customer Care  </a></li> 
-                            <li><a href="order.html"> Track Order</a></li>
-                        </ul>
-                    </div>
+                    
                     <div class="header-right">
                         <ul>
                             <li>
@@ -42,7 +36,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="wrap">
                 <div class="header-bottom">
                     <div class="logo">
-                        <a href="index.html"><img src="images/logo.jpg" class="img-responsive" alt="" /></a>
+                        <a href="index.html"><img src="images/logo-4227.png" class="img-responsive" alt="" /></a>
                     </div>
                     <div class="search">
                         <div class="search2">
@@ -71,7 +65,30 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         </ul>
                     </div>
                 
-                    <form action="changePwd_result.jsp" method="POST">
+                               <script type="text/javascript">
+
+            function checkForm(form)
+            {
+          
+                if (form.oldPassword.value == "") {
+                    alert("Please enter your password");
+                    form.oldPassword.focus();
+                    return false;
+                }
+
+                if (form.newPassword.value !=form.confirmedNewPassword.value ) {
+                    alert("Please enter same password");
+                    form.newPassword.focus();
+                    return false;
+                }
+
+                
+                return true;
+            }
+
+        </script>
+                    
+                    <form action="changePwd_result.jsp" method="POST" onsubmit="return checkForm(this);">
 
                             <div class="register-top-grid">
                                 <h3>Change Password</h3>

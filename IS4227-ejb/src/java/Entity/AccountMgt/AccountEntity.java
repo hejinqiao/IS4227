@@ -5,14 +5,12 @@ import Entity.ProductMgt.CommentEntity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import static javax.persistence.CascadeType.ALL;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.xml.bind.annotation.XmlTransient;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -43,6 +41,9 @@ public class AccountEntity implements Serializable {
     private String activationCode;
     /************************/
     
+    private String address;
+    private String contactNumber;
+    
     //account -- pruchase : 1 --> M
     @OneToMany
     private List<PurchaseEntity> purchase;
@@ -71,7 +72,8 @@ public class AccountEntity implements Serializable {
         this.name=name;
         this.gender=gender;
         isMember=false;
-        
+        this.address="";
+        this.contactNumber="";
         /************************/
         //NEW ATTRIBUTE
         isBlocked=false;
@@ -80,7 +82,6 @@ public class AccountEntity implements Serializable {
 
         purchase=new ArrayList<PurchaseEntity>();
 
-        shoppingcart=new ShoppingCartEntity();
     }
     
     public Long getId() {
@@ -105,7 +106,7 @@ public class AccountEntity implements Serializable {
         return password;
     }
 
-    public void setPassword(String passwrod) {
+    public void setPassword(String password) {
         this.password = password;
     }
     /************************/
@@ -196,6 +197,22 @@ public class AccountEntity implements Serializable {
     public void setEnquiryList(List<EnquiryEntity> enquiryList) {
         this.enquiryList = enquiryList;
     }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getContactNumber() {
+        return contactNumber;
+    }
+
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
+    }
     /************************/
-        
+    
 }

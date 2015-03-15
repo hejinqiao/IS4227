@@ -44,6 +44,21 @@ public interface AccountMgtWS {
 
     /**
      * 
+     * @param name
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "hello", targetNamespace = "http://WSS/", className = "wss.Hello")
+    @ResponseWrapper(localName = "helloResponse", targetNamespace = "http://WSS/", className = "wss.HelloResponse")
+    @Action(input = "http://WSS/AccountMgtWS/helloRequest", output = "http://WSS/AccountMgtWS/helloResponse")
+    public String hello(
+        @WebParam(name = "name", targetNamespace = "")
+        String name);
+
+    /**
+     * 
      * @param password
      * @param email
      * @return
@@ -59,20 +74,5 @@ public interface AccountMgtWS {
         String email,
         @WebParam(name = "password", targetNamespace = "")
         String password);
-
-    /**
-     * 
-     * @param name
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "hello", targetNamespace = "http://WSS/", className = "wss.Hello")
-    @ResponseWrapper(localName = "helloResponse", targetNamespace = "http://WSS/", className = "wss.HelloResponse")
-    @Action(input = "http://WSS/AccountMgtWS/helloRequest", output = "http://WSS/AccountMgtWS/helloResponse")
-    public String hello(
-        @WebParam(name = "name", targetNamespace = "")
-        String name);
 
 }
