@@ -1308,12 +1308,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	wss.ProductMgtWS port = service.getProductMgtWSPort();
 	 // TODO initialize WS operation arguments here
 	java.lang.Long accountId = Long.valueOf(1L);
-	java.lang.Long itemId = Long.valueOf(1L);
+	java.lang.Long itemId = Long.valueOf(3L);
 	java.lang.Double rating = Double.parseDouble(request.getParameter("mark"));
 	java.lang.String content = request.getParameter("content");
 	port.rateProduct(accountId, itemId, rating, content);
     } catch (Exception ex) {
-	out.println("wrong");
+	out.println("worng");
     }
     %>
     <%-- end web service invocation --%><hr/>
@@ -1326,15 +1326,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
                         <div class="device">
 			   <div class="course_demo">
-                               <table BORDER="1" CELLPADDING="5" CELLSPACING="5">
+                               <table>
                                    <thead>
                                        <tr>
-                                           <th>
+                                           <td colspan="100">
                                                <h3>Contents</h3>
-                                           </th>
-                                           <th>
+                                           </td>
+                                           <td colspan="1">
                                                <h3>Marks</h3>
-                                           </th>
+                                           </td>
                                        </tr>
                                    </thead>                                  
                                    <tbody>
@@ -1344,7 +1344,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     wss.ProductMgtWS_Service service = new wss.ProductMgtWS_Service();
                     wss.ProductMgtWS port = service.getProductMgtWSPort();
                      // TODO initialize WS operation arguments here
-                    java.lang.Long itemId = Long.valueOf(1L);
+                    java.lang.Long itemId = Long.valueOf(3L);
                     // TODO process result here
                     java.util.List<wss.CommentEntity> result = port.viewAllCommentsOfProduct(itemId);                 
                     if(result.size()==0) {

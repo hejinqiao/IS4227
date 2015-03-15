@@ -1327,15 +1327,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
                         <div class="device">
 			   <div class="course_demo">
-                               <table BORDER="1" CELLPADDING="5" CELLSPACING="5">
+                               <table>
                                    <thead>
                                        <tr>
-                                           <th>
-                                               Contents
-                                           </th>
-                                           <th>
-                                               Marks
-                                           </th>
+                                           <td colspan="100">
+                                               <h3>Contents</h3>
+                                           </td>
+                                           <td colspan="1">
+                                               <h3>Marks</h3>
+                                           </td>
                                        </tr>
                                    </thead>                                  
                                    <tbody>
@@ -1360,10 +1360,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     for(Object o: result){
                         mark = ((wss.CommentEntity) o).getRating();
                         content = ((wss.CommentEntity) o).getContents();
-                        average += mark;%>
-                        <td><%=content%></td>
-                        <td><%=mark%></td>                      
-                    <%}
+                        out.println("<tr>");
+                        out.println("<td>" +content + "</td>");    
+                        out.println("<td>" +mark + "</td>");
+                        out.println("</tr>");
+                        average += mark;
+                    }
                     out.println("<h5>Rating: </h5>" + (average/result.size()));
                 } catch (Exception ex) {
                     out.println("<tr>Sorry, no comments so far..</tr>");

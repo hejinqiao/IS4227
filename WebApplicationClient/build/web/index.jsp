@@ -6,15 +6,33 @@
 	<div class="header">
             <div class="top-header">
 			<div class="wrap">
+                            
 				<div class="header-right">
 					<ul>
 						<li>
 							<i class="user"></i>
-							<a href="account.jsp">Login</a>
+							<%if (session.getAttribute("userid")!=null){ %>
+                                                        <a href="viewAccount.jsp"><%out.print(session.getAttribute("useremail"));%></a>
+                                                        <%} else{ %>
+                                                        <a href="login.jsp">Login</a>
+                                                        <% } %>
 						</li>
+                                                
+                                                <%if (session.getAttribute("userid")!=null){ %>
+                                                <li>
+							<i class="cart"></i>
+							<a href="#">Shopping Cart</a>
+						</li>
+						<li class="last">5</li>
+                                                <%}%>
+                                                
 						<li class="login">
 							<i class="lock"></i>
-							<a href="login.jsp">Sign up</a>
+							<%if (session.getAttribute("userid")!=null){ %>
+							<a href="logout.jsp">Logout</a>
+                                                        <%} else{ %>               
+							<a href="register.jsp">Sign up</a>
+                                                        <% } %>
 						</li>
 						
 					</ul>
@@ -82,7 +100,7 @@
 						<p>Expires in 3:42:56</p>
 						<h5>Wireless Headphones</h5>
 						<h2>Extra 33% OFF</h2>
-						<a href="single.html">shop now<i class="go"></i></a>
+						<a href="single.jsp">shop now<i class="go"></i></a>
 					</div>
 					<div class="right-grid-bottom-right">
 						<img src="images/headset.png" alt="" />
@@ -95,22 +113,22 @@
 		<div class="new-arrivals text-center">
 			<div class="col-md-3 new-arrival-head">
 				<h3>New Arrivals</h3>
-				<a class="btn btn-1 btn-1d" href="products.html">View All</a>
+				<a class="btn btn-1 btn-1d" href="products.jsp">View All</a>
 			</div>
 			<div class="col-md-3 product-item">
-				<a href="products.html"><img src="images/watch.jpg" class="img-responsive" alt="" /></a>
+				<a href="products.jsp"><img src="images/watch.jpg" class="img-responsive" alt="" /></a>
 				<h3>Arrival One</h3>
-				<a href="single.html">Shop Now<i class="go"></i></a>
+				<a href="single.jsp">Shop Now<i class="go"></i></a>
 			</div>
 			<div class="col-md-3 product-item">
-				<a href="products.html"><img src="images/men-jacket.jpg" class="img-responsive zoom-img" alt="" /></a>
+				<a href="products.jsp"><img src="images/men-jacket.jpg" class="img-responsive zoom-img" alt="" /></a>
 				<h3>Arrival Two</h3>
-				<a href="single.html">Shop Now<i class="go"></i></a>
+				<a href="single.jsp">Shop Now<i class="go"></i></a>
 			</div>
 			<div class="col-md-3 product-item">
-				<a href="products.html"><img src="images/shoes.jpg" class="img-responsive zoom-img" alt="" /></a>
+				<a href="products.jsp"><img src="images/shoes.jpg" class="img-responsive zoom-img" alt="" /></a>
 				<h3>Arrival Three</h3>
-				<a href="single.html">Shop Now<i class="go"></i></a>
+				<a href="single.jsp">Shop Now<i class="go"></i></a>
 			</div>
 			<div class="clearfix"></div>
 		</div>
@@ -260,7 +278,7 @@
 					</ul>
 					<ul>
 						<li class="first"> boxshop </li> -
-						<li><a href="contact.html"> contact us </a></li> |
+						<li><a href="contact.jsp"> contact us </a></li> |
 						<li><a href=""> about us </a></li> |
 						<li><a href=""> careers </a></li> |
 						<li><a href=""> blog </a></li> |

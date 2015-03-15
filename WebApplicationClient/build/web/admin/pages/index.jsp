@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<%@include file="templates/Head.jsp" %>
+
 <body>
 
     <div id="wrapper">
         
-         <%@include file="templates/Head.jsp" %>
 
         <!-- Navigation -->
          <%@include file="templates/Navigator.jsp" %>

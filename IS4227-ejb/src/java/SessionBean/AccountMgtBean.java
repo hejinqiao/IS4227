@@ -46,7 +46,41 @@ public class AccountMgtBean {
             return true;
         }
     }
+    
+    public boolean changePassword(String email, String newPwd) {
+        ArrayList<String> al = new ArrayList<String>();
+        Query query = em.createQuery("SELECT a FROM AccountEntity AS a WHERE a.email=:email").setParameter("email", email);
+        List<AccountEntity> accountList = query.getResultList();
+        AccountEntity accountEntity = accountList.get(0);
+        System.out.println("old: " + newPwd);
 
+        AccountEntity acc = em.find(AccountEntity.class, accountEntity.getId());
+        acc.setPassword(newPwd);
+        em.persist(acc);
+        em.flush();
+        System.out.println("new pwd: " + acc.getPassword());
+        return true;
+
+    }
+
+    public ArrayList<String> editAccountInfo(String email, String name, String address, String contactNumber) {
+        ArrayList<String> al = new ArrayList<String>();
+        Query query = em.createQuery("SELECT a FROM AccountEntity AS a WHERE a.email=:email").setParameter("email", email);
+        List<AccountEntity> accountList = query.getResultList();
+        AccountEntity accountEntity = accountList.get(0);
+        accountEntity.setName(name);
+        em.persist(accountEntity);
+        em.flush();
+
+        al.add("" + accountEntity.getId());
+        al.add(accountEntity.getName());
+        al.add(accountEntity.getEmail());
+
+        //al.add("Phone Number: " + accountEntity.getContactNo());
+        return al;
+
+    }
+    
     public boolean checkAdminAccount(String adminId) {
         Query query = em.createQuery("SELECT a FROM AdminAccountEntity AS a WHERE a.adminId=:adminId").setParameter("adminId", adminId);
         List<AdminAccountEntity> adminList = query.getResultList();
@@ -206,6 +240,15 @@ public class AccountMgtBean {
         List<AccountEntity> accountList = query.getResultList();
         AccountEntity accountEntity = accountList.get(0);
         accountEntity.setIsBlocked(true);
+        em.flush();
+        return true;
+    }
+    
+    public boolean unblockMember(String email) {
+        Query query = em.createQuery("SELECT a FROM AccountEntity AS a WHERE a.email=:email").setParameter("email", email);
+        List<AccountEntity> accountList = query.getResultList();
+        AccountEntity accountEntity = accountList.get(0);
+        accountEntity.setIsBlocked(false);
         em.flush();
         return true;
     }

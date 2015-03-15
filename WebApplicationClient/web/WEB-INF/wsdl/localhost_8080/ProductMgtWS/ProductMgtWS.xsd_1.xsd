@@ -102,6 +102,7 @@
 <xs:element name="activationCode" type="xs:string" minOccurs="0"/>
 <xs:element name="commentList" type="tns:commentEntity" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 <xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="enquiryList" type="tns:enquiryEntity" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 <xs:element name="gender" type="xs:string" minOccurs="0"/>
 <xs:element name="id" type="xs:long" minOccurs="0"/>
 <xs:element name="isBlocked" type="xs:boolean"/>
@@ -111,6 +112,16 @@
 <xs:element name="purchase" type="tns:purchaseEntity" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 <xs:element name="shoppingcart" type="tns:shoppingCartEntity" minOccurs="0"/>
 <xs:element name="transactions" type="tns:transactionEntity" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="enquiryEntity">
+<xs:sequence>
+<xs:element name="author" type="tns:accountEntity" minOccurs="0"/>
+<xs:element name="content" type="xs:string" minOccurs="0"/>
+<xs:element name="date" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+<xs:element name="replied" type="xs:boolean" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
