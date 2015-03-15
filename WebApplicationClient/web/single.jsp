@@ -1327,9 +1327,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
                         <div class="device">
 			   <div class="course_demo">
-                               <table BORDER="1" CELLPADDING="5" CELLSPACING="5">
+                               <table BORDER="1" CELLPADDING="5" CELLSPACING="5" class="flatTable">
                                    <thead>
-                                       <tr>
+                                       <tr class="headingTr">
                                            <th>
                                                Contents
                                            </th>
@@ -1361,10 +1361,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         mark = ((wss.CommentEntity) o).getRating();
                         content = ((wss.CommentEntity) o).getContents();
                         average += mark;%>
-                        <td><%=content%></td>
-                        <td><%=mark%></td>                      
+                        <tr>
+                            <td><%=content%></td>
+                            <td><%=mark%></td> 
+                        </tr>
                     <%}
-                    out.println("<h5>Rating: </h5>" + (average/result.size()));
+                    out.println("<h5>Rating: </h5>" + String.format("%.2f", average/result.size()));
                 } catch (Exception ex) {
                     out.println("<tr>Sorry, no comments so far..</tr>");
                     out.println(ex);

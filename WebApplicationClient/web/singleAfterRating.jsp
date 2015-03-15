@@ -1326,9 +1326,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
                         <div class="device">
 			   <div class="course_demo">
-                               <table BORDER="1" CELLPADDING="5" CELLSPACING="5">
+                               <table BORDER="1" CELLPADDING="5" CELLSPACING="5" class="flatTable">
                                    <thead>
-                                       <tr>
+                                       <tr class="headingTr">
                                            <th>
                                                <h3>Contents</h3>
                                            </th>
@@ -1365,7 +1365,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         out.println("</tr>");
                         average += mark;
                     }
-                    out.println("<h5>Overall Rating: </h5>" + (average/result.size()));
+                    out.println("<h5>Overall Rating: </h5>" + String.format("%.2f", average/result.size()));
                 } catch (Exception ex) {
                     out.println("<tr>Sorry, no comments so far..</tr>");
                     out.println(ex);
