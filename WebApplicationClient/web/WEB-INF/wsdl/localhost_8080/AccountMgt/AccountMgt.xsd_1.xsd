@@ -1,0 +1,341 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.3 (tags/2.3-7528; 2013-04-29T19:34:10+0000) JAXWS-RI/2.2.8 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://WSS/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://WSS/">
+
+<xs:element name="accountInfo" type="tns:accountInfo"/>
+
+<xs:element name="accountInfoResponse" type="tns:accountInfoResponse"/>
+
+<xs:element name="activateAccount" type="tns:activateAccount"/>
+
+<xs:element name="activateAccountResponse" type="tns:activateAccountResponse"/>
+
+<xs:element name="adminAccountInfo" type="tns:adminAccountInfo"/>
+
+<xs:element name="adminAccountInfoResponse" type="tns:adminAccountInfoResponse"/>
+
+<xs:element name="adminChangePassword" type="tns:adminChangePassword"/>
+
+<xs:element name="adminChangePasswordResponse" type="tns:adminChangePasswordResponse"/>
+
+<xs:element name="adminLogin" type="tns:adminLogin"/>
+
+<xs:element name="adminLoginResponse" type="tns:adminLoginResponse"/>
+
+<xs:element name="blockMember" type="tns:blockMember"/>
+
+<xs:element name="blockMemberResponse" type="tns:blockMemberResponse"/>
+
+<xs:element name="changePassword" type="tns:changePassword"/>
+
+<xs:element name="changePasswordResponse" type="tns:changePasswordResponse"/>
+
+<xs:element name="checkAccount" type="tns:checkAccount"/>
+
+<xs:element name="checkAccountResponse" type="tns:checkAccountResponse"/>
+
+<xs:element name="checkAdminAccount" type="tns:checkAdminAccount"/>
+
+<xs:element name="checkAdminAccountResponse" type="tns:checkAdminAccountResponse"/>
+
+<xs:element name="checkPurchaseHistory" type="tns:checkPurchaseHistory"/>
+
+<xs:element name="checkPurchaseHistoryResponse" type="tns:checkPurchaseHistoryResponse"/>
+
+<xs:element name="deletePurchaseHistory" type="tns:deletePurchaseHistory"/>
+
+<xs:element name="deletePurchaseHistoryResponse" type="tns:deletePurchaseHistoryResponse"/>
+
+<xs:element name="editAccountInfo" type="tns:editAccountInfo"/>
+
+<xs:element name="editAccountInfoResponse" type="tns:editAccountInfoResponse"/>
+
+<xs:element name="emailActivationCode" type="tns:emailActivationCode"/>
+
+<xs:element name="emailActivationCodeResponse" type="tns:emailActivationCodeResponse"/>
+
+<xs:element name="memberChangePassword" type="tns:memberChangePassword"/>
+
+<xs:element name="memberChangePasswordResponse" type="tns:memberChangePasswordResponse"/>
+
+<xs:element name="memberList" type="tns:memberList"/>
+
+<xs:element name="memberListResponse" type="tns:memberListResponse"/>
+
+<xs:element name="memberLogin" type="tns:memberLogin"/>
+
+<xs:element name="memberLoginResponse" type="tns:memberLoginResponse"/>
+
+<xs:element name="memberResetPassword" type="tns:memberResetPassword"/>
+
+<xs:element name="memberResetPasswordResponse" type="tns:memberResetPasswordResponse"/>
+
+<xs:element name="registerAccount" type="tns:registerAccount"/>
+
+<xs:element name="registerAccountResponse" type="tns:registerAccountResponse"/>
+
+<xs:element name="testlogin" type="tns:testlogin"/>
+
+<xs:element name="testloginResponse" type="tns:testloginResponse"/>
+
+<xs:element name="unblockMember" type="tns:unblockMember"/>
+
+<xs:element name="unblockMemberResponse" type="tns:unblockMemberResponse"/>
+
+<xs:complexType name="adminChangePassword">
+<xs:sequence>
+<xs:element name="adminId" type="xs:string" minOccurs="0"/>
+<xs:element name="oldEncryptedPassword" type="xs:string" minOccurs="0"/>
+<xs:element name="newEncryptedPassword" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="adminChangePasswordResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="memberLogin">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="encryptedPassword" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="memberLoginResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="activateAccount">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="activationCode" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="activateAccountResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deletePurchaseHistory">
+<xs:sequence>
+<xs:element name="purchaseId" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deletePurchaseHistoryResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="memberChangePassword">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="oldEncryptedPassword" type="xs:string" minOccurs="0"/>
+<xs:element name="newEncryptedPassword" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="memberChangePasswordResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="registerAccount">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+<xs:element name="first" type="xs:string" minOccurs="0"/>
+<xs:element name="last" type="xs:string" minOccurs="0"/>
+<xs:element name="gender" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="registerAccountResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="checkAccount">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="checkAccountResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="memberList">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="memberListResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="memberResetPassword">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="newGeneratedPassword" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="memberResetPasswordResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="changePassword">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="newPwd" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="changePasswordResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="adminLogin">
+<xs:sequence>
+<xs:element name="adminId" type="xs:string" minOccurs="0"/>
+<xs:element name="encryptedPassword" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="adminLoginResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="unblockMember">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="unblockMemberResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="adminAccountInfo">
+<xs:sequence>
+<xs:element name="adminId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="adminAccountInfoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:jsonObject" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="jsonObject">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="blockMember">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="blockMemberResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="testlogin">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="encryptedPassword" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="testloginResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="emailActivationCode">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="emailActivationCodeResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:jsonObject" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="checkAdminAccount">
+<xs:sequence>
+<xs:element name="adminId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="checkAdminAccountResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="editAccountInfo">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="address" type="xs:string" minOccurs="0"/>
+<xs:element name="contactNumber" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="editAccountInfoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:jsonObject" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="checkPurchaseHistory">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="checkPurchaseHistoryResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="accountInfo">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="accountInfoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

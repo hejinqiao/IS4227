@@ -16,6 +16,12 @@
     <service name="CatelogueMgtWS">
       <implementation-class>WSS.CatelogueMgtWS</implementation-class>
     </service>
+    <service name="EnquiryMgtWS">
+      <implementation-class>WSS.EnquiryMgtWS</implementation-class>
+    </service>
+    <service name="EnquiryWebService">
+      <implementation-class>WSS.EnquiryWebService</implementation-class>
+    </service>
   </services>
   <clients/>
   <jsr109>false</jsr109>

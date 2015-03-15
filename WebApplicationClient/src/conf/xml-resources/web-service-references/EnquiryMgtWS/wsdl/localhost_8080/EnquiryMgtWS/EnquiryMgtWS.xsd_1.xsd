@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.3 (tags/2.3-7528; 2013-04-29T19:34:10+0000) JAXWS-RI/2.2.8 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://WSS/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://WSS/">
+
+<xs:element name="AccountNotFoundException" type="tns:AccountNotFoundException"/>
+
+<xs:element name="AdminNotFoundException" type="tns:AdminNotFoundException"/>
+
+<xs:element name="EnquiryNotFoundException" type="tns:EnquiryNotFoundException"/>
+
+<xs:element name="processEnquiry" type="tns:processEnquiry"/>
+
+<xs:element name="processEnquiryResponse" type="tns:processEnquiryResponse"/>
+
+<xs:element name="submitEnquery" type="tns:submitEnquery"/>
+
+<xs:element name="submitEnqueryResponse" type="tns:submitEnqueryResponse"/>
+
+<xs:element name="viewAllEnquiry" type="tns:viewAllEnquiry"/>
+
+<xs:element name="viewAllEnquiryResponse" type="tns:viewAllEnquiryResponse"/>
+
+<xs:element name="viewOneEnquiry" type="tns:viewOneEnquiry"/>
+
+<xs:element name="viewOneEnquiryResponse" type="tns:viewOneEnquiryResponse"/>
+
+<xs:complexType name="viewAllEnquiry">
+<xs:sequence>
+<xs:element name="adminId" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="viewAllEnquiryResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:enquiryEntity" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="enquiryEntity">
+<xs:sequence>
+<xs:element name="accountId" type="xs:long" minOccurs="0"/>
+<xs:element name="content" type="xs:string" minOccurs="0"/>
+<xs:element name="date" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+<xs:element name="replied" type="xs:boolean" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="AdminNotFoundException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="viewOneEnquiry">
+<xs:sequence>
+<xs:element name="adminId" type="xs:long" minOccurs="0"/>
+<xs:element name="enquiryId" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="viewOneEnquiryResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:enquiryEntity" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="EnquiryNotFoundException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="submitEnquery">
+<xs:sequence>
+<xs:element name="accountId" type="xs:long" minOccurs="0"/>
+<xs:element name="content" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="submitEnqueryResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="AccountNotFoundException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="processEnquiry">
+<xs:sequence>
+<xs:element name="adminId" type="xs:long" minOccurs="0"/>
+<xs:element name="enquiryId" type="xs:long" minOccurs="0"/>
+<xs:element name="replyContent" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="processEnquiryResponse">
+<xs:sequence/>
+</xs:complexType>
+</xs:schema>

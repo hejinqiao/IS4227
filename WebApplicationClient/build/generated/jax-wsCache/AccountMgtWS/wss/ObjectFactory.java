@@ -26,8 +26,10 @@ public class ObjectFactory {
 
     private final static QName _Hello_QNAME = new QName("http://WSS/", "hello");
     private final static QName _Login_QNAME = new QName("http://WSS/", "login");
+    private final static QName _Register_QNAME = new QName("http://WSS/", "register");
     private final static QName _LoginResponse_QNAME = new QName("http://WSS/", "loginResponse");
     private final static QName _HelloResponse_QNAME = new QName("http://WSS/", "helloResponse");
+    private final static QName _RegisterResponse_QNAME = new QName("http://WSS/", "registerResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: wss
@@ -53,6 +55,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link RegisterResponse }
+     * 
+     */
+    public RegisterResponse createRegisterResponse() {
+        return new RegisterResponse();
+    }
+
+    /**
      * Create an instance of {@link Hello }
      * 
      */
@@ -66,6 +76,14 @@ public class ObjectFactory {
      */
     public Login createLogin() {
         return new Login();
+    }
+
+    /**
+     * Create an instance of {@link Register }
+     * 
+     */
+    public Register createRegister() {
+        return new Register();
     }
 
     /**
@@ -87,6 +105,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Register }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://WSS/", name = "register")
+    public JAXBElement<Register> createRegister(Register value) {
+        return new JAXBElement<Register>(_Register_QNAME, Register.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link LoginResponse }{@code >}}
      * 
      */
@@ -102,6 +129,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://WSS/", name = "helloResponse")
     public JAXBElement<HelloResponse> createHelloResponse(HelloResponse value) {
         return new JAXBElement<HelloResponse>(_HelloResponse_QNAME, HelloResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RegisterResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://WSS/", name = "registerResponse")
+    public JAXBElement<RegisterResponse> createRegisterResponse(RegisterResponse value) {
+        return new JAXBElement<RegisterResponse>(_RegisterResponse_QNAME, RegisterResponse.class, null, value);
     }
 
 }
