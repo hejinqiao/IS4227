@@ -44,7 +44,7 @@ public class AccountEntity implements Serializable {
     /************************/
     
     //account -- pruchase : 1 --> M
-    @OneToMany(mappedBy="account")
+    @OneToMany
     private List<PurchaseEntity> purchase;
 
     //account -- transaction: 1-->M
@@ -58,7 +58,7 @@ public class AccountEntity implements Serializable {
     @OneToMany
     private List<EnquiryEntity> enquiryList;
     
-    @OneToMany(cascade = ALL)
+    @OneToMany
     private List<CommentEntity> commentList;
     
     public  AccountEntity(){

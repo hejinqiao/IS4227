@@ -1263,8 +1263,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     		</div>
     		<div class="clearfix"></div>
     	</div>
-	      <div class="section group">
-		    <%-- start web service invocation --%><hr/>
+    <div class="section group">
+                        <%-- start web service invocation --%><hr/>
     <%
     try {
 	wss.ProductMgtWS_Service service = new wss.ProductMgtWS_Service();
@@ -1272,17 +1272,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	 // TODO initialize WS operation arguments here
 	java.lang.String itemName = request.getParameter("productName");
 	// TODO process result here
-	wss.ItemEntity result = port.searchProduct(itemName);
-	out.println("Product Name "+result.getItemName());
-        out.println("\nResult = "+result.getTastingNote());
-        out.println("\nResult = "+result.getVitage());
-    } catch (Exception ex) {
-	out.println("<h1>Sorry, no products can be found!</h1>");
+	wss.ItemEntity result = port.searchProduct(itemName);	
+        
+        java.lang.String tasting = result.getTastingNote();
+        java.lang.String vitage = result.getVitage();
+    %>
+            <div class="grid_1_of_4 images_1_of_4">
+					 <a href="single.jsp"><img src="images/new-pic3.jpg" alt="" /></a>
+                                         <h2>Product Name: <%=itemName%></h2>
+                                         <h2>Tasting Note: <%=tasting%></h2>
+                                         <h2>Vitage: <%=vitage%></h2>
+					  <div class="button"><span><img src="images/cart.jpg" alt="" /><a href="single.jsp" class="cart-button">Add to Cart</a></span> </div>
+				     <div class="button"><span><a href="single.jsp" class="details">Details</a></span></div>
+				</div>
+        <%} catch (Exception ex) {
+	out.println("no result...");
     }
     %>
     <%-- end web service invocation --%><hr/>
-   		
-	</div>
+				<div class="clearfix"></div>
+			</div>
 	 <div class="footer">
 		<div class="wrap">
 			<div class="contact-section">
