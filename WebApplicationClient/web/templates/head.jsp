@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>BOX SHOP an E-Commerce online Shopping Category Flat Bootstarp responsive Website Template| Login :: w3layouts</title>
+        <title>WineXpress, professional wine provider</title>
         <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="js/jquery.min.js"></script>

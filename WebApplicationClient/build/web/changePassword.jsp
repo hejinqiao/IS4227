@@ -36,7 +36,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="wrap">
                 <div class="header-bottom">
                     <div class="logo">
-                        <a href="index.html"><img src="images/logo-4227.png" class="img-responsive" alt="" /></a>
+                        <a href="index.jsp"><img src="images/logo-4227.png" class="img-responsive" alt="" /></a>
                     </div>
                     <div class="search">
                         <div class="search2">

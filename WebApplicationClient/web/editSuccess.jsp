@@ -22,15 +22,33 @@
         <div class="header">
             <div class="top-header">
 			<div class="wrap">
+                            
 				<div class="header-right">
 					<ul>
 						<li>
 							<i class="user"></i>
-							<a href="account.jsp">Login</a>
+							<%if (session.getAttribute("userid")!=null){ %>
+                                                        <a href="viewAccount.jsp"><%out.print(session.getAttribute("useremail"));%></a>
+                                                        <%} else{ %>
+                                                        <a href="login.jsp">Login</a>
+                                                        <% } %>
 						</li>
+                                                
+                                                <%if (session.getAttribute("userid")!=null){ %>
+                                                <li>
+							<i class="cart"></i>
+							<a href="#">Shopping Cart</a>
+						</li>
+						<li class="last">5</li>
+                                                <%}%>
+                                                
 						<li class="login">
 							<i class="lock"></i>
-							<a href="login.jsp">Sign up</a>
+							<%if (session.getAttribute("userid")!=null){ %>
+							<a href="logout.jsp">Logout</a>
+                                                        <%} else{ %>               
+							<a href="register.jsp">Sign up</a>
+                                                        <% } %>
 						</li>
 						
 					</ul>
@@ -39,6 +57,8 @@
 			</div>
 		</div>
 		<div class="wrap">
+                    <hr/>
+    
 			<div class="header-bottom">
 				<div class="logo">
 					<a href="index.jsp"><img src="images/logo-4227.png" class="img-responsive" alt="" /></a>

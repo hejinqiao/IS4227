@@ -21,12 +21,7 @@
 						<i class="linkedin"></i>
 					</div>
 				</div>
-				<div class="col-md-4 subscribe text-left">
-					<h3>Subscribe Us</h3>
-					<p>Get the latest updates & Offers right in your inbox.</p>
-					<input type="text" class="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
-					<input type="submit" value="Subscribe">
-				</div>
+				
 				<div class="col-md-4 help text-right">
 					<h3>Need Help?</h3>
 					<p>Lorem ipsum dolor sit amet</p>
@@ -88,4 +83,5 @@
 			</div>
 
 		</div>
+        </div>
 </html>
