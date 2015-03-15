@@ -24,17 +24,10 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _ViewOneEnquiry_QNAME = new QName("http://WSS/", "viewOneEnquiry");
-    private final static QName _AccountNotFoundException_QNAME = new QName("http://WSS/", "AccountNotFoundException");
-    private final static QName _ProcessEnquiry_QNAME = new QName("http://WSS/", "processEnquiry");
-    private final static QName _SubmitEnquery_QNAME = new QName("http://WSS/", "submitEnquery");
-    private final static QName _ViewOneEnquiryResponse_QNAME = new QName("http://WSS/", "viewOneEnquiryResponse");
-    private final static QName _SubmitEnqueryResponse_QNAME = new QName("http://WSS/", "submitEnqueryResponse");
-    private final static QName _ProcessEnquiryResponse_QNAME = new QName("http://WSS/", "processEnquiryResponse");
-    private final static QName _ViewAllEnquiry_QNAME = new QName("http://WSS/", "viewAllEnquiry");
-    private final static QName _EnquiryNotFoundException_QNAME = new QName("http://WSS/", "EnquiryNotFoundException");
-    private final static QName _ViewAllEnquiryResponse_QNAME = new QName("http://WSS/", "viewAllEnquiryResponse");
-    private final static QName _AdminNotFoundException_QNAME = new QName("http://WSS/", "AdminNotFoundException");
+    private final static QName _Hello_QNAME = new QName("http://WSS/", "hello");
+    private final static QName _PrintResponse_QNAME = new QName("http://WSS/", "printResponse");
+    private final static QName _Print_QNAME = new QName("http://WSS/", "print");
+    private final static QName _HelloResponse_QNAME = new QName("http://WSS/", "helloResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: wss
@@ -44,198 +37,71 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link SubmitEnqueryResponse }
+     * Create an instance of {@link PrintResponse }
      * 
      */
-    public SubmitEnqueryResponse createSubmitEnqueryResponse() {
-        return new SubmitEnqueryResponse();
+    public PrintResponse createPrintResponse() {
+        return new PrintResponse();
     }
 
     /**
-     * Create an instance of {@link ProcessEnquiryResponse }
+     * Create an instance of {@link Print }
      * 
      */
-    public ProcessEnquiryResponse createProcessEnquiryResponse() {
-        return new ProcessEnquiryResponse();
+    public Print createPrint() {
+        return new Print();
     }
 
     /**
-     * Create an instance of {@link ViewAllEnquiry }
+     * Create an instance of {@link HelloResponse }
      * 
      */
-    public ViewAllEnquiry createViewAllEnquiry() {
-        return new ViewAllEnquiry();
+    public HelloResponse createHelloResponse() {
+        return new HelloResponse();
     }
 
     /**
-     * Create an instance of {@link EnquiryNotFoundException }
+     * Create an instance of {@link Hello }
      * 
      */
-    public EnquiryNotFoundException createEnquiryNotFoundException() {
-        return new EnquiryNotFoundException();
+    public Hello createHello() {
+        return new Hello();
     }
 
     /**
-     * Create an instance of {@link ViewAllEnquiryResponse }
+     * Create an instance of {@link JAXBElement }{@code <}{@link Hello }{@code >}}
      * 
      */
-    public ViewAllEnquiryResponse createViewAllEnquiryResponse() {
-        return new ViewAllEnquiryResponse();
+    @XmlElementDecl(namespace = "http://WSS/", name = "hello")
+    public JAXBElement<Hello> createHello(Hello value) {
+        return new JAXBElement<Hello>(_Hello_QNAME, Hello.class, null, value);
     }
 
     /**
-     * Create an instance of {@link AdminNotFoundException }
+     * Create an instance of {@link JAXBElement }{@code <}{@link PrintResponse }{@code >}}
      * 
      */
-    public AdminNotFoundException createAdminNotFoundException() {
-        return new AdminNotFoundException();
+    @XmlElementDecl(namespace = "http://WSS/", name = "printResponse")
+    public JAXBElement<PrintResponse> createPrintResponse(PrintResponse value) {
+        return new JAXBElement<PrintResponse>(_PrintResponse_QNAME, PrintResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link ViewOneEnquiry }
+     * Create an instance of {@link JAXBElement }{@code <}{@link Print }{@code >}}
      * 
      */
-    public ViewOneEnquiry createViewOneEnquiry() {
-        return new ViewOneEnquiry();
+    @XmlElementDecl(namespace = "http://WSS/", name = "print")
+    public JAXBElement<Print> createPrint(Print value) {
+        return new JAXBElement<Print>(_Print_QNAME, Print.class, null, value);
     }
 
     /**
-     * Create an instance of {@link AccountNotFoundException }
+     * Create an instance of {@link JAXBElement }{@code <}{@link HelloResponse }{@code >}}
      * 
      */
-    public AccountNotFoundException createAccountNotFoundException() {
-        return new AccountNotFoundException();
-    }
-
-    /**
-     * Create an instance of {@link ProcessEnquiry }
-     * 
-     */
-    public ProcessEnquiry createProcessEnquiry() {
-        return new ProcessEnquiry();
-    }
-
-    /**
-     * Create an instance of {@link SubmitEnquery }
-     * 
-     */
-    public SubmitEnquery createSubmitEnquery() {
-        return new SubmitEnquery();
-    }
-
-    /**
-     * Create an instance of {@link ViewOneEnquiryResponse }
-     * 
-     */
-    public ViewOneEnquiryResponse createViewOneEnquiryResponse() {
-        return new ViewOneEnquiryResponse();
-    }
-
-    /**
-     * Create an instance of {@link EnquiryEntity }
-     * 
-     */
-    public EnquiryEntity createEnquiryEntity() {
-        return new EnquiryEntity();
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ViewOneEnquiry }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://WSS/", name = "viewOneEnquiry")
-    public JAXBElement<ViewOneEnquiry> createViewOneEnquiry(ViewOneEnquiry value) {
-        return new JAXBElement<ViewOneEnquiry>(_ViewOneEnquiry_QNAME, ViewOneEnquiry.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AccountNotFoundException }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://WSS/", name = "AccountNotFoundException")
-    public JAXBElement<AccountNotFoundException> createAccountNotFoundException(AccountNotFoundException value) {
-        return new JAXBElement<AccountNotFoundException>(_AccountNotFoundException_QNAME, AccountNotFoundException.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ProcessEnquiry }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://WSS/", name = "processEnquiry")
-    public JAXBElement<ProcessEnquiry> createProcessEnquiry(ProcessEnquiry value) {
-        return new JAXBElement<ProcessEnquiry>(_ProcessEnquiry_QNAME, ProcessEnquiry.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SubmitEnquery }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://WSS/", name = "submitEnquery")
-    public JAXBElement<SubmitEnquery> createSubmitEnquery(SubmitEnquery value) {
-        return new JAXBElement<SubmitEnquery>(_SubmitEnquery_QNAME, SubmitEnquery.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ViewOneEnquiryResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://WSS/", name = "viewOneEnquiryResponse")
-    public JAXBElement<ViewOneEnquiryResponse> createViewOneEnquiryResponse(ViewOneEnquiryResponse value) {
-        return new JAXBElement<ViewOneEnquiryResponse>(_ViewOneEnquiryResponse_QNAME, ViewOneEnquiryResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SubmitEnqueryResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://WSS/", name = "submitEnqueryResponse")
-    public JAXBElement<SubmitEnqueryResponse> createSubmitEnqueryResponse(SubmitEnqueryResponse value) {
-        return new JAXBElement<SubmitEnqueryResponse>(_SubmitEnqueryResponse_QNAME, SubmitEnqueryResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ProcessEnquiryResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://WSS/", name = "processEnquiryResponse")
-    public JAXBElement<ProcessEnquiryResponse> createProcessEnquiryResponse(ProcessEnquiryResponse value) {
-        return new JAXBElement<ProcessEnquiryResponse>(_ProcessEnquiryResponse_QNAME, ProcessEnquiryResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ViewAllEnquiry }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://WSS/", name = "viewAllEnquiry")
-    public JAXBElement<ViewAllEnquiry> createViewAllEnquiry(ViewAllEnquiry value) {
-        return new JAXBElement<ViewAllEnquiry>(_ViewAllEnquiry_QNAME, ViewAllEnquiry.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EnquiryNotFoundException }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://WSS/", name = "EnquiryNotFoundException")
-    public JAXBElement<EnquiryNotFoundException> createEnquiryNotFoundException(EnquiryNotFoundException value) {
-        return new JAXBElement<EnquiryNotFoundException>(_EnquiryNotFoundException_QNAME, EnquiryNotFoundException.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ViewAllEnquiryResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://WSS/", name = "viewAllEnquiryResponse")
-    public JAXBElement<ViewAllEnquiryResponse> createViewAllEnquiryResponse(ViewAllEnquiryResponse value) {
-        return new JAXBElement<ViewAllEnquiryResponse>(_ViewAllEnquiryResponse_QNAME, ViewAllEnquiryResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AdminNotFoundException }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://WSS/", name = "AdminNotFoundException")
-    public JAXBElement<AdminNotFoundException> createAdminNotFoundException(AdminNotFoundException value) {
-        return new JAXBElement<AdminNotFoundException>(_AdminNotFoundException_QNAME, AdminNotFoundException.class, null, value);
+    @XmlElementDecl(namespace = "http://WSS/", name = "helloResponse")
+    public JAXBElement<HelloResponse> createHelloResponse(HelloResponse value) {
+        return new JAXBElement<HelloResponse>(_HelloResponse_QNAME, HelloResponse.class, null, value);
     }
 
 }
