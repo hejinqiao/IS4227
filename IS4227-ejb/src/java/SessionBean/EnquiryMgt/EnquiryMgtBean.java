@@ -18,7 +18,7 @@ import javax.persistence.Query;
 import util.exception.AccountNotFoundException;
 import util.exception.AdminNotFoundException;
 import util.exception.EnquiryNotFoundException;
-
+import EmailManager.EmailManager;
 /**
  *
  * @author HanXiangyu
@@ -48,8 +48,9 @@ public class EnquiryMgtBean implements EnquiryMgtBeanLocal {
             em.persist(acc);
             
             //insert email function, send to admin
-            
-            
+            EmailManager emailManager=new EmailManager();
+            emailManager.emailEnquiryToAdmin(acc.getName(), acc.getEmail(), enquiry.getId(), content);
+            emailManager.emailEnquiryToUser(acc.getName(), acc.getEmail(), enquiry.getId(), content);
             //insert email function, send to user
             String emailAddress = acc.getEmail();
         }
@@ -101,7 +102,8 @@ public class EnquiryMgtBean implements EnquiryMgtBeanLocal {
             AccountEntity author = em.find(AccountEntity.class, enquiry.getAccountId());
             String userEmailAddress = author.getEmail();
             //replyContent is passed as parameter
-                       
+            EmailManager emailManager=new EmailManager();
+            emailManager.emailEnquiryReplyToUser(author.getName(), userEmailAddress, enquiryId, replyContent);
             enquiry.setReplied(Boolean.TRUE);
             em.persist(enquiry);
         }
