@@ -5,8 +5,11 @@
  */
 package WSS;
 
+import Entity.AccountMgt.AccountEntity;
 import Entity.AccountMgt.EnquiryEntity;
+import SessionBean.AccountMgtBean;
 import SessionBean.EnquiryMgt.EnquiryMgtBean;
+import SessionBean.EnquiryMgt.EnquiryMgtBeanLocal;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.jws.WebService;
@@ -27,9 +30,10 @@ import util.exception.EnquiryNotFoundException;
 @Stateless()
 public class EnquiryWebService {
     @EJB
-    private EnquiryMgtBean ejbRef;// Add business logic below. (Right-click in editor and choose
+    private EnquiryMgtBeanLocal ejbRef;// Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Web Service Operation")
-
+    @EJB AccountMgtBean accRef;
+    
     @WebMethod(operationName = "submitEnquery")
     public void submitEnquery(@WebParam(name = "accountId") Long accountId, @WebParam(name = "content") String content) throws AccountNotFoundException {
         ejbRef.submitEnquery(accountId, content);
@@ -43,12 +47,13 @@ public class EnquiryWebService {
         for (EnquiryEntity result1 : result) {
             JSONObject obj = new JSONObject();
             boolean replied = result1.getReplied();
-            //String email = result1.getAuthor().getEmail();
+            AccountEntity acc = accRef.getAccountEntityById(result1.getAccountId());
+            String email = acc.getEmail();
             String content = result1.getContent();
             Long enquiryId = result1.getId();
             
             obj.put("repied", replied);
-         //   obj.put("email", email);
+            obj.put("email", email);
             obj.put("content", content);
             obj.put("enquiryId", enquiryId);
             
