@@ -61,21 +61,26 @@ public class AdminContentMgtBean implements AdminContentMgtBeanRemote {
 
     @Override
     public ItemEntity addItem(String cateName, String regionName, String wineryName, String itemName, String vitage, Calendar expiringDate, String tastingNote) {
+        System.out.println("adding ");
+        
         Query wineryQ = em.createQuery("SELECT w FROM WineryEntity w WHERE w.wineryName=?1");
         wineryQ.setParameter(1, wineryName);
         WineryEntity w = (WineryEntity) wineryQ.getResultList().get(0);
+        System.out.println("winery: " + w.getWineryName());
         
         Query regionQ = em.createQuery("SELECT w FROM RegionEntity w WHERE w.regionName=?1");
         regionQ.setParameter(1, regionName);
         RegionEntity r = (RegionEntity) regionQ.getResultList().get(0);
+        System.out.println("region: " + r.getRegionName());
         
         Query cateQ = em.createQuery("SELECT w FROM CategoryEntity w WHERE w.categoryName=?1");
         cateQ.setParameter(1, cateName);
         CategoryEntity c = (CategoryEntity) cateQ.getResultList().get(0);
+        System.out.println("winery: " + c.getCategoryName());
         
         ItemEntity i = new ItemEntity(itemName, vitage, expiringDate, tastingNote, c, r, w);
         em.persist(i);
-        return item;
+        return i;
     }
 
     @Override
@@ -84,9 +89,9 @@ public class AdminContentMgtBean implements AdminContentMgtBeanRemote {
         if (q.getResultList().isEmpty()) {
             throw new ExistException("No winery result available!");
         }
-        for(Object o: (List<WineryEntity>) q.getResultList()){
-            ((WineryEntity) o).getItemList().size();
-        }
+//        for(Object o: (List<WineryEntity>) q.getResultList()){
+//            ((WineryEntity) o).getItemList().size();
+//        }
         return q.getResultList();
     }
 
@@ -96,9 +101,9 @@ public class AdminContentMgtBean implements AdminContentMgtBeanRemote {
         if (q.getResultList().isEmpty()) {
             throw new ExistException("No region result available!");
         }
-        for(Object o: (List<RegionEntity>) q.getResultList()){
-            ((RegionEntity) o).getItemList().size();
-        }
+//        for(Object o: (List<RegionEntity>) q.getResultList()){
+//            ((RegionEntity) o).getItemList().size();
+//        }
         return q.getResultList();
     }
 
@@ -108,9 +113,10 @@ public class AdminContentMgtBean implements AdminContentMgtBeanRemote {
         if (q.getResultList().isEmpty()) {
             throw new ExistException("No category result available!");
         }
-        for(Object o: (List<CategoryEntity>) q.getResultList()){
-            ((CategoryEntity) o).getItemList().size();
-        }
+        
+//        for(Object o: (List<CategoryEntity>) q.getResultList()){
+//            ((CategoryEntity) o).getItemList().size();
+//        }
         return q.getResultList();
     }
 

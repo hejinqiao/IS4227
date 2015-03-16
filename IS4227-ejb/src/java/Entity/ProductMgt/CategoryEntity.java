@@ -6,6 +6,7 @@
 package Entity.ProductMgt;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,8 +28,8 @@ public class CategoryEntity implements Serializable {
     private String categoryName;
     private String categorySpec;
     
-    @OneToMany(mappedBy="category")
-    private List<ItemEntity> itemList;
+//    @OneToMany(mappedBy="category")
+//    private List<ItemEntity> itemList;
 
     public CategoryEntity() {
     }
@@ -36,15 +37,16 @@ public class CategoryEntity implements Serializable {
     public CategoryEntity(String categoryName, String categorySpec) {
         this.categoryName = categoryName;
         this.categorySpec = categorySpec;
+//        itemList=new ArrayList<ItemEntity>();
     }        
   
-    public List<ItemEntity> getItemList() {
-        return itemList;
-    }
-
-    public void setItemList(List<ItemEntity> itemList) {
-        this.itemList = itemList;
-    }
+//    public List<ItemEntity> getItemList() {
+//        return itemList;
+//    }
+//
+//    public void setItemList(List<ItemEntity> itemList) {
+//        this.itemList = itemList;
+//    }
 
     public Long getId() {
         return id;

@@ -28,8 +28,8 @@ public class RegionEntity implements Serializable {
     private String country;
     private String regionSpec;
     
-    @OneToMany(mappedBy="region")
-    private List<ItemEntity> itemList;
+//    @OneToMany(mappedBy="region")
+//    private List<ItemEntity> itemList;
 
     public RegionEntity() {
     }
@@ -40,13 +40,13 @@ public class RegionEntity implements Serializable {
         this.regionSpec = regionSpec;
     }  
         
-    public List<ItemEntity> getItemList() {
-        return itemList;
-    }
-
-    public void setItemList(List<ItemEntity> itemList) {
-        this.itemList = itemList;
-    }
+//    public List<ItemEntity> getItemList() {
+//        return itemList;
+//    }
+//
+//    public void setItemList(List<ItemEntity> itemList) {
+//        this.itemList = itemList;
+//    }
 
     public String getRegionName() {
         return regionName;

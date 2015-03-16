@@ -32,7 +32,7 @@ public class ItemEntity implements Serializable {
     private String vitage;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Calendar expiringDate;
-    private String tastingNote;
+    private String tastingNote; //treat as price!!!!
     
     @ManyToOne
     private CategoryEntity category;

@@ -28,8 +28,8 @@ public class WineryEntity implements Serializable {
     private String wineryAddress;
     private String wineryContact;
     
-    @OneToMany(mappedBy="winery")
-    private List<ItemEntity> itemList;
+//    @OneToMany(mappedBy="winery")
+//    private List<ItemEntity> itemList;
 
     public WineryEntity() {
     }
@@ -64,13 +64,13 @@ public class WineryEntity implements Serializable {
         this.wineryContact = wineryContact;
     }
 
-    public List<ItemEntity> getItemList() {
-        return itemList;
-    }
-
-    public void setItemList(List<ItemEntity> itemList) {
-        this.itemList = itemList;
-    }
+//    public List<ItemEntity> getItemList() {
+//        return itemList;
+//    }
+//
+//    public void setItemList(List<ItemEntity> itemList) {
+//        this.itemList = itemList;
+//    }
 
     public Long getId() {
         return id;
