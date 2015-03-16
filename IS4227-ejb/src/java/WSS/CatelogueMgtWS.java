@@ -9,6 +9,7 @@ import Entity.ProductMgt.CategoryEntity;
 import Entity.ProductMgt.ItemEntity;
 import Entity.ProductMgt.RegionEntity;
 import Entity.ProductMgt.WineryEntity;
+import SessionBean.ContentMgtAdmin.AdminContentMgtBean;
 import SessionBean.ContentMgtAdmin.AdminContentMgtBeanRemote;
 import java.util.Calendar;
 import java.util.List;
@@ -27,7 +28,7 @@ import util.exception.ExistException;
 @Stateless()
 public class CatelogueMgtWS {
     @EJB
-    private AdminContentMgtBeanRemote ejbRef;// Add business logic below. (Right-click in editor and choose
+    private AdminContentMgtBean ejbRef;// Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Web Service Operation")
 
     @WebMethod(operationName = "addWinery")

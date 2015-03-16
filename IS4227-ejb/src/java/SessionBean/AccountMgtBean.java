@@ -409,5 +409,13 @@ public class AccountMgtBean {
         AccountEntity acc = em.find(AccountEntity.class, id);
         return acc;
     }
+    
+    public boolean deleteAccount(Long id){
+        AccountEntity acc = em.find(AccountEntity.class,id);
+        acc.setIsDeleted(true);
+        acc.setIsBlocked(true);
+        em.flush();
+        return true;
+    }
 
 }

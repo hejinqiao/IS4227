@@ -34,6 +34,15 @@ public class AccountEntity implements Serializable {
     private String name;
     private String gender;
     private Boolean isMember;
+    private Boolean isDeleted;
+
+    public Boolean getIsDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(Boolean isDeleted) {
+        this.isDeleted = isDeleted;
+    }
     
     /************************/
     //NEW ATTRIBUTES
@@ -77,6 +86,7 @@ public class AccountEntity implements Serializable {
         /************************/
         //NEW ATTRIBUTE
         isBlocked=false;
+        isDeleted = false;
         /************************/
         
 

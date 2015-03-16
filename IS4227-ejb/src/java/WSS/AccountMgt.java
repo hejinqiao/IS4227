@@ -138,6 +138,7 @@ public class AccountMgt {
             jo.put("activeCode", member.getGender());
             jo.put("isBlock", member.getIsBlocked());
             jo.put("isMember", member.getIsMember());
+            jo.put("isDeleted",member.getIsDeleted());
             ja.put(jo);
         }
         return ja.toString();
@@ -202,5 +203,17 @@ public class AccountMgt {
     @WebMethod(operationName = "deletePurchaseHistory")
     public boolean deletePurchaseHistory(@WebParam(name = "purchaseId") Long purchaseId) {
         return ejbRef.deletePurchaseHistory(purchaseId);
+    }
+
+    /**
+     * Web service operation
+     * @param accountId
+     * @return 
+     */
+    @WebMethod(operationName = "deleteAccount")
+    public boolean deleteAccount(@WebParam(name = "accountId") String accountId) {
+        //TODO write your implementation code here:
+        boolean result = ejbRef.deleteAccount(Long.valueOf((accountId)));
+        return result;
     }
 }

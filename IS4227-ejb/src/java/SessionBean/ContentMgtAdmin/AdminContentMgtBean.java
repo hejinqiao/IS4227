@@ -126,6 +126,7 @@ public class AdminContentMgtBean implements AdminContentMgtBeanRemote {
         if (q.getResultList().isEmpty()) {
             throw new ExistException("No item result available!");
         }
+        
         return q.getResultList();       
     }
 
@@ -145,7 +146,7 @@ public class AdminContentMgtBean implements AdminContentMgtBeanRemote {
 
     @Override
     public boolean removeItem(String itemID) throws ExistException {
-        item = em.find(ItemEntity.class, itemID);
+        item = em.find(ItemEntity.class, Long.valueOf(itemID));
         System.err.println("remove item: " + item.getId());
         if (item == null) {
             throw new ExistException("Item does not exist!");
